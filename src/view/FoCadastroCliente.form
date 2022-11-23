@@ -280,13 +280,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="tfBairro" alignment="0" pref="231" max="32767" attributes="0"/>
-                              <Component id="jLabel10" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="tfCEP" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="tfBairro" alignment="0" pref="231" max="32767" attributes="0"/>
+                          <Component id="jLabel10" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="jLabel13" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                          <Component id="tfCEP" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
