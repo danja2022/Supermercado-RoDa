@@ -13,12 +13,12 @@ public abstract class Pessoa {
     private String complementoEndereco;
     private String observacao;
     private char status;
-    private Endereco endereco;
+    private String endereco;
 
     public Pessoa() {
     }
 
-    public Pessoa(String nome, int id, String fone, String fone2, String email, Date dtCadastro, String complementoEndereco, String observacao, char status, Endereco endereco) {
+    public Pessoa(String nome, int id, String fone, String fone2, String email, Date dtCadastro, String complementoEndereco, String observacao, char status, String endereco) {
         this.nome = nome;
         this.id = id;
         this.fone = fone;
@@ -103,11 +103,11 @@ public abstract class Pessoa {
         this.status = status;
     }
 
-    public Endereco getEndereco() {
+    public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 

@@ -8,6 +8,8 @@ public class Endereco {
     private String cep;
     
     private Bairro bairro;
+    
+    private Endereco endereco;
 
     public Endereco() {
     }

@@ -13,7 +13,7 @@ public class Cliente extends Pessoa {
         
     }
 
-    public Cliente(int cpf, int rg, int sexo, Date dtNascimento, String nome, int id, String fone, String fone2, String email, Date dtCadastro, String complementoEndereco, String observacao, char status, Endereco endereco) {
+    public Cliente(int cpf, int rg, int sexo, Date dtNascimento, String nome, int id, String fone, String fone2, String email, Date dtCadastro, String complementoEndereco, String observacao, char status, String endereco) {
         super(nome, id, fone, fone2, email, dtCadastro, complementoEndereco, observacao, status, endereco);
         this.cpf = cpf;
         this.rg = rg;

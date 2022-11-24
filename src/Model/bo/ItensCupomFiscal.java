@@ -1,7 +1,6 @@
 
 package Model.bo;
 
-import java.util.Date;
 
 public class ItensCupomFiscal {
        private int id;
