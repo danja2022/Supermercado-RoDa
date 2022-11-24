@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoNovo2022/src/Model/bo/Bairro.java</file>
-            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoNovo2022/src/Model/bo/Pessoa.java</file>
-            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoNovo2022/src/Model/bo/HistoricoMovimentacao.java</file>
-            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoNovo2022/src/view/ObjetoCadastro.java</file>
-            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoNovo2022/src/Model/bo/ItensCupomFiscal.java</file>
-            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoNovo2022/src/Model/bo/Pagar.java</file>
-            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoNovo2022/src/Model/bo/Produto.java</file>
-            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoNovo2022/src/Model/bo/Colaborador.java</file>
-            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoNovo2022/src/Model/bo/Cliente.java</file>
+            <file>file:/C:/Users/rodri/Documents/ADS/práticasDeSistemas/MercadoRoda/Supermercado-RoDa/src/view/ObjetoCadastro.java</file>
+            <file>file:/C:/Users/rodri/Documents/ADS/práticasDeSistemas/MercadoRoda/Supermercado-RoDa/src/view/FoCadastroCliente.java</file>
+            <file>file:/C:/Users/rodri/Documents/ADS/práticasDeSistemas/MercadoRoda/Supermercado-RoDa/src/view/FoCadastroProduto.java</file>
         </group>
     </open-files>
 </project-private>
