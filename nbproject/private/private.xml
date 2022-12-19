@@ -2,6 +2,34 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Cidade.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Marca.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Colaborador.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/CupomFiscal.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Pessoa.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/view/FoCadastroProduto.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/view/FoBuscaBairro.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Pagar.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Controler/ControllerCadBairro.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/ItensCupomFiscal.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/view/FoBuscaColaborador.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/ItensCompra.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Cliente.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/CondicaoPgto.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/view/FoCadastroEndereco.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/view/FoBuscaClasses.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Bairro.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/view/FoBuscaEndereco.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/view/FoBuscaCliente.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Endereco.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/view/FoBuscaCidade.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Compra.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/HistoricoMovimentacao.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Pagamento.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Fornecedor.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/Model/bo/Classe.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Área%20de%20Trabalho/POO/MercadoRoDa/Supermercado-RoDa/src/view/FoCadastroFornecedor.java</file>
+        </group>
     </open-files>
 </project-private>

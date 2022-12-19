@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import view.FoCadBairroFinal;
+import view.FoBuscaBairro;
+import Controler.ControllerBuscaBairro;
 
 
 
@@ -61,8 +63,11 @@ public class ControllerCadBairro implements ActionListener
             }
 
         } else if (acao.getSource() == telaCadBairro.getBtBuscar()) {
-
-            // Carregar a tela da busca
+            
+            FoBuscaBairro telaBuscaBairro = new FoBuscaBairro();
+            ControllerBuscaBairro controllerBuscaBairro = new ControllerBuscaBairro(telaBuscaBairro) {};
+            telaBuscaBairro.setVisible(true);
+            
         } else if (acao.getSource() == telaCadBairro.getBtSair()) {
             telaCadBairro.dispose();
         }

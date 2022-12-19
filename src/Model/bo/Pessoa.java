@@ -13,7 +13,7 @@ public abstract class Pessoa {
     private String complementoEndereco;
     private String observacao;
     private char status;
-    private String endereco;
+    private String endereco; //endereco
 
     public Pessoa() {
     }

@@ -9,6 +9,7 @@ public class Produto {
     private float valorCompra;
     private float valorVenda;
     private String undVenda;
+    private String undCompra;
     private int fatorConversao;
     private char status;
     private Date dataCadastro;
@@ -25,12 +26,13 @@ public class Produto {
     
     
     
-    public Produto(int id, String descricao, float valorCompra, float valorVenda, String undVenda, int fatorConversao, char status, Date dataCadastro, String barraEntrada, String barraSaida, float estoqueMinimo, float estoqueMaximo) {
+    public Produto(int id, String descricao, float valorCompra, float valorVenda, String undVenda,String undCompra, int fatorConversao, char status, Date dataCadastro, String barraEntrada, String barraSaida, float estoqueMinimo, float estoqueMaximo) {
         this.id = id;
         this.descricao = descricao;
         this.valorCompra = valorCompra;
         this.valorVenda = valorVenda;
         this.undVenda = undVenda;
+        this.undVenda = undCompra;
         this.fatorConversao = fatorConversao;
         this.status = status;
         this.dataCadastro = dataCadastro;
@@ -40,9 +42,18 @@ public class Produto {
         this.estoqueMaximo = estoqueMaximo;
     }
 
-    
-    
-    
+    public Produto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getUndCompra() {
+        return undCompra;
+    }
+
+    public void setUndCompra(String undCompra) {
+        this.undCompra = undCompra;
+    }
+
     
     public int getId() {
         return id;

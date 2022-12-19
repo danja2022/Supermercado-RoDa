@@ -35,8 +35,8 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="pnCentro" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel4" min="-2" pref="81" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+              <Component id="jPanel4" min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -65,39 +65,35 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="jLabelValorCompra" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jTextFieldValorCompra" min="-2" pref="257" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelDescri" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelUnidadeCompra" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelValorCompra" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabelUnidade" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace pref="27" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldUnidade" min="-2" pref="257" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabelDescri" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jTextFieldUnidadeCompra" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldEstoqMin" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldBarraEntrada" alignment="1" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jComboBoxClasse" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="jToggleButtonAddClasse" min="-2" pref="33" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                                  <Component id="jLabelId" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jTextFieldId" min="-2" pref="24" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jTextFieldEstoqMin" max="32767" attributes="0"/>
-                                                  <Component id="jTextFieldNomeProd" max="32767" attributes="0"/>
-                                                  <Component id="jTextFieldBarraEntrada" alignment="1" max="32767" attributes="0"/>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="jComboBoxClasse" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="jToggleButton2" min="-2" pref="33" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <Component id="jTextFieldNomeDescProd" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldValorCompra" alignment="0" pref="246" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Component id="jLabelBarraEntrada" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldFatorConversao" min="-2" pref="258" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldFatorConversao" min="-2" pref="246" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -142,11 +138,11 @@
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="jComboBoxMarca" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jToggleButton1" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jToggleButtonAddMarca" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jTextFieldValorVenda" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
                       <Component id="jTextFieldUnidadeVenda" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
-                      <Component id="jTextFieldBarraSai" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
+                      <Component id="jTextFieldBarraSaida" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
                       <Component id="jTextFieldEstoqMax" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
                       <Component id="jTextFieldStatus" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
                   </Group>
@@ -161,14 +157,16 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboBoxClasse" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jToggleButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jToggleButtonAddClasse" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboBoxMarca" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jToggleButton1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="jToggleButtonAddMarca" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="jLabelId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldNomeProd" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldNomeDescProd" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelDescri" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -185,14 +183,14 @@
                       <Component id="jLabelBarraEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldBarraEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelBarraSaida" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldBarraSai" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldBarraSaida" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldUnidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelUnidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldUnidadeCompra" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelUnidadeCompra" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelUnidadeVenda" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextFieldUnidadeVenda" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -286,14 +284,14 @@
         <Component class="javax.swing.JLabel" name="jLabelDescri">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="0"/>
+              <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o:"/>
+            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o* :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldNomeProd">
+        <Component class="javax.swing.JTextField" name="jTextFieldNomeDescProd">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNomeProdActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNomeDescProdActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelEstoqMinimo">
@@ -336,7 +334,7 @@
             <Property name="text" type="java.lang.String" value="Status:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelUnidade">
+        <Component class="javax.swing.JLabel" name="jLabelUnidadeCompra">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
@@ -348,19 +346,19 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldEstoqMax">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldBarraSai">
+        <Component class="javax.swing.JTextField" name="jTextFieldBarraSaida">
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldStatus">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldStatusActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldUnidade">
+        <Component class="javax.swing.JTextField" name="jTextFieldUnidadeCompra">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUnidadeActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUnidadeCompraActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+        <Component class="javax.swing.JToggleButton" name="jToggleButtonAddMarca">
           <Properties>
             <Property name="text" type="java.lang.String" value="jToggleButton1"/>
           </Properties>
@@ -380,9 +378,9 @@
         <Component class="javax.swing.JLabel" name="jLabelValorCompra">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="0"/>
+              <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Valor Compra:"/>
+            <Property name="text" type="java.lang.String" value="Valor Compra* :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldValorCompra">
@@ -390,9 +388,9 @@
         <Component class="javax.swing.JLabel" name="jLabelValorVenda">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="0"/>
+              <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Valor Venda:"/>
+            <Property name="text" type="java.lang.String" value="Valor Venda* :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldValorVenda">
@@ -407,15 +405,22 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldFatorConversao">
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton2">
+        <Component class="javax.swing.JToggleButton" name="jToggleButtonAddClasse">
           <Properties>
             <Property name="text" type="java.lang.String" value="..."/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButtonAddClasseActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldBarraEntrada">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelId">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Id:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldId">
         </Component>
       </SubComponents>
     </Container>
@@ -432,6 +437,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btNovo">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/Create.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Novo"/>
           </Properties>
           <Events>
@@ -440,6 +448,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btSalvar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/Download.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Salvar"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -449,6 +460,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btCancelar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/Delete.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -458,6 +472,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btBuscar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/Eye.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
@@ -466,6 +483,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btSair">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/Exit.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
           <Events>

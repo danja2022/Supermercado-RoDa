@@ -6,8 +6,10 @@
 package view;
 
 import java.awt.Component;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -25,6 +27,71 @@ public class FoCadastroClasse extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtBuscar() {
+        return btBuscar;
+    }
+
+    public void setBtBuscar(JButton btBuscar) {
+        this.btBuscar = btBuscar;
+    }
+
+    public JButton getBtCancelar() {
+        return btCancelar;
+    }
+
+    public void setBtCancelar(JButton btCancelar) {
+        this.btCancelar = btCancelar;
+    }
+
+    public JButton getBtNovo() {
+        return btNovo;
+    }
+
+    public void setBtNovo(JButton btNovo) {
+        this.btNovo = btNovo;
+    }
+
+    public JButton getBtSair() {
+        return btSair;
+    }
+
+    public void setBtSair(JButton btSair) {
+        this.btSair = btSair;
+    }
+
+    public JButton getBtSalvar() {
+        return btSalvar;
+    }
+
+    public void setBtSalvar(JButton btSalvar) {
+        this.btSalvar = btSalvar;
+    }
+
+    public JPanel getPnCentro() {
+        return pnCentro;
+    }
+
+    public void setPnCentro(JPanel pnCentro) {
+        this.pnCentro = pnCentro;
+    }
+
+    public JTextField getjTextFieldDescricaoClasseProduto() {
+        return jTextFieldDescricaoClasseProduto;
+    }
+
+    public void setjTextFieldDescricaoClasseProduto(JTextField jTextFieldDescricaoClasseProduto) {
+        this.jTextFieldDescricaoClasseProduto = jTextFieldDescricaoClasseProduto;
+    }
+
+    public JTextField getjTextFieldIdClasse() {
+        return jTextFieldIdClasse;
+    }
+
+    public void setjTextFieldIdClasse(JTextField jTextFieldIdClasse) {
+        this.jTextFieldIdClasse = jTextFieldIdClasse;
+    }
+
+    
     
     public void ativa (boolean estadoComponente){
         btNovo.setEnabled(estadoComponente);
@@ -65,9 +132,10 @@ public class FoCadastroClasse extends javax.swing.JFrame {
     private void initComponents() {
 
         pnCentro = new javax.swing.JPanel();
-        jNomeClasseProd = new javax.swing.JLabel();
-        jButtonCadastrarProd = new javax.swing.JButton();
-        jTextFieldNomProd = new javax.swing.JTextField();
+        jNomeClasseProduto = new javax.swing.JLabel();
+        jTextFieldDescricaoClasseProduto = new javax.swing.JTextField();
+        jLabelIdClasse = new javax.swing.JLabel();
+        jTextFieldIdClasse = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         btNovo = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
@@ -81,9 +149,10 @@ public class FoCadastroClasse extends javax.swing.JFrame {
 
         pnCentro.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jNomeClasseProd.setText("Nome:");
+        jNomeClasseProduto.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jNomeClasseProduto.setText("Descrição* :");
 
-        jButtonCadastrarProd.setText("Cadastrar");
+        jLabelIdClasse.setText("Id:");
 
         javax.swing.GroupLayout pnCentroLayout = new javax.swing.GroupLayout(pnCentro);
         pnCentro.setLayout(pnCentroLayout);
@@ -92,29 +161,34 @@ public class FoCadastroClasse extends javax.swing.JFrame {
             .addGroup(pnCentroLayout.createSequentialGroup()
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnCentroLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jNomeClasseProd)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldNomProd, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(71, 71, 71)
+                        .addComponent(jNomeClasseProduto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldDescricaoClasseProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnCentroLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jButtonCadastrarProd)))
+                        .addGap(102, 102, 102)
+                        .addComponent(jLabelIdClasse)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldIdClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnCentroLayout.setVerticalGroup(
             pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnCentroLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(31, 31, 31)
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jNomeClasseProd)
-                    .addComponent(jTextFieldNomProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addComponent(jButtonCadastrarProd)
-                .addContainerGap(303, Short.MAX_VALUE))
+                    .addComponent(jLabelIdClasse)
+                    .addComponent(jTextFieldIdClasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jNomeClasseProduto)
+                    .addComponent(jTextFieldDescricaoClasseProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
         btNovo.setText("Novo");
         btNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +197,7 @@ public class FoCadastroClasse extends javax.swing.JFrame {
         });
         jPanel4.add(btNovo);
 
+        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Download.png"))); // NOI18N
         btSalvar.setText("Salvar");
         btSalvar.setEnabled(false);
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +207,7 @@ public class FoCadastroClasse extends javax.swing.JFrame {
         });
         jPanel4.add(btSalvar);
 
+        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.setEnabled(false);
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +217,7 @@ public class FoCadastroClasse extends javax.swing.JFrame {
         });
         jPanel4.add(btCancelar);
 
+        btBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Eye.png"))); // NOI18N
         btBuscar.setText("Buscar");
         btBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,6 +226,7 @@ public class FoCadastroClasse extends javax.swing.JFrame {
         });
         jPanel4.add(btBuscar);
 
+        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         btSair.setText("Sair");
         btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,8 +273,8 @@ public class FoCadastroClasse extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2))
         );
 
         pack();
@@ -204,18 +282,15 @@ public class FoCadastroClasse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-        ativa(false);
-        ligaDesliga(true);
+    
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        ativa(true);
-        ligaDesliga(false);
+       
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        ativa(true);
-        ligaDesliga(false);
+    
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
@@ -268,12 +343,13 @@ public class FoCadastroClasse extends javax.swing.JFrame {
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSalvar;
-    private javax.swing.JButton jButtonCadastrarProd;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jNomeClasseProd;
+    private javax.swing.JLabel jLabelIdClasse;
+    private javax.swing.JLabel jNomeClasseProduto;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextFieldNomProd;
+    private javax.swing.JTextField jTextFieldDescricaoClasseProduto;
+    private javax.swing.JTextField jTextFieldIdClasse;
     private javax.swing.JPanel pnCentro;
     // End of variables declaration//GEN-END:variables
 }

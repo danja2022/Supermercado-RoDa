@@ -6,8 +6,11 @@
 package view;
 
 import java.awt.Component;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -25,6 +28,166 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtBuscar() {
+        return btBuscar;
+    }
+
+    public void setBtBuscar(JButton btBuscar) {
+        this.btBuscar = btBuscar;
+    }
+
+    public JButton getBtCancelar() {
+        return btCancelar;
+    }
+
+    public void setBtCancelar(JButton btCancelar) {
+        this.btCancelar = btCancelar;
+    }
+
+    public JButton getBtNovo() {
+        return btNovo;
+    }
+
+    public void setBtNovo(JButton btNovo) {
+        this.btNovo = btNovo;
+    }
+
+    public JButton getBtSair() {
+        return btSair;
+    }
+
+    public void setBtSair(JButton btSair) {
+        this.btSair = btSair;
+    }
+
+    public JButton getBtSalvar() {
+        return btSalvar;
+    }
+
+    public void setBtSalvar(JButton btSalvar) {
+        this.btSalvar = btSalvar;
+    }
+
+    public JTextField getjTextFieldBarraEntrada() {
+        return jTextFieldBarraEntrada;
+    }
+
+    public void setjTextFieldBarraEntrada(JTextField jTextFieldBarraEntrada) {
+        this.jTextFieldBarraEntrada = jTextFieldBarraEntrada;
+    }
+
+    public JTextField getjTextFieldBarraSaida() {
+        return jTextFieldBarraSaida;
+    }
+
+    public void setjTextFieldBarraSaida(JTextField jTextFieldBarraSaida) {
+        this.jTextFieldBarraSaida = jTextFieldBarraSaida;
+    }
+
+    public JTextField getjTextFieldDtCadastro() {
+        return jTextField1;
+    }
+
+    public void setjTextFieldDtCadastro(JTextField jTextFieldDtCadastro) {
+        this.jTextField1 = jTextFieldDtCadastro;
+    }
+
+    public JTextField getjTextFieldEstoqMax() {
+        return jTextFieldEstoqMax;
+    }
+
+    public void setjTextFieldEstoqMax(JTextField jTextFieldEstoqMax) {
+        this.jTextFieldEstoqMax = jTextFieldEstoqMax;
+    }
+
+    public JTextField getjTextFieldEstoqMin() {
+        return jTextFieldEstoqMin;
+    }
+
+    public void setjTextFieldEstoqMin(JTextField jTextFieldEstoqMin) {
+        this.jTextFieldEstoqMin = jTextFieldEstoqMin;
+    }
+
+    public JTextField getjTextFieldFatorConversao() {
+        return jTextFieldFatorConversao;
+    }
+
+    public void setjTextFieldFatorConversao(JTextField jTextFieldFatorConversao) {
+        this.jTextFieldFatorConversao = jTextFieldFatorConversao;
+    }
+
+    public JTextField getjTextFieldNomeDescProd() {
+        return jTextFieldNomeDescProd;
+    }
+
+    public void setjTextFieldNomeDescProd(JTextField jTextFieldNomeDescProd) {
+        this.jTextFieldNomeDescProd = jTextFieldNomeDescProd;
+    }
+
+    public JTextField getjTextFieldStatus() {
+        return jTextFieldStatus;
+    }
+
+    public void setjTextFieldStatus(JTextField jTextFieldStatus) {
+        this.jTextFieldStatus = jTextFieldStatus;
+    }
+
+    public JTextField getjTextFieldUnidadeCompra() {
+        return jTextFieldUnidadeCompra;
+    }
+
+    public void setjTextFieldUnidadeCompra(JTextField jTextFieldUnidadeCompra) {
+        this.jTextFieldUnidadeCompra = jTextFieldUnidadeCompra;
+    }
+
+    public JTextField getjTextFieldUnidadeVenda() {
+        return jTextFieldUnidadeVenda;
+    }
+
+    public void setjTextFieldUnidadeVenda(JTextField jTextFieldUnidadeVenda) {
+        this.jTextFieldUnidadeVenda = jTextFieldUnidadeVenda;
+    }
+
+    public JTextField getjTextFieldValorCompra() {
+        return jTextFieldValorCompra;
+    }
+
+    public void setjTextFieldValorCompra(JTextField jTextFieldValorCompra) {
+        this.jTextFieldValorCompra = jTextFieldValorCompra;
+    }
+
+    public JTextField getjTextFieldValorVenda() {
+        return jTextFieldValorVenda;
+    }
+
+    public void setjTextFieldValorVenda(JTextField jTextFieldValorVenda) {
+        this.jTextFieldValorVenda = jTextFieldValorVenda;
+    }
+
+    public JPanel getPnCentro() {
+        return pnCentro;
+    }
+
+    public void setPnCentro(JPanel pnCentro) {
+        this.pnCentro = pnCentro;
+    }
+
+    public JLabel getjLabelId() {
+        return jLabelId;
+    }
+
+    public void setjLabelId(JLabel jLabelId) {
+        this.jLabelId = jLabelId;
+    }
+
+    public JTextField getjTextFieldId() {
+        return jTextFieldId;
+    }
+
+    public void setjTextFieldId(JTextField jTextFieldId) {
+        this.jTextFieldId = jTextFieldId;
+    }
+    
     
     public void ativa (boolean estadoComponente){
         btNovo.setEnabled(estadoComponente);
@@ -72,19 +235,19 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jComboBoxMarca = new javax.swing.JComboBox<>();
         jLabelDescri = new javax.swing.JLabel();
-        jTextFieldNomeProd = new javax.swing.JTextField();
+        jTextFieldNomeDescProd = new javax.swing.JTextField();
         jLabelEstoqMinimo = new javax.swing.JLabel();
         jLabelEstoqMaximo = new javax.swing.JLabel();
         jLabelBarraEntrada = new javax.swing.JLabel();
         jLabelBarraSaida = new javax.swing.JLabel();
         jLabelStatus = new javax.swing.JLabel();
-        jLabelUnidade = new javax.swing.JLabel();
+        jLabelUnidadeCompra = new javax.swing.JLabel();
         jTextFieldEstoqMin = new javax.swing.JTextField();
         jTextFieldEstoqMax = new javax.swing.JTextField();
-        jTextFieldBarraSai = new javax.swing.JTextField();
+        jTextFieldBarraSaida = new javax.swing.JTextField();
         jTextFieldStatus = new javax.swing.JTextField();
-        jTextFieldUnidade = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jTextFieldUnidadeCompra = new javax.swing.JTextField();
+        jToggleButtonAddMarca = new javax.swing.JToggleButton();
         jLabelUnidadeVenda = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldUnidadeVenda = new javax.swing.JTextField();
@@ -94,8 +257,10 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         jTextFieldValorVenda = new javax.swing.JTextField();
         jLabelFatorConversao = new javax.swing.JLabel();
         jTextFieldFatorConversao = new javax.swing.JTextField();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButtonAddClasse = new javax.swing.JToggleButton();
         jTextFieldBarraEntrada = new javax.swing.JTextField();
+        jLabelId = new javax.swing.JLabel();
+        jTextFieldId = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         btNovo = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
@@ -128,12 +293,12 @@ public class FoCadastroProduto extends javax.swing.JFrame {
 
         jComboBoxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabelDescri.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabelDescri.setText("Descrição:");
+        jLabelDescri.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelDescri.setText("Descrição* :");
 
-        jTextFieldNomeProd.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNomeDescProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNomeProdActionPerformed(evt);
+                jTextFieldNomeDescProdActionPerformed(evt);
             }
         });
 
@@ -152,8 +317,8 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         jLabelStatus.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelStatus.setText("Status:");
 
-        jLabelUnidade.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabelUnidade.setText("Unidade Compra:");
+        jLabelUnidadeCompra.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelUnidadeCompra.setText("Unidade Compra:");
 
         jTextFieldStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,32 +326,34 @@ public class FoCadastroProduto extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldUnidade.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldUnidadeCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUnidadeActionPerformed(evt);
+                jTextFieldUnidadeCompraActionPerformed(evt);
             }
         });
 
-        jToggleButton1.setText("jToggleButton1");
+        jToggleButtonAddMarca.setText("jToggleButton1");
 
         jLabelUnidadeVenda.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelUnidadeVenda.setText("Unidade Venda:");
 
-        jLabelValorCompra.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabelValorCompra.setText("Valor Compra:");
+        jLabelValorCompra.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelValorCompra.setText("Valor Compra* :");
 
-        jLabelValorVenda.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabelValorVenda.setText("Valor Venda:");
+        jLabelValorVenda.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelValorVenda.setText("Valor Venda* :");
 
         jLabelFatorConversao.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelFatorConversao.setText("Fator Conversão:");
 
-        jToggleButton2.setText("...");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        jToggleButtonAddClasse.setText("...");
+        jToggleButtonAddClasse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                jToggleButtonAddClasseActionPerformed(evt);
             }
         });
+
+        jLabelId.setText("Id:");
 
         javax.swing.GroupLayout pnCentroLayout = new javax.swing.GroupLayout(pnCentro);
         pnCentro.setLayout(pnCentroLayout);
@@ -202,32 +369,31 @@ public class FoCadastroProduto extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(pnCentroLayout.createSequentialGroup()
                                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(pnCentroLayout.createSequentialGroup()
-                                            .addComponent(jLabelValorCompra)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldValorCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(pnCentroLayout.createSequentialGroup()
-                                            .addComponent(jLabelUnidade)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnCentroLayout.createSequentialGroup()
-                                            .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabelDescri)
-                                                .addComponent(jLabel3))
-                                            .addGap(66, 66, 66)
-                                            .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jTextFieldEstoqMin)
-                                                .addComponent(jTextFieldNomeProd)
-                                                .addComponent(jTextFieldBarraEntrada, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(pnCentroLayout.createSequentialGroup()
-                                                    .addComponent(jComboBoxClasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(pnCentroLayout.createSequentialGroup()
+                                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelDescri)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabelUnidadeCompra)
+                                            .addComponent(jLabelValorCompra))
+                                        .addGap(39, 39, 39)
+                                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jTextFieldUnidadeCompra, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldEstoqMin, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldBarraEntrada)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnCentroLayout.createSequentialGroup()
+                                                .addComponent(jComboBoxClasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jToggleButtonAddClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(34, 34, 34)
+                                                .addComponent(jLabelId)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jTextFieldNomeDescProd, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldValorCompra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)))
                                     .addComponent(jLabelBarraEntrada)
                                     .addGroup(pnCentroLayout.createSequentialGroup()
-                                        .addGap(120, 120, 120)
-                                        .addComponent(jTextFieldFatorConversao, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(132, 132, 132)
+                                        .addComponent(jTextFieldFatorConversao, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnCentroLayout.createSequentialGroup()
                                         .addGap(52, 52, 52)
@@ -258,10 +424,10 @@ public class FoCadastroProduto extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(jComboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jToggleButtonAddMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTextFieldValorVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldUnidadeVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldBarraSai, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldBarraSaida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldEstoqMax, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -273,13 +439,15 @@ public class FoCadastroProduto extends javax.swing.JFrame {
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jComboBoxClasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton2)
+                    .addComponent(jToggleButtonAddClasse)
                     .addComponent(jLabel4)
                     .addComponent(jComboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jToggleButtonAddMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelId)
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldNomeProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldNomeDescProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelStatus)
                     .addComponent(jLabelDescri))
@@ -294,13 +462,13 @@ public class FoCadastroProduto extends javax.swing.JFrame {
                     .addComponent(jLabelBarraEntrada)
                     .addComponent(jTextFieldBarraEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelBarraSaida)
-                    .addComponent(jTextFieldBarraSai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldBarraSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnCentroLayout.createSequentialGroup()
                         .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldUnidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelUnidade)
+                            .addComponent(jTextFieldUnidadeCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelUnidadeCompra)
                             .addComponent(jLabelUnidadeVenda)
                             .addComponent(jTextFieldUnidadeVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(48, 48, 48)
@@ -324,6 +492,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
         btNovo.setText("Novo");
         btNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -332,6 +501,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         });
         jPanel4.add(btNovo);
 
+        btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Download.png"))); // NOI18N
         btSalvar.setText("Salvar");
         btSalvar.setEnabled(false);
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -341,6 +511,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         });
         jPanel4.add(btSalvar);
 
+        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.setEnabled(false);
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -350,6 +521,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         });
         jPanel4.add(btCancelar);
 
+        btBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Eye.png"))); // NOI18N
         btBuscar.setText("Buscar");
         btBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -358,6 +530,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         });
         jPanel4.add(btBuscar);
 
+        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         btSair.setText("Sair");
         btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -404,8 +577,8 @@ public class FoCadastroProduto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -413,18 +586,15 @@ public class FoCadastroProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-        ativa(false);
-        ligaDesliga(true);
+       
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        ativa(true);
-        ligaDesliga(false);
+      
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        ativa(true);
-        ligaDesliga(false);
+      
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
@@ -443,17 +613,17 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldStatusActionPerformed
 
-    private void jTextFieldUnidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUnidadeActionPerformed
+    private void jTextFieldUnidadeCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUnidadeCompraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUnidadeActionPerformed
+    }//GEN-LAST:event_jTextFieldUnidadeCompraActionPerformed
 
-    private void jTextFieldNomeProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeProdActionPerformed
+    private void jTextFieldNomeDescProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeDescProdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNomeProdActionPerformed
+    }//GEN-LAST:event_jTextFieldNomeDescProdActionPerformed
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+    private void jToggleButtonAddClasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAddClasseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    }//GEN-LAST:event_jToggleButtonAddClasseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -510,8 +680,9 @@ public class FoCadastroProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelEstoqMaximo;
     private javax.swing.JLabel jLabelEstoqMinimo;
     private javax.swing.JLabel jLabelFatorConversao;
+    private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelStatus;
-    private javax.swing.JLabel jLabelUnidade;
+    private javax.swing.JLabel jLabelUnidadeCompra;
     private javax.swing.JLabel jLabelUnidadeVenda;
     private javax.swing.JLabel jLabelValorCompra;
     private javax.swing.JLabel jLabelValorVenda;
@@ -519,18 +690,19 @@ public class FoCadastroProduto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldBarraEntrada;
-    private javax.swing.JTextField jTextFieldBarraSai;
+    private javax.swing.JTextField jTextFieldBarraSaida;
     private javax.swing.JTextField jTextFieldEstoqMax;
     private javax.swing.JTextField jTextFieldEstoqMin;
     private javax.swing.JTextField jTextFieldFatorConversao;
-    private javax.swing.JTextField jTextFieldNomeProd;
+    private javax.swing.JTextField jTextFieldId;
+    private javax.swing.JTextField jTextFieldNomeDescProd;
     private javax.swing.JTextField jTextFieldStatus;
-    private javax.swing.JTextField jTextFieldUnidade;
+    private javax.swing.JTextField jTextFieldUnidadeCompra;
     private javax.swing.JTextField jTextFieldUnidadeVenda;
     private javax.swing.JTextField jTextFieldValorCompra;
     private javax.swing.JTextField jTextFieldValorVenda;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButtonAddClasse;
+    private javax.swing.JToggleButton jToggleButtonAddMarca;
     private javax.swing.JPanel pnCentro;
     // End of variables declaration//GEN-END:variables
 }
