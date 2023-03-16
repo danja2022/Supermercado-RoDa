@@ -99,7 +99,7 @@ public class FoBuscaBairro extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -110,7 +110,6 @@ public class FoBuscaBairro extends javax.swing.JFrame {
         if (jTablebusca.getColumnModel().getColumnCount() > 0) {
             jTablebusca.getColumnModel().getColumn(0).setMaxWidth(25);
             jTablebusca.getColumnModel().getColumn(1).setMaxWidth(475);
-            jTablebusca.getColumnModel().getColumn(2).setMaxWidth(75);
         }
 
         jPanelRodape.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

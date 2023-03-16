@@ -93,6 +93,7 @@
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o*  :"/>
+            <Property name="toolTipText" type="java.lang.String" value="Descr&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelid">

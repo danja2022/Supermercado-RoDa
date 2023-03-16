@@ -27,7 +27,7 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
         //repassa parametros (teve que criar o prepared statement)
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(0, objeto.getDescricao()); //caso tenha mais parametros vai ter mais parametros, se tiver chave estrangeira. Preciasaremos chamar um dao para depois definir.
+            pstm.setString(1, objeto.getDescricao()); //caso tenha mais parametros vai ter mais parametros, se tiver chave estrangeira. Preciasaremos chamar um dao para depois definir.
             pstm.executeUpdate();
 
         } catch (SQLException ex) {
@@ -49,7 +49,7 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
 
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(0, codigo);
+            pstm.setInt(1, codigo);
             rst = pstm.executeQuery();
             Bairro bairro = new Bairro();
 
@@ -81,7 +81,7 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
 
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(0, descricao);
+            pstm.setString(1, descricao);
             rst = pstm.executeQuery();
             Bairro bairro = new Bairro();
 
@@ -144,8 +144,8 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
 
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(0, objeto.getDescricao());
-            pstm.setInt(1, objeto.getId());
+            pstm.setString(1, objeto.getDescricao());
+            pstm.setInt(2, objeto.getId());
             pstm.executeUpdate();
 
 
@@ -164,7 +164,7 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
 
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(0, objeto.getId());
+            pstm.setInt(1, objeto.getId());
             pstm.executeUpdate();
 
         } catch (SQLException ex) {

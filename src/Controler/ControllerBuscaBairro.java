@@ -48,12 +48,17 @@ public class ControllerBuscaBairro implements ActionListener {
     public void actionPerformed(ActionEvent acao) {
         if (acao.getSource() == this.foBuscaBairro.getjButtonCarregar()){
            
+            if(this.foBuscaBairro.getjTablebusca().getValueAt(this.foBuscaBairro.getjTablebusca().getSelectedRow(), 0)!= null){
+               ControllerCadBairro.codigo = (int) this.foBuscaBairro.getjTablebusca().getValueAt(this.foBuscaBairro.getjTablebusca().getSelectedRow(), 0);
+               foBuscaBairro.dispose();
+            }
         }
         
-        if (acao.getSource() == this.foBuscaBairro.getjButtonSair()){
+      if (acao.getSource() == this.foBuscaBairro.getjButtonSair()){
            this.foBuscaBairro.dispose();
+           
         }
             
         }
-
-}
+    
+   }

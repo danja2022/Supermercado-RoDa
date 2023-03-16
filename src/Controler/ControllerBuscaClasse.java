@@ -19,6 +19,17 @@ public class ControllerBuscaClasse implements ActionListener {
         foBuscaClasses.getjButtonSair().addActionListener(this);
 
         //carregar
+        
+        DefaultTableModel tabela = (DefaultTableModel) this.foBuscaClasses.getjTablebusca().getModel();
+        ClasseDAO classeDAO = new ClasseDAO();
+        for (Classe classeAtualDaLista: classeDAO.retrieve()){
+        
+            tabela.addRow(new Object[]{classeAtualDaLista.getId(),
+                                        classeAtualDaLista.getDescricao()});
+        
+        
+        }
+        
     }
 
 

@@ -22,11 +22,19 @@ public class ControllerBuscaCidade implements ActionListener {
         foBuscaCidade.getjButtonSairBuscaCidades().addActionListener(this);
 
         //carregar
-        DefaultTableModel tabela = (DefaultTableModel) foBuscaCidade.getjTablebusca().getModel();
+        DefaultTableModel tabela = (DefaultTableModel) this.foBuscaCidade.getjTablebusca().getModel();
         
         CidadeDAO cidadeDAO = new CidadeDAO();
+       
         for (Cidade cidadeAtualDaLista : cidadeDAO.retrieve()) {
+            
             //codigo para repassar do cidadeAtualDaLista para dentro da tablemodel
+               tabela.addRow(new Object[]{cidadeAtualDaLista.getCidade(),
+                                   cidadeAtualDaLista.getDescricao()});
+            
+
+
+
             
         }
         

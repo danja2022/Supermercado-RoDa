@@ -1,8 +1,11 @@
 
 package Controler;
 
+import Model.DAO.ColaboradorDAO;
+import Model.bo.Colaborador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
 import view.FoBuscaColaborador;
 
 
@@ -17,6 +20,26 @@ public class ControllerBuscaColaborador implements ActionListener {
             foBuscaColaborador.getjButtonCarregar().addActionListener(this);
             foBuscaColaborador.getjButtonSair().addActionListener(this);
     
+            //carregar
+            
+            DefaultTableModel tabela = (DefaultTableModel) this.foBuscaColaborador.getjTablebusca().getModel();
+            ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
+            for (Colaborador colaboradorAtualDaLista: colaboradorDAO.retrieve()) {
+            
+            
+                tabela.addRow(new Object[]{colaboradorAtualDaLista.getId(),colaboradorAtualDaLista.getNome(),
+                                           colaboradorAtualDaLista.getFone(),colaboradorAtualDaLista.getFone2(),
+                                           colaboradorAtualDaLista.getComplementoEndereco(),colaboradorAtualDaLista.getEmail(),
+                                           colaboradorAtualDaLista.getDtCadastro(),colaboradorAtualDaLista.getObservacao(),
+                                           colaboradorAtualDaLista.getStatus(),colaboradorAtualDaLista.getLogin(),
+                                           colaboradorAtualDaLista.getSenha()
+                });
+            
+            }
+            
+            
+            
+            
    
 }
 

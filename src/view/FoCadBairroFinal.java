@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -121,9 +122,9 @@ public class FoCadBairroFinal extends javax.swing.JFrame {
             else if (componente instanceof JComboBox){
                 ((JComboBox)componente).setSelectedIndex(0);
                     }
-          // else if (componente instanceof JScrollPane){
-            //    ((JScrollPane)componente).get
-       // }
+           else if (componente instanceof JScrollPane){
+            ((JScrollPane)componente).getClass();
+       }
             componente.setEnabled(estadoComponente);
         }
     
@@ -154,6 +155,7 @@ public class FoCadBairroFinal extends javax.swing.JFrame {
 
         jLabelBairro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelBairro.setText("Descrição*  :");
+        jLabelBairro.setToolTipText("Descrção");
 
         jLabelid.setText("id");
 
