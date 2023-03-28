@@ -66,7 +66,7 @@ public class ControllerCadColaborador implements ActionListener {
                 colaborador.setFone2(telacadColaborador.getFtfTelefone2().getText());
                 colaborador.setLogin(telacadColaborador.getTfUsuario().getText());
                 colaborador.setSenha(Arrays.toString(telacadColaborador.getPfSenha().getPassword()));
-                colaborador.setEndereco(telacadColaborador.getFtfCEP().getText());
+               // colaborador.setEndereco(telacadColaborador.getFtfCEP().getText());
                 colaborador.setComplementoEndereco(telacadColaborador.getTfComplemento().getText());                
                 
                 telacadColaborador.ativa(true);

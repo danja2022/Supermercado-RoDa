@@ -94,20 +94,21 @@ public class FoBuscaCliente extends javax.swing.JFrame {
 
         jTablebusca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Descrição", "Status"
+                "ID", "Nome", "Sexo", "Telefone", "Telefone 2", "Data Cadastro", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jTablebusca.setToolTipText("");
         jScrollPane1.setViewportView(jTablebusca);
         if (jTablebusca.getColumnModel().getColumnCount() > 0) {
             jTablebusca.getColumnModel().getColumn(0).setMaxWidth(25);

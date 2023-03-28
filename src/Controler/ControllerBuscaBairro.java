@@ -13,14 +13,16 @@ public class ControllerBuscaBairro implements ActionListener {
 
     
     FoBuscaBairro foBuscaBairro;
+    ControllerCadBairro CCadBairro;
     
     
     //fazer o que irá acontecer quando carregar ou quando sair
     
     
     
-     public ControllerBuscaBairro (FoBuscaBairro foBuscaBairro){
+     public ControllerBuscaBairro (FoBuscaBairro foBuscaBairro, ControllerCadBairro controllerCadBairro){
         this.foBuscaBairro = foBuscaBairro;
+        this.CCadBairro = controllerCadBairro;
         
             
             this.foBuscaBairro.getjButtonCarregar().addActionListener(this);
@@ -49,8 +51,8 @@ public class ControllerBuscaBairro implements ActionListener {
         if (acao.getSource() == this.foBuscaBairro.getjButtonCarregar()){
            
             if(this.foBuscaBairro.getjTablebusca().getValueAt(this.foBuscaBairro.getjTablebusca().getSelectedRow(), 0)!= null){
-               ControllerCadBairro.codigo = (int) this.foBuscaBairro.getjTablebusca().getValueAt(this.foBuscaBairro.getjTablebusca().getSelectedRow(), 0);
-               foBuscaBairro.dispose();
+               this.CCadBairro.atualizaCampos((int) this.foBuscaBairro.getjTablebusca().getValueAt(this.foBuscaBairro.getjTablebusca().getSelectedRow(), 0));
+               this.foBuscaBairro.dispose();
             }
         }
         

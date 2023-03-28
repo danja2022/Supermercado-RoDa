@@ -13,9 +13,12 @@ import view.FoBuscaCliente;
 public class ControllerBuscaCliente implements ActionListener {
 
     FoBuscaCliente foBuscaCliente;
+    ControllerCadCliente cadCliente;
     
-    public ControllerBuscaCliente (FoBuscaCliente foBuscaCliente){
+    
+    public ControllerBuscaCliente (FoBuscaCliente foBuscaCliente, ControllerCadCliente cCadCliente){
         this.foBuscaCliente = foBuscaCliente;
+        this.cadCliente = cCadCliente;
         
             
             foBuscaCliente.getjButtonCarregar().addActionListener(this);
@@ -28,9 +31,9 @@ public class ControllerBuscaCliente implements ActionListener {
             for (Cliente clienteAtualDaLista: clienteDAO.retrieve()){
             
                 tabela.addRow(new Object[]{clienteAtualDaLista.getId(),
-                                           clienteAtualDaLista.getNome(),clienteAtualDaLista.getCpf(),clienteAtualDaLista.getRg(),clienteAtualDaLista.getDtNascimento(),
-                                           clienteAtualDaLista.getSexo(),clienteAtualDaLista.getFone(),clienteAtualDaLista.getFone2(),clienteAtualDaLista.getEndereco(),
-                                           clienteAtualDaLista.getObservacao(), clienteAtualDaLista.getDtCadastro(), clienteAtualDaLista.getStatus()});
+                                           clienteAtualDaLista.getNome(),clienteAtualDaLista.getSexo(),clienteAtualDaLista.getFone(),clienteAtualDaLista.getFone2(),
+                                           clienteAtualDaLista.getDtCadastro(), clienteAtualDaLista.getStatus()});
+                                           
                
             
             
@@ -45,6 +48,7 @@ public class ControllerBuscaCliente implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent acao) {
        if (acao.getSource() == this.foBuscaCliente.getjButtonCarregar()){
+               
            
         }
         

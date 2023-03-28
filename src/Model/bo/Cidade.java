@@ -14,12 +14,12 @@ public class Cidade {
         this.descricao = descricao;
     }
 
-    public int getCidade() {
+    public int getId() {
         return id;
     }
 
-    public void setCidade(int cidade) {
-        this.id = cidade;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescricao() {
@@ -31,7 +31,7 @@ public class Cidade {
     }
     
     public String toString(){
-        return this.getCidade()+ ";" + this.getDescricao();
+        return this.getId()+ ";" + this.getDescricao();
                 
     }
     

@@ -67,21 +67,22 @@ public class FoCadCidade extends javax.swing.JFrame {
         this.btSalvar = btSalvar;
     }
 
-    public JTextField getjTextFieldCadCidade() {
-        return jTextFieldCadCidade;
+    public JTextField getjTextFieldDescricao() {
+        return jTextFieldDescricao;
     }
 
-    public void setjTextFieldCadCidade(JTextField jTextFieldCadCidade) {
-        this.jTextFieldCadCidade = jTextFieldCadCidade;
+    public void setjTextFieldDescricao(JTextField jTextFieldDescricao) {
+        this.jTextFieldDescricao = jTextFieldDescricao;
     }
 
-    public JTextField getjTextFieldCadCity() {
-        return jTextFieldCadCity;
+    public JTextField getjTextFieldId() {
+        return jTextFieldId;
     }
 
-    public void setjTextFieldCadCity(JTextField jTextFieldCadCity) {
-        this.jTextFieldCadCity = jTextFieldCadCity;
+    public void setjTextFieldId(JTextField jTextFieldId) {
+        this.jTextFieldId = jTextFieldId;
     }
+
 
     public JPanel getPnCentro() {
         return pnCentro;
@@ -132,9 +133,9 @@ public class FoCadCidade extends javax.swing.JFrame {
 
         pnCentro = new javax.swing.JPanel();
         jLabelIdCadCidade = new javax.swing.JLabel();
-        jTextFieldCadCidade = new javax.swing.JTextField();
+        jTextFieldId = new javax.swing.JTextField();
         jLabelDescricacaoCidade = new javax.swing.JLabel();
-        jTextFieldCadCity = new javax.swing.JTextField();
+        jTextFieldDescricao = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         btNovo = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
@@ -167,8 +168,8 @@ public class FoCadCidade extends javax.swing.JFrame {
                         .addComponent(jLabelIdCadCidade)))
                 .addGap(18, 18, 18)
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldCadCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCadCity, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnCentroLayout.setVerticalGroup(
@@ -177,11 +178,11 @@ public class FoCadCidade extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelIdCadCidade)
-                    .addComponent(jTextFieldCadCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDescricacaoCidade)
-                    .addComponent(jTextFieldCadCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
@@ -344,8 +345,8 @@ public class FoCadCidade extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelIdCadCidade;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextFieldCadCidade;
-    private javax.swing.JTextField jTextFieldCadCity;
+    private javax.swing.JTextField jTextFieldDescricao;
+    private javax.swing.JTextField jTextFieldId;
     private javax.swing.JPanel pnCentro;
     // End of variables declaration//GEN-END:variables
 }

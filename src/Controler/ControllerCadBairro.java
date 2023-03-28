@@ -12,10 +12,12 @@ import Model.DAO.BairroDAO;
 public class ControllerCadBairro implements ActionListener {
 
     FoCadBairroFinal telaCadBairro;
-    public static int codigo;
+    ControllerCadEndereco cEndereco;
 
+    // public static int codigo;
     public ControllerCadBairro(FoCadBairroFinal parTelaCadBairro) {
         this.telaCadBairro = parTelaCadBairro;
+        this.cEndereco = null;
 
         telaCadBairro.getBtBuscar().addActionListener(this);
         telaCadBairro.getBtCancelar().addActionListener(this);
@@ -24,10 +26,45 @@ public class ControllerCadBairro implements ActionListener {
         telaCadBairro.getBtSair().addActionListener(this);
 
         telaCadBairro.getjTextFieldId().setEditable(true);
-        
+
         telaCadBairro.ativa(true);
         telaCadBairro.ligaDesliga(false);
         telaCadBairro.getjTextFieldBairro().setEnabled(false);
+
+    }
+
+    public ControllerCadBairro(FoCadBairroFinal telaCadBairro, ControllerCadEndereco cEndereco) {
+        this.telaCadBairro = telaCadBairro;
+        this.cEndereco = cEndereco;
+        
+        this.telaCadBairro.getBtBuscar().addActionListener(this);
+        this.telaCadBairro.getBtCancelar().addActionListener(this);
+        this.telaCadBairro.getBtSalvar().addActionListener(this);
+        this.telaCadBairro.getBtNovo().addActionListener(this);
+        this.telaCadBairro.getBtSair().addActionListener(this);
+
+        this.telaCadBairro.getjTextFieldId().setEditable(true);
+
+        this.telaCadBairro.ativa(true);
+        this.telaCadBairro.ligaDesliga(false);
+        this.telaCadBairro.getjTextFieldBairro().setEnabled(false);
+        
+        
+    }
+    
+
+    public void atualizaCampos(int Codigo) {
+        Bairro bairro = new Bairro();
+        BairroDAO bairroDAO = new BairroDAO();
+        bairro = bairroDAO.retrieve(Codigo);
+
+        telaCadBairro.ligaDesliga(true);
+        telaCadBairro.ativa(false);
+        //telaCadBairro.getjTextFieldBairro().setEnabled(true);
+
+        telaCadBairro.getjTextFieldId().setText(bairro.getId() + "");
+        telaCadBairro.getjTextFieldBairro().setText(bairro.getDescricao());
+        telaCadBairro.getjTextFieldId().setEnabled(false);
 
     }
 
@@ -60,39 +97,23 @@ public class ControllerCadBairro implements ActionListener {
                 } else {
                     bairro.setId(Integer.parseInt(telaCadBairro.getjTextFieldId().getText()));
                     bairroDAO.update(bairro);
-
-                    telaCadBairro.ativa(true);
-                    telaCadBairro.ligaDesliga(false);
                 }
+                telaCadBairro.ativa(true);
+                telaCadBairro.ligaDesliga(false);
             }
-        }
-        //Mudará na proxima aula
+        } //Mudará na proxima aula
         else if (acao.getSource() == telaCadBairro.getBtBuscar()) {
 
-            this.codigo = 0;
-
+            //this.codigo = 0;
             FoBuscaBairro telaBuscaBairro = new FoBuscaBairro();
-            ControllerBuscaBairro controllerBuscaBairro = new ControllerBuscaBairro(telaBuscaBairro);
+            ControllerBuscaBairro controllerBuscaBairro = new ControllerBuscaBairro(telaBuscaBairro, this);
             telaBuscaBairro.setVisible(true);
 
-            if (this.codigo != 0) {
-                //carregar bairro paara edicao
-
-                Bairro bairro = new Bairro();
-                BairroDAO bairroDAO = new BairroDAO();
-                bairro = bairroDAO.retrieve(codigo);
-
-                telaCadBairro.ativa(false);
-                telaCadBairro.ligaDesliga(true);
-                telaCadBairro.getjTextFieldId().setText(bairro.getId() + "");
-                telaCadBairro.getjTextFieldBairro().setText(bairro.getDescricao());
-                telaCadBairro.getjTextFieldId().setEnabled(false);
-            }
-
         } else if (acao.getSource() == telaCadBairro.getBtSair()) {
+            if(this.cEndereco != null)
+                this.cEndereco.setComboBox();
             telaCadBairro.dispose();
         }
     }
 
 }
-

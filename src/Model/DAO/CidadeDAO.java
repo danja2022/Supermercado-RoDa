@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.DAO.ConnectionFactory;
+import Model.DAO.ConnectionFactory;
 
 public class CidadeDAO implements InterfaceDAO<Cidade> {
 
@@ -21,7 +21,7 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
 
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(0, objeto.getDescricao());
+            pstm.setString(1, objeto.getDescricao());
             pstm.executeUpdate();
 
         } catch (SQLException ex) {
@@ -33,26 +33,26 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
     @Override
     public Cidade retrieve(int codigo) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT cidade.id, bairro.descricao from cidade where cidade.id = ?";
+        String sqlExecutar = "SELECT id, descricao FROM cidade WHERE id = ?";
 
         PreparedStatement pstm = null;
         ResultSet rst = null;
 
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(0, codigo);
+            pstm.setInt(1, codigo);
             rst = pstm.executeQuery();
             Cidade cidade = new Cidade();
 
             while (rst.next()) {
-                cidade.setCidade(codigo);
+                cidade.setId(codigo);
                 cidade.setDescricao(rst.getString("descricao"));
 
             }
             ConnectionFactory.closeConnection(conexao, pstm, rst);
             return cidade;
 
-        } catch (SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
             ConnectionFactory.closeConnection(conexao, pstm, rst);
             return null;
@@ -62,56 +62,52 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
     @Override
     public Cidade retrieve(String descricao) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT cidade.id, cidade.descricao from bairro where cidade.descricao = ?";
-        
+        String sqlExecutar = "SELECT id, descricao FROM cidade WHERE descricao = ?";
+
         PreparedStatement pstm = null;
         ResultSet rst = null;
-        
-        
+
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setString(0, descricao);
+            pstm.setString(1, descricao);
             rst = pstm.executeQuery();
             Cidade cidade = new Cidade();
-            
-            while (rst.next()){
-                cidade.setCidade(rst.getInt("id"));
+
+            while (rst.next()) {
+                cidade.setId(rst.getInt("id"));
                 cidade.setDescricao(rst.getString("descricao"));
             }
             ConnectionFactory.closeConnection(conexao, pstm, rst);
             return cidade;
-        
+
         } catch (SQLException ex) {
             ex.printStackTrace();
             ConnectionFactory.closeConnection(conexao, pstm, rst);
             return null;
-            
+
         }
-            
-        
+
     }
 
     @Override
     public List<Cidade> retrieve() {
-       Connection conexao = ConnectionFactory.getConnection();
-       String sqlExecutar = "SELECT cidade.id, cidade.descricao from cidade";
-       
-       PreparedStatement pstm = null;
-       ResultSet rst = null;
-       
-       List<Cidade> listaCidade = new ArrayList<>();
-       
-       
-       
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "SELECT id, descricao FROM cidade";
+
+        PreparedStatement pstm = null;
+        ResultSet rst = null;
+
+        List<Cidade> listaCidade = new ArrayList<>();
+
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
             rst = pstm.executeQuery();
-            
+
             while (rst.next()) {
-            Cidade cidade = new Cidade();
-            cidade.setCidade(rst.getInt("id"));
-            cidade.setDescricao(rst.getString("descricao"));
-            listaCidade.add(cidade);
+                Cidade cidade = new Cidade();
+                cidade.setId(rst.getInt("id"));
+                cidade.setDescricao(rst.getString("descricao"));
+                listaCidade.add(cidade);
             }
             ConnectionFactory.closeConnection(conexao, pstm, rst);
             return listaCidade;
@@ -120,24 +116,23 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
             ConnectionFactory.closeConnection(conexao, pstm, rst);
             return null;
         }
-       
-      
+
     }
 
     @Override
     public void update(Cidade objeto) {
-       Connection conexao = ConnectionFactory.getConnection();
-       String sqlExecutar = "UPDATE cidade set cidade.descricao = ? where cidade.id = ?";
-       PreparedStatement pstm = null;
-       
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "UPDATE cidade SET descricao = ? WHERE id = ?";
+        PreparedStatement pstm = null;
+
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
-           
-            pstm.setString(0,objeto.getDescricao());
-            
-            pstm.setInt(1, objeto.getCidade());
+
+            pstm.setString(1, objeto.getDescricao());
+
+            pstm.setInt(2, objeto.getId());
             pstm.executeUpdate();
-       
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -147,18 +142,18 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
     @Override
     public void delete(Cidade objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "DELETE FROM cidade where cidade.id = ?";
+        String sqlExecutar = "DELETE FROM cidade WHERE id = ?";
         PreparedStatement pstm = null;
-        
+
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(0, objeto.getCidade());
+            pstm.setInt(1, objeto.getId());
             pstm.executeUpdate();
         } catch (SQLException ex) {
-           ex.printStackTrace();
+            ex.printStackTrace();
         }
-       ConnectionFactory.closeConnection(conexao,pstm);
-    
+        ConnectionFactory.closeConnection(conexao, pstm);
+
     }
 
 }

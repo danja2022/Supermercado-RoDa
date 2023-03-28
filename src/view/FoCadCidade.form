@@ -67,8 +67,8 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTextFieldCadCidade" min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="jTextFieldCadCity" min="-2" pref="245" max="-2" attributes="0"/>
+                      <Component id="jTextFieldId" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="jTextFieldDescricao" min="-2" pref="245" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -80,12 +80,12 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelIdCadCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldCadCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelDescricacaoCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldCadCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
@@ -98,7 +98,7 @@
             <Property name="text" type="java.lang.String" value="Id:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldCadCidade">
+        <Component class="javax.swing.JTextField" name="jTextFieldId">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelDescricacaoCidade">
           <Properties>
@@ -108,7 +108,7 @@
             <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o*  :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldCadCity">
+        <Component class="javax.swing.JTextField" name="jTextFieldDescricao">
         </Component>
       </SubComponents>
     </Container>

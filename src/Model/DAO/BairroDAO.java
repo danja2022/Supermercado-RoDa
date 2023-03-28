@@ -3,7 +3,7 @@ package Model.DAO;
 import Model.bo.Bairro;
 import java.util.List;
 import java.sql.Connection;
-import model.DAO.ConnectionFactory;
+import Model.DAO.ConnectionFactory;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -42,7 +42,7 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
 
     public Bairro retrieve(int codigo) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT bairro.id, bairro.descricao from bairro.id =? ";
+        String sqlExecutar = "SELECT id, descricao from bairro WHERE id = ? ";
 
         PreparedStatement pstm = null;
         ResultSet rst = null;
@@ -74,7 +74,7 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
     @Override // select pela descrição e trás um bairro
     public Bairro retrieve(String descricao) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT bairro.id, bairro.descricao from bairro.descricao =? ";
+        String sqlExecutar = "SELECT id, descricao FROM bairro WHERE descricao =? ";
 
         PreparedStatement pstm = null;
         ResultSet rst = null;
@@ -106,7 +106,7 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
     @Override //select sem parametros
     public List<Bairro> retrieve() {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT bairro.id, bairro.descricao from bairro";
+        String sqlExecutar = "SELECT id, descricao FROM bairro";
 
         PreparedStatement pstm = null;
         ResultSet rst = null;
@@ -139,7 +139,7 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
     @Override
     public void update(Bairro objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "UPDATE bairro set bairro.descricao = ?  where bairro.id = ?";
+        String sqlExecutar = "UPDATE bairro SET descricao = ?  WHERE id = ?";
         PreparedStatement pstm = null;
 
         try {
@@ -159,7 +159,7 @@ public class BairroDAO implements InterfaceDAO<Bairro> {
     public void delete(Bairro objeto) {
 
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "DELETE FROM bairro where bairro.id = ?";
+        String sqlExecutar = "DELETE FROM bairro WHERE id = ?";
         PreparedStatement pstm = null;
 
         try {

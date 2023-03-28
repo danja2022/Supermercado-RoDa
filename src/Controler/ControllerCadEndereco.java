@@ -1,72 +1,148 @@
-
 package Controler;
 
-
+import Model.DAO.BairroDAO;
+import Model.DAO.CidadeDAO;
+import Model.DAO.EnderecoDAO;
+import Model.bo.Bairro;
+import Model.bo.Cidade;
 import Model.bo.Endereco;
-import Model.bo.Produto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import view.FoCadastroEndereco;
 import view.FoBuscaEndereco;
-
+import view.FoCadBairroFinal;
+import view.FoCadCidade;
 
 public class ControllerCadEndereco implements ActionListener {
-    
+
     FoCadastroEndereco telaCadEndereco;
-    
-    
-    public ControllerCadEndereco (FoCadastroEndereco partelaCadEndereco){
+
+    public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco) {
         this.telaCadEndereco = partelaCadEndereco;
-    
-            telaCadEndereco.getBtBuscar().addActionListener(this);
-            telaCadEndereco.getBtCancelar().addActionListener(this);
-            telaCadEndereco.getBtSalvar().addActionListener(this);
-            telaCadEndereco.getBtNovo().addActionListener(this);
-            telaCadEndereco.getBtSair().addActionListener(this);
-    
-            
-    
-            telaCadEndereco.ativa(true);
-            telaCadEndereco.ligaDesliga(false);
-            
-            }
-           
-    
+
+        telaCadEndereco.getBtBuscar().addActionListener(this);
+        telaCadEndereco.getBtCancelar().addActionListener(this);
+        telaCadEndereco.getBtSalvar().addActionListener(this);
+        telaCadEndereco.getBtNovo().addActionListener(this);
+        telaCadEndereco.getBtSair().addActionListener(this);
+        telaCadEndereco.getjBtCadBairro().addActionListener(this);
+        telaCadEndereco.getjBtCadCidade().addActionListener(this);
+
+        telaCadEndereco.ativa(true);
+        telaCadEndereco.ligaDesliga(false);
+        setComboBox();
+
+    }
+
+    public void atualizaCampos(int codigo) {
+        Endereco endereco = new Endereco();
+        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        endereco = enderecoDAO.retrieve(codigo);
+
+        telaCadEndereco.ativa(false);
+        telaCadEndereco.ligaDesliga(true);
+
+        telaCadEndereco.getjTextFieldCadIdEndereco().setText(endereco.getId() + "");
+        telaCadEndereco.getjTextFieldDescricaoLogradouro().setText(endereco.getLogradouro());
+        telaCadEndereco.getjTfCep().setText(endereco.getCep() + "");
+
+        telaCadEndereco.getjComboBoxBairro().setSelectedIndex(endereco.getBairro().getId()-1);
+        telaCadEndereco.getjComboBoxCidade().setSelectedIndex(endereco.getCidade().getId()-1);
+        
+        telaCadEndereco.getjTextFieldCadIdEndereco().setEnabled(false);
+
+    }
+
+    public void setComboBox() {
+        List<Cidade> listaCidade = new ArrayList<>();
+        List<Bairro> listaBairro = new ArrayList<>();
+        BairroDAO bairroDAO = new BairroDAO();
+        CidadeDAO cidadeDAO = new CidadeDAO();
+
+        listaCidade = cidadeDAO.retrieve();
+        listaBairro = bairroDAO.retrieve();
+
+        telaCadEndereco.getjComboBoxCidade().removeAllItems();
+        telaCadEndereco.getjComboBoxBairro().removeAllItems();
+
+        for (Cidade cidade : listaCidade) {
+            telaCadEndereco.getjComboBoxCidade().addItem(cidade.getDescricao());
+        }
+        for (Bairro bairro : listaBairro) {
+            telaCadEndereco.getjComboBoxBairro().addItem(bairro.getDescricao());
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent acao) {
-        
-         if (acao.getSource() == telaCadEndereco.getBtNovo()) {
+
+        if (acao.getSource() == telaCadEndereco.getBtNovo()) {
             telaCadEndereco.ativa(false);
             telaCadEndereco.ligaDesliga(true);
             telaCadEndereco.getjTextFieldCadIdEndereco().setEnabled(false);
-        }  else if (acao.getSource() == telaCadEndereco.getBtCancelar()){
+            //setComboBox();
+        } else if (acao.getSource() == telaCadEndereco.getBtCancelar()) {
             telaCadEndereco.ativa(true);
             telaCadEndereco.ligaDesliga(false);
-            
-        }   else if (acao.getSource() == telaCadEndereco.getBtSalvar()){
-                if (telaCadEndereco.getjTextFieldCep().getText().trim().equalsIgnoreCase("")){
-                     JOptionPane.showMessageDialog(null, "Atributo CEP é Obrigatório");
-                } else if (telaCadEndereco.getjTextFieldDescricaoLogradouro().getText().trim().equalsIgnoreCase("")) {
+
+        } else if (acao.getSource() == telaCadEndereco.getBtSalvar()) {
+            if (telaCadEndereco.getjTfCep().getText().trim().equalsIgnoreCase("")) {
+                JOptionPane.showMessageDialog(null, "Atributo CEP é Obrigatório");
+            } else if (telaCadEndereco.getjTextFieldDescricaoLogradouro().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "Atributo Logradouro é Obrigatório");
-                }else{
+            } else {
                 Endereco endereco = new Endereco();
-                endereco.setCep(telaCadEndereco.getjTextFieldCep().getText());
-                endereco.setLogradouro(telaCadEndereco.getjTextFieldDescricaoLogradouro().getText());
+                Bairro bairro = new Bairro();
+                Cidade cidade = new Cidade();
+                BairroDAO bairroDAO = new BairroDAO();
+                CidadeDAO cidadeDAO = new CidadeDAO();
 
                 
+                endereco.setCep(telaCadEndereco.getjTfCep().getText());
+                endereco.setLogradouro(telaCadEndereco.getjTextFieldDescricaoLogradouro().getText());
+                bairro = bairroDAO.retrieve(telaCadEndereco.getjComboBoxBairro().getSelectedItem().toString());
+                cidade = cidadeDAO.retrieve(telaCadEndereco.getjComboBoxCidade().getSelectedItem().toString());
+                endereco.setBairro(bairro);
+                endereco.setCidade(cidade);
+
+                EnderecoDAO enderecoDAO = new EnderecoDAO();
+
+                if (telaCadEndereco.getjTextFieldCadIdEndereco().getText().equalsIgnoreCase("")) {
+                    enderecoDAO.create(endereco);
+                } else {
+                    endereco.setId(Integer.parseInt(telaCadEndereco.getjTextFieldCadIdEndereco().getText()));
+                    enderecoDAO.update(endereco);
+                }
+
                 telaCadEndereco.ativa(true);
                 telaCadEndereco.ligaDesliga(false);
-            }   
-                
-            }  else if (acao.getSource() == telaCadEndereco.getBtBuscar()){
-            
-                FoBuscaEndereco telaBuscaEndereco = new FoBuscaEndereco();
-            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco) {};
+            }
+
+        } else if (acao.getSource() == telaCadEndereco.getBtBuscar()) {
+
+            FoBuscaEndereco telaBuscaEndereco = new FoBuscaEndereco();
+            ControllerBuscaEndereco controllerBuscaEndereco = new ControllerBuscaEndereco(telaBuscaEndereco, this);
             telaBuscaEndereco.setVisible(true);
-                
-            }  else if (acao.getSource() == telaCadEndereco.getBtSair()) {
+
+        } else if (acao.getSource() == telaCadEndereco.getBtSair()) {
             telaCadEndereco.dispose();
+
+        } else if (acao.getSource() == telaCadEndereco.getjBtCadBairro()) {
+            FoCadBairroFinal telaCadBairro = new FoCadBairroFinal();
+            ControllerCadBairro cadBairro = new ControllerCadBairro(telaCadBairro, this);
+            telaCadBairro.setVisible(true);
+           // telaCadEndereco.ativa(true);
+          //  telaCadEndereco.ligaDesliga(false);
+
+        } else if (acao.getSource() == telaCadEndereco.getjBtCadCidade()) {
+            FoCadCidade telaCadCidade = new FoCadCidade();
+            ControllerCadCidade cadCidade = new ControllerCadCidade(telaCadCidade, this);
+            telaCadCidade.setVisible(true);
+            //telaCadEndereco.ativa(true);
+            //telaCadEndereco.ligaDesliga(false);
         }
     }
 

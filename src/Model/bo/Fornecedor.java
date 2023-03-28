@@ -18,7 +18,7 @@ public class Fornecedor extends Pessoa {
         
     }
 
-    public Fornecedor(String cnpj, String inscEstadual, String contato, String razaoSocial, String cpf, String rg, String nome, int id, String fone, String fone2, String email, Date dtCadastro, String complementoEndereco, String observacao, char status, String endereco) {
+    public Fornecedor(String cnpj, String inscEstadual, String contato, String razaoSocial, String cpf, String rg, String nome, int id, String fone, String fone2, String email, String dtCadastro, String complementoEndereco, String observacao, char status, Endereco endereco) {
         super(nome, id, fone, fone2, email, dtCadastro, complementoEndereco, observacao, status, endereco);
         this.cnpj = cnpj;
         this.inscEstadual = inscEstadual;

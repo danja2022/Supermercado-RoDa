@@ -9,16 +9,16 @@ public abstract class Pessoa {
     private String fone;
     private String fone2;
     private String email;
-    private Date dtCadastro;
+    private String dtCadastro;
     private String complementoEndereco;
     private String observacao;
     private char status;
-    private String endereco; //endereco
+    private Endereco endereco; //endereco
 
     public Pessoa() {
     }
 
-    public Pessoa(String nome, int id, String fone, String fone2, String email, Date dtCadastro, String complementoEndereco, String observacao, char status, String endereco) {
+    public Pessoa(String nome, int id, String fone, String fone2, String email, String dtCadastro, String complementoEndereco, String observacao, char status, Endereco endereco) {
         this.nome = nome;
         this.id = id;
         this.fone = fone;
@@ -71,11 +71,11 @@ public abstract class Pessoa {
         this.email = email;
     }
 
-    public Date getDtCadastro() {
+    public String getDtCadastro() {
         return dtCadastro;
     }
 
-    public void setDtCadastro(Date dtCadastro) {
+    public void setDtCadastro(String dtCadastro) {
         this.dtCadastro = dtCadastro;
     }
 
@@ -103,11 +103,11 @@ public abstract class Pessoa {
         this.status = status;
     }
 
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 

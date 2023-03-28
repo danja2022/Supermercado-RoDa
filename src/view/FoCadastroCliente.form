@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="gbSexo">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    <Component class="javax.swing.ButtonGroup" name="gbStatus">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -69,8 +69,8 @@
                               <Component id="jLabelNomeCadCliente" min="-2" pref="56" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelCPFCadCliente" min="-2" pref="37" max="-2" attributes="0"/>
                                       <Component id="ftfCPF" min="-2" pref="197" max="-2" attributes="0"/>
+                                      <Component id="jLabelCPFCadCliente" min="-2" pref="74" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -84,14 +84,20 @@
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="rbFeminino" min="-2" pref="98" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="rbNaoInformar" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="ftfDtNasc" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
+                                      <Component id="jLabelDtNascCadCliente" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="ftfDtNasc" alignment="0" min="-2" pref="204" max="-2" attributes="0"/>
-                              <Component id="jLabelDtNascCadCliente" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="rbFeminino" min="-2" pref="98" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="rbNaoInformar" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -99,10 +105,6 @@
                               <Component id="jLabelObservacoesCadCliente" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" alignment="0" min="-2" pref="757" max="-2" attributes="0"/>
                               <Component id="pnEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="430" max="-2" attributes="0"/>
-                                  <Component id="jLabelEmailCadCliente" min="-2" pref="46" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="ftfTelefone1" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
@@ -119,28 +121,26 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabelIDCadCliente" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldIDCadClient" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="jLabelNomeCadCliente1" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTfId" min="-2" pref="42" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
                                   <Component id="jLabelStatusCadCliente" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jRadioButton2" min="-2" pref="98" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jRadioButton1" min="-2" pref="98" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                          <Component id="jLabelDataCadastroCadCliente" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jTextField1DataCadastroCadCliente" min="-2" pref="68" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="jRadioBtInativo" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <Component id="jRadioBtAtivo" min="-2" pref="98" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="430" max="-2" attributes="0"/>
+                                  <Component id="jLabelEmailCadCliente" min="-2" pref="78" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -148,13 +148,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelIDCadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldIDCadClient" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelStatusCadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelDataCadastroCadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1DataCadastroCadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelStatusCadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioBtAtivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jLabelNomeCadCliente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTfId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -162,7 +164,7 @@
                           <Component id="jLabelNomeCadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelDtNascCadCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jRadioButton2" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioBtInativo" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -251,6 +253,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="gbSexo"/>
             </Property>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Masculino"/>
           </Properties>
         </Component>
@@ -311,9 +314,10 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="jTextArea1">
               <Properties>
-                <Property name="columns" type="int" value="20"/>
+                <Property name="columns" type="int" value="1"/>
+                <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="wrapStyleWord" type="boolean" value="true"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -333,33 +337,30 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="tfBairro" alignment="0" pref="231" max="32767" attributes="0"/>
+                          <Component id="tfBairro" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
                           <Component id="jLabel10" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="jLabel13" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
-                          <Component id="ftfCEP" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jComboBoxCep" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jBtCadCep" min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jLabel11" min="-2" pref="43" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
-                              <Component id="jLabel12" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="jLabel14" min="-2" pref="78" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" pref="103" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="tfLogradouro" alignment="0" pref="231" max="32767" attributes="0"/>
-                                      <Component id="tfEstado" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel14" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="tfLogradouro" min="-2" pref="231" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="tfCidade" max="32767" attributes="0"/>
-                                  <Component id="jLabel15" min="-2" pref="94" max="-2" attributes="0"/>
-                                  <Component id="tfComplemento" alignment="0" pref="231" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="tfCidade" min="-2" pref="231" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jLabel15" min="-2" pref="94" max="-2" attributes="0"/>
+                          <Component id="tfComplemento" min="-2" pref="231" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -371,25 +372,24 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tfEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tfCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ftfCEP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBtCadCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="tfBairro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tfComplemento" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="19" max="32767" attributes="0"/>
@@ -404,16 +404,6 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="CEP* :"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Estado:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="tfEstado">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
@@ -453,44 +443,59 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfComplemento">
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="ftfCEP">
+            <Component class="javax.swing.JButton" name="jBtCadCep">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="+"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBoxCep">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="1">
+                    <StringItem index="0" value="Item 1"/>
+                  </StringArray>
+                </Property>
+              </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ftfCEPActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxCepActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabelIDCadCliente">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ID:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldIDCadClient">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabelStatusCadCliente">
           <Properties>
             <Property name="text" type="java.lang.String" value="Status:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelDataCadastroCadCliente">
+        <Component class="javax.swing.JRadioButton" name="jRadioBtAtivo">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="gbStatus"/>
+            </Property>
+            <Property name="selected" type="boolean" value="true"/>
+            <Property name="text" type="java.lang.String" value="Ativo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="jRadioBtInativo">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="gbStatus"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Inativo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelNomeCadCliente1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Data Cadastro* :"/>
+            <Property name="text" type="java.lang.String" value="Id:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1DataCadastroCadCliente">
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jRadioButton1"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jRadioButton2"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="jTfId">
         </Component>
       </SubComponents>
     </Container>
