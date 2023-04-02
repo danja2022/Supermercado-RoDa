@@ -12,12 +12,12 @@ import Model.DAO.BairroDAO;
 public class ControllerCadBairro implements ActionListener {
 
     FoCadBairroFinal telaCadBairro;
-    ControllerCadEndereco cEndereco;
+    ControllerCadEndereco cadEndereco;
 
     // public static int codigo;
     public ControllerCadBairro(FoCadBairroFinal parTelaCadBairro) {
         this.telaCadBairro = parTelaCadBairro;
-        this.cEndereco = null;
+        this.cadEndereco = null;
 
         telaCadBairro.getBtBuscar().addActionListener(this);
         telaCadBairro.getBtCancelar().addActionListener(this);
@@ -35,7 +35,7 @@ public class ControllerCadBairro implements ActionListener {
 
     public ControllerCadBairro(FoCadBairroFinal telaCadBairro, ControllerCadEndereco cEndereco) {
         this.telaCadBairro = telaCadBairro;
-        this.cEndereco = cEndereco;
+        this.cadEndereco = cEndereco;
         
         this.telaCadBairro.getBtBuscar().addActionListener(this);
         this.telaCadBairro.getBtCancelar().addActionListener(this);
@@ -110,8 +110,8 @@ public class ControllerCadBairro implements ActionListener {
             telaBuscaBairro.setVisible(true);
 
         } else if (acao.getSource() == telaCadBairro.getBtSair()) {
-            if(this.cEndereco != null)
-                this.cEndereco.setComboBox();
+            if(this.cadEndereco != null)
+                this.cadEndereco.setComboBox();
             telaCadBairro.dispose();
         }
     }

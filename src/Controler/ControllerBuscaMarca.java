@@ -12,9 +12,11 @@ import view.FoBuscaMarca;
 public class ControllerBuscaMarca implements ActionListener {
 
     FoBuscaMarca foBuscaMarca;
+    ControllerCadMarca cadMarca;
     
-    public ControllerBuscaMarca (FoBuscaMarca foBuscaMarca){
-        this.foBuscaMarca = foBuscaMarca;
+        public ControllerBuscaMarca (FoBuscaMarca foBuscaMarca, ControllerCadMarca cadMarca){
+            this.cadMarca = cadMarca;
+            this.foBuscaMarca = foBuscaMarca;
         
             
             foBuscaMarca.getjButtonCarregar().addActionListener(this);
@@ -38,12 +40,20 @@ public class ControllerBuscaMarca implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent acao) {
         if (acao.getSource() == this.foBuscaMarca.getjButtonCarregar()){
+             if(this.foBuscaMarca.getjTablebusca().getValueAt(this.foBuscaMarca.getjTablebusca().getSelectedRow(),0) != null){
+                this.cadMarca.atualizaCampos((int) this.foBuscaMarca.getjTablebusca().getValueAt(this.foBuscaMarca.getjTablebusca().getSelectedRow(),0));
+                this.foBuscaMarca.dispose();
+            }
            
-        }
+            
         
-        if (acao.getSource() == this.foBuscaMarca.getjButtonSair()){
+        
+           
+        } else if (acao.getSource() == this.foBuscaMarca.getjButtonSair()){
            this.foBuscaMarca.dispose();
-        }
     }
     
+}
+
+
 }

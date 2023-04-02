@@ -232,4 +232,8 @@ public class FoBuscaMarca extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablebusca;
     // End of variables declaration//GEN-END:variables
+
+    public void atualizaCampos(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
