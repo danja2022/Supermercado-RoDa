@@ -48,6 +48,10 @@ public class ControllerBuscaCliente implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent acao) {
        if (acao.getSource() == this.foBuscaCliente.getjButtonCarregar()){
+           if(this.foBuscaCliente.getjTablebusca().getValueAt(this.foBuscaCliente.getjTablebusca().getSelectedRow(), 0) != null){
+               this.cadCliente.atualizaCampos((int) this.foBuscaCliente.getjTablebusca().getValueAt(this.foBuscaCliente.getjTablebusca().getSelectedRow(),0));
+               this.foBuscaCliente.dispose();
+           }
                
            
         }

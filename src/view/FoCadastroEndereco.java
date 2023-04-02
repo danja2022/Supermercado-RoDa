@@ -143,8 +143,8 @@ public class FoCadastroEndereco extends javax.swing.JFrame {
                 ((JFormattedTextField) componente).setText("");
             } else if (componente instanceof JTextArea) {
                 ((JTextArea) componente).setText("");
-            } else if (componente instanceof JComboBox) {
-                ((JComboBox) componente).setSelectedIndex(0);
+            //} else if (componente instanceof JComboBox) {
+                //((JComboBox) componente).setSelectedIndex(0);
             }
             //  else if (componente instanceof JScrollPane){
             //    ((JScrollPane)componente).get

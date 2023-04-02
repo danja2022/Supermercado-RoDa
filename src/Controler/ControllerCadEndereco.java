@@ -19,9 +19,30 @@ import view.FoCadCidade;
 public class ControllerCadEndereco implements ActionListener {
 
     FoCadastroEndereco telaCadEndereco;
+    ControllerCadCliente cadCliente;
 
     public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco) {
         this.telaCadEndereco = partelaCadEndereco;
+        this.cadCliente = null;
+        
+
+        telaCadEndereco.getBtBuscar().addActionListener(this);
+        telaCadEndereco.getBtCancelar().addActionListener(this);
+        telaCadEndereco.getBtSalvar().addActionListener(this);
+        telaCadEndereco.getBtNovo().addActionListener(this);
+        telaCadEndereco.getBtSair().addActionListener(this);
+        telaCadEndereco.getjBtCadBairro().addActionListener(this);
+        telaCadEndereco.getjBtCadCidade().addActionListener(this);
+
+        telaCadEndereco.ativa(true);
+        telaCadEndereco.ligaDesliga(false);
+        setComboBox();
+
+    }
+    
+        public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco, ControllerCadCliente cadCliente) {
+        this.telaCadEndereco = partelaCadEndereco;
+        this.cadCliente = cadCliente;
 
         telaCadEndereco.getBtBuscar().addActionListener(this);
         telaCadEndereco.getBtCancelar().addActionListener(this);
@@ -49,8 +70,8 @@ public class ControllerCadEndereco implements ActionListener {
         telaCadEndereco.getjTextFieldDescricaoLogradouro().setText(endereco.getLogradouro());
         telaCadEndereco.getjTfCep().setText(endereco.getCep() + "");
 
-        telaCadEndereco.getjComboBoxBairro().setSelectedIndex(endereco.getBairro().getId()-1);
-        telaCadEndereco.getjComboBoxCidade().setSelectedIndex(endereco.getCidade().getId()-1);
+        telaCadEndereco.getjComboBoxBairro().setSelectedItem(endereco.getBairro().getDescricao());
+        telaCadEndereco.getjComboBoxCidade().setSelectedItem(endereco.getCidade().getDescricao());
         
         telaCadEndereco.getjTextFieldCadIdEndereco().setEnabled(false);
 
@@ -67,10 +88,12 @@ public class ControllerCadEndereco implements ActionListener {
 
         telaCadEndereco.getjComboBoxCidade().removeAllItems();
         telaCadEndereco.getjComboBoxBairro().removeAllItems();
-
+        
+        if(listaCidade != null)
         for (Cidade cidade : listaCidade) {
             telaCadEndereco.getjComboBoxCidade().addItem(cidade.getDescricao());
         }
+        if(listaBairro != null)
         for (Bairro bairro : listaBairro) {
             telaCadEndereco.getjComboBoxBairro().addItem(bairro.getDescricao());
         }
@@ -128,6 +151,9 @@ public class ControllerCadEndereco implements ActionListener {
             telaBuscaEndereco.setVisible(true);
 
         } else if (acao.getSource() == telaCadEndereco.getBtSair()) {
+            if(this.cadCliente != null)
+                this.cadCliente.setComboBox();
+            
             telaCadEndereco.dispose();
 
         } else if (acao.getSource() == telaCadEndereco.getjBtCadBairro()) {

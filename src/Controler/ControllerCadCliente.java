@@ -11,6 +11,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import view.FoBuscaCliente;
 import view.FoCadastroCliente;
+import view.FoCadastroEndereco;
 
 public class ControllerCadCliente implements ActionListener {
 
@@ -25,10 +26,45 @@ public class ControllerCadCliente implements ActionListener {
         telaCadCliente.getBtNovo().addActionListener(this);
         telaCadCliente.getBtSair().addActionListener(this);
         telaCadCliente.getjComboBoxCep().addActionListener(this);
+        telaCadCliente.getjBtCadCep().addActionListener(this);
 
         telaCadCliente.ativa(true);
         telaCadCliente.ligaDesliga(false);
         this.setComboBox();
+
+    }
+    public void atualizaCampos(int codigo){
+        Cliente cliente = new Cliente();
+        ClienteDAO clienteDAO = new ClienteDAO();
+        cliente = clienteDAO.retrieve(codigo);
+        
+        telaCadCliente.ativa(false);
+        telaCadCliente.ligaDesliga(true);
+        
+        telaCadCliente.getTfNome().setText(cliente.getNome());
+        telaCadCliente.getjTfId().setText(cliente.getId()+ "");
+        if(cliente.getStatus() == 'A')
+            telaCadCliente.getjRadioBtAtivo().setSelected(true);
+        else
+            telaCadCliente.getjRadioBtInativo().setSelected(true);
+        
+        telaCadCliente.getFtfDtNasc().setText(dateToString(cliente.getDtNascimento()));
+        telaCadCliente.getFtfCPF().setText(cliente.getCpf());
+        telaCadCliente.getTfRG().setText(cliente.getRg());
+        
+        if(cliente.getSexo() == 'M')
+            telaCadCliente.getRbMasculino().setSelected(true);
+        else if (cliente.getSexo() == 'F')
+            telaCadCliente.getRbFeminino().setSelected(true);
+        else
+            telaCadCliente.getRbNaoInformar().setSelected(true);
+        
+        telaCadCliente.getFtfTelefone1().setText(cliente.getFone());
+        telaCadCliente.getFtfTelefone2().setText(cliente.getFone2());
+        telaCadCliente.getTfEmail().setText(cliente.getEmail());
+        telaCadCliente.getjTextArea1().setText(cliente.getObservacao());
+        telaCadCliente.getjComboBoxCep().setSelectedItem(cliente.getEndereco().getCep());
+        telaCadCliente.getTfComplemento().setText(cliente.getComplementoEndereco()); 
 
     }
 
@@ -60,8 +96,7 @@ public class ControllerCadCliente implements ActionListener {
                 
     }
     //10-06-2002
-    
-    private String StringToDate(String data){
+    private String stringToDate(String data){
         String aData = "";
         int dia = 0, mes = 3, ano = 6;
         
@@ -78,6 +113,24 @@ public class ControllerCadCliente implements ActionListener {
         }
         
         return aData;
+    }
+   //2002-06-10
+    private String dateToString(String  data){
+        String aData = "";
+        int dia = 8, mes = 5, ano = 0;
+        
+        for(int i = dia; i < (dia+2); i++){
+            aData = aData + data.charAt(i);
+        }
+      //  aData = aData + '-';
+        for (int i = mes; i < (mes+2); i++){
+            aData = aData + data.charAt(i);
+        }
+     //   aData = aData + '-';
+        for(int i = ano; i < (ano+4); i++){
+            aData = aData + data.charAt(i);
+        }
+        return aData;        
     }
 
     public void setComboBox() {
@@ -124,7 +177,7 @@ public class ControllerCadCliente implements ActionListener {
 
                 Cliente cliente = new Cliente();
                 cliente.setNome(telaCadCliente.getTfNome().getText());
-                cliente.setDtNascimento(StringToDate( telaCadCliente.getFtfDtNasc().getText()));
+                cliente.setDtNascimento(stringToDate( telaCadCliente.getFtfDtNasc().getText()));
                 cliente.setCpf(telaCadCliente.getFtfCPF().getText());
                 cliente.setFone(telaCadCliente.getFtfTelefone1().getText());
                 if(verificaNumero(telaCadCliente.getFtfTelefone2().getText()))
@@ -152,9 +205,9 @@ public class ControllerCadCliente implements ActionListener {
                     cliente.setStatus('I');
                 }
                 if(!telaCadCliente.getTfComplemento().getText().trim().equalsIgnoreCase(""))
-                    cliente.setObservacao(telaCadCliente.getTfComplemento().getText());
+                    cliente.setComplementoEndereco(telaCadCliente.getTfComplemento().getText());
                 else
-                    cliente.setObservacao("");
+                    cliente.setComplementoEndereco("");
                 Endereco endereco = new Endereco();
                 EnderecoDAO enderecoDAO = new EnderecoDAO();
                 endereco = enderecoDAO.retrieve(telaCadCliente.getjComboBoxCep().getSelectedItem().toString());
@@ -167,7 +220,7 @@ public class ControllerCadCliente implements ActionListener {
                     clienteDAO.create(cliente);
                 } else {
                     cliente.setId(Integer.parseInt(telaCadCliente.getjTfId().getText()));
-                    clienteDAO.retrieve(cliente.getId());
+                    clienteDAO.update(cliente);
                 }
 
                 //persistir o objeto de bairro criado
@@ -193,9 +246,11 @@ public class ControllerCadCliente implements ActionListener {
                 telaCadCliente.getTfCidade().setText(endereco.getCidade().getDescricao());
                 telaCadCliente.getTfLogradouro().setText(endereco.getLogradouro());
             }
-            
-            
-            
+           
+        }else if(acao.getSource() == telaCadCliente.getjBtCadCep()){
+            FoCadastroEndereco telaCadEndereco = new FoCadastroEndereco();
+            ControllerCadEndereco cadEndereco = new ControllerCadEndereco(telaCadEndereco, this);
+            telaCadEndereco.setVisible(true);
         }
 
     }

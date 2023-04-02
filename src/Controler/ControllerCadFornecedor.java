@@ -32,6 +32,26 @@ public class ControllerCadFornecedor implements ActionListener {
             telaCadFornecedor.ligaDesliga(false);
             
             }
+    /*
+            String aCpf = "";
+        for (int i = 0; i < cpf.length(); i++) {
+            if ((cpf.charAt(i) != '.') && (cpf.charAt(i) != '-') && (cpf.charAt(i) != ' ')) {
+                aCpf = aCpf + cpf.charAt(i);
+            }
+        }
+        return aCpf.length() == 11;
+
+    }*/
+    
+    private boolean verificaCnpj(String cnpj){
+        String aCnpj = "";
+        for(int i =0; i<cnpj.length(); i++){
+            if((cnpj.charAt(i) != '.') && (cnpj.charAt(i) != '/') && (cnpj.charAt(i) != '-') && (cnpj.charAt(i) != ' ') ){
+                aCnpj = aCnpj+ cnpj;
+            }    
+        }
+        return aCnpj.length() == 15;
+    }
    
     
     @Override

@@ -272,6 +272,16 @@ public final class FoCadastroCliente extends javax.swing.JFrame {
     public void setjTfId(JTextField jTfId) {
         this.jTfId = jTfId;
     }
+
+    public JButton getjBtCadCep() {
+        return jBtCadCep;
+    }
+
+    public void setjBtCadCep(JButton jBtCadCep) {
+        this.jBtCadCep = jBtCadCep;
+    }
+    
+    
     
     
 
@@ -296,6 +306,7 @@ public final class FoCadastroCliente extends javax.swing.JFrame {
             componente.setEnabled(estadoComponente);
         }
         tfComplemento.setEnabled(estadoComponente);
+        jTfId.setEnabled(false);
         
 
     }
@@ -402,15 +413,15 @@ public final class FoCadastroCliente extends javax.swing.JFrame {
 
         jLabel12.setText("Cidade:");
 
-        tfCidade.setEnabled(false);
+        tfCidade.setEditable(false);
 
         jLabel13.setText("Bairro:");
 
-        tfBairro.setEnabled(false);
+        tfBairro.setEditable(false);
 
         jLabel14.setText("Logradouro:");
 
-        tfLogradouro.setEnabled(false);
+        tfLogradouro.setEditable(false);
 
         jLabel15.setText("Complemento:");
 
@@ -436,8 +447,8 @@ public final class FoCadastroCliente extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnEnderecoLayout.createSequentialGroup()
                         .addComponent(jComboBoxCep, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBtCadCep, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)))
+                        .addComponent(jBtCadCep, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(pnEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnEnderecoLayout.createSequentialGroup()

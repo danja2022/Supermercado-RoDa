@@ -36,7 +36,7 @@ CREATE TABLE `cidade` (
   `id` int NOT NULL AUTO_INCREMENT,
   `descricao` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
@@ -171,7 +171,7 @@ CREATE TABLE `endereco` (
   KEY `fk_endereco_cidade1_idx` (`cidade_id`),
   CONSTRAINT `fk_enderecoBairro` FOREIGN KEY (`bairro_id`) REFERENCES `bairro` (`id`),
   CONSTRAINT `fk_enderecoCidade` FOREIGN KEY (`cidade_id`) REFERENCES `cidade` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
