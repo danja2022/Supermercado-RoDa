@@ -20,10 +20,14 @@ public class ControllerCadEndereco implements ActionListener {
 
     FoCadastroEndereco telaCadEndereco;
     ControllerCadCliente cadCliente;
+    ControllerCadFornecedor cadFornecedor;
+    ControllerCadColaborador cadColaborador;
 
     public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco) {
         this.telaCadEndereco = partelaCadEndereco;
         this.cadCliente = null;
+        this.cadFornecedor = null;
+        this.cadColaborador = null;
         
 
         telaCadEndereco.getBtBuscar().addActionListener(this);
@@ -43,6 +47,46 @@ public class ControllerCadEndereco implements ActionListener {
         public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco, ControllerCadCliente cadCliente) {
         this.telaCadEndereco = partelaCadEndereco;
         this.cadCliente = cadCliente;
+        this.cadFornecedor = null;
+        this.cadColaborador = null;
+
+        telaCadEndereco.getBtBuscar().addActionListener(this);
+        telaCadEndereco.getBtCancelar().addActionListener(this);
+        telaCadEndereco.getBtSalvar().addActionListener(this);
+        telaCadEndereco.getBtNovo().addActionListener(this);
+        telaCadEndereco.getBtSair().addActionListener(this);
+        telaCadEndereco.getjBtCadBairro().addActionListener(this);
+        telaCadEndereco.getjBtCadCidade().addActionListener(this);
+
+        telaCadEndereco.ativa(true);
+        telaCadEndereco.ligaDesliga(false);
+        setComboBox();
+
+    }
+     public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco, ControllerCadFornecedor cadFornecedor) {
+        this.telaCadEndereco = partelaCadEndereco;
+        this.cadCliente = null;
+        this.cadFornecedor = cadFornecedor;
+        this.cadColaborador = null;
+
+        telaCadEndereco.getBtBuscar().addActionListener(this);
+        telaCadEndereco.getBtCancelar().addActionListener(this);
+        telaCadEndereco.getBtSalvar().addActionListener(this);
+        telaCadEndereco.getBtNovo().addActionListener(this);
+        telaCadEndereco.getBtSair().addActionListener(this);
+        telaCadEndereco.getjBtCadBairro().addActionListener(this);
+        telaCadEndereco.getjBtCadCidade().addActionListener(this);
+
+        telaCadEndereco.ativa(true);
+        telaCadEndereco.ligaDesliga(false);
+        setComboBox();
+
+    }
+     public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco, ControllerCadColaborador cadColaborador) {
+        this.telaCadEndereco = partelaCadEndereco;
+        this.cadCliente = null;
+        this.cadFornecedor = null;
+        this.cadColaborador = cadColaborador;
 
         telaCadEndereco.getBtBuscar().addActionListener(this);
         telaCadEndereco.getBtCancelar().addActionListener(this);
@@ -153,6 +197,11 @@ public class ControllerCadEndereco implements ActionListener {
         } else if (acao.getSource() == telaCadEndereco.getBtSair()) {
             if(this.cadCliente != null)
                 this.cadCliente.setComboBox();
+            else if(this.cadFornecedor != null){
+                this.cadFornecedor.setComboBox();   
+            }else if(this.cadColaborador != null){
+                this.cadColaborador.setComboBox();
+            }
             
             telaCadEndereco.dispose();
 

@@ -1,6 +1,5 @@
 package Model.bo;
 
-import java.util.Date;
 
 public class Fornecedor extends Pessoa {
    

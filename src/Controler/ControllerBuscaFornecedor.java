@@ -11,9 +11,11 @@ import view.FoBuscaFornecedor;
 
 public class ControllerBuscaFornecedor implements ActionListener {
     FoBuscaFornecedor   foBuscaFornecedor; 
+    ControllerCadFornecedor cadFornecedor;
     
-    public ControllerBuscaFornecedor (FoBuscaFornecedor foBuscaFornecedor){
+    public ControllerBuscaFornecedor (FoBuscaFornecedor foBuscaFornecedor, ControllerCadFornecedor cadFornecedor){
         this.foBuscaFornecedor = foBuscaFornecedor;
+        this.cadFornecedor = cadFornecedor;
         
             
             foBuscaFornecedor.getjButtonCarregar().addActionListener(this);
@@ -26,11 +28,7 @@ public class ControllerBuscaFornecedor implements ActionListener {
             for (Fornecedor fornecedorAtualdaLista: fornecedorDAO.retrieve()){
             
                 tabela.addRow((new Object[]{fornecedorAtualdaLista.getId(),fornecedorAtualdaLista.getNome(),fornecedorAtualdaLista.getFone(),
-                    fornecedorAtualdaLista.getFone2(),fornecedorAtualdaLista.getComplementoEndereco(),fornecedorAtualdaLista.getEmail(),
-                    fornecedorAtualdaLista.getDtCadastro(),fornecedorAtualdaLista.getObservacao(),fornecedorAtualdaLista.getStatus(),
-                    fornecedorAtualdaLista.getCnpj(),fornecedorAtualdaLista.getInscEstadual(),
-                    fornecedorAtualdaLista.getContato(),fornecedorAtualdaLista.getRazaoSocial(),
-                    fornecedorAtualdaLista.getCpf(),fornecedorAtualdaLista.getRg()}));            }
+                    fornecedorAtualdaLista.getDtCadastro(),fornecedorAtualdaLista.getRazaoSocial(),fornecedorAtualdaLista.getStatus()}));}
             
             
             
@@ -40,7 +38,10 @@ public class ControllerBuscaFornecedor implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent acao) {
         if (acao.getSource() == this.foBuscaFornecedor.getjButtonCarregar()){
-           
+           if(this.foBuscaFornecedor.getjTablebusca().getValueAt(this.foBuscaFornecedor.getjTablebusca().getSelectedRow(), 0) != null){
+               this.cadFornecedor.atualizaCampos((int) this.foBuscaFornecedor.getjTablebusca().getValueAt(this.foBuscaFornecedor.getjTablebusca().getSelectedRow(), 0));
+               this.foBuscaFornecedor.dispose();
+           }
         }
         
         if (acao.getSource() == this.foBuscaFornecedor.getjButtonSair()){

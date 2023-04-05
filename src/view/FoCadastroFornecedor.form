@@ -43,8 +43,12 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="pnCentro" alignment="0" max="32767" attributes="0"/>
-          <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
           <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel4" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -53,8 +57,9 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pnCentro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,13 +77,18 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="pnEndereco" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelEmailCadFornecedor" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="tfEmail" alignment="0" min="-2" pref="335" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="tfEmail" pref="335" max="32767" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfContato" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -88,17 +98,17 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tfInscricaoEst" alignment="0" min="-2" pref="214" max="-2" attributes="0"/>
-                              <Component id="jLabelInscrEstadual" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="tfInscricaoEst" min="-2" pref="214" max="-2" attributes="0"/>
+                              <Component id="jLabelInscrEstadual" min="-2" pref="147" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Component id="ftfTelefone1" min="-2" pref="214" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="ftfTelefone2" min="-2" pref="236" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel8" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="jLabel8" min="-2" pref="109" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -136,28 +146,25 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jRadioBtInativo" min="-2" pref="98" max="-2" attributes="0"/>
-                                      <Component id="jRadioBtAtivo" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <Component id="rbInativo" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <Component id="rbAtivo" min="-2" pref="98" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="tfRazaoSocial" min="-2" pref="335" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabelDataCadstroCadFornecedor" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldDataCadastroCadFornecedor" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jFtDataCadastro" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jLabelRazaoSocial" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Component id="jLabelEmailCadFornecedor" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="61" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="pnEndereco" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -170,8 +177,8 @@
                       <Component id="jTextFieldIdCadFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelStatusCadFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelDataCadstroCadFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldDataCadastroCadFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioBtAtivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbAtivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jFtDataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -183,7 +190,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jRadioBtInativo" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbInativo" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -204,13 +211,13 @@
                       <Component id="ftfCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="jLabelOBSCadFornecedor" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="55" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabelInscrEstadual" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -222,14 +229,16 @@
                               <Component id="ftfTelefone1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="ftfTelefone2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabelEmailCadFornecedor" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="tfEmail" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="tfContato" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="55" max="-2" attributes="0"/>
-                      <Component id="tfEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="pnEndereco" min="-2" max="-2" attributes="0"/>
@@ -346,33 +355,30 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="tfBairro" alignment="0" pref="231" max="32767" attributes="0"/>
+                          <Component id="tfBairro" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
                           <Component id="jLabel12" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="jLabelBairro" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
-                          <Component id="ftfCEP" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelEstadoCadFornecedor" min="-2" pref="43" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
+                              <Component id="jCbCep" min="-2" pref="182" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jBtCadCep" min="-2" pref="32" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabellLogradouroCadFornecedor" min="-2" pref="78" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
                               <Component id="jLabelCidadeCadFornecedor" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="tfLogradouro" alignment="0" pref="231" max="32767" attributes="0"/>
-                                      <Component id="tfEstado" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabellLogradouroCadFornecedor" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="tfLogradouro" min="-2" pref="231" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="tfCidade" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabelComplementoCadFornecedor" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
-                                  <Component id="tfComplemento" alignment="0" pref="231" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="tfCidade" min="-2" pref="231" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="tfComplemento" min="-2" pref="231" max="-2" attributes="0"/>
+                          <Component id="jLabelComplementoCadFornecedor" min="-2" pref="94" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -383,25 +389,24 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelEstadoCadFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelCidadeCadFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabellLogradouroCadFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tfEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tfCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ftfCEP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCbCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBtCadCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelBairro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabellLogradouroCadFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelComplementoCadFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="tfBairro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tfComplemento" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
@@ -418,16 +423,6 @@
                 <Property name="text" type="java.lang.String" value="CEP* :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelEstadoCadFornecedor">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Estado:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="tfEstado">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabelCidadeCadFornecedor">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cidade:"/>
@@ -435,7 +430,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfCidade">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelBairro">
@@ -445,7 +440,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfBairro">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabellLogradouroCadFornecedor">
@@ -455,7 +450,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfLogradouro">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelComplementoCadFornecedor">
@@ -465,7 +460,25 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfComplemento">
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="ftfCEP">
+            <Component class="javax.swing.JComboBox" name="jCbCep">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="jBtCadCep">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="+"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -496,12 +509,7 @@
             <Property name="text" type="java.lang.String" value="Data Cadastro : "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldDataCadastroCadFornecedor">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldDataCadastroCadFornecedorActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioBtAtivo">
+        <Component class="javax.swing.JRadioButton" name="rbAtivo">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -510,13 +518,22 @@
             <Property name="text" type="java.lang.String" value="Ativo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioBtInativo">
+        <Component class="javax.swing.JRadioButton" name="rbInativo">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Inativo"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Contato"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfContato">
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="jFtDataCadastro">
         </Component>
       </SubComponents>
     </Container>

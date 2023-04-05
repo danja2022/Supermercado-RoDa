@@ -93,14 +93,14 @@ public class FoBuscaColaborador extends javax.swing.JFrame {
 
         jTablebusca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Descrição", "Status"
+                "ID", "Nome", "Telefone", "Usuario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -110,8 +110,8 @@ public class FoBuscaColaborador extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTablebusca);
         if (jTablebusca.getColumnModel().getColumnCount() > 0) {
             jTablebusca.getColumnModel().getColumn(0).setMaxWidth(25);
-            jTablebusca.getColumnModel().getColumn(1).setMaxWidth(475);
-            jTablebusca.getColumnModel().getColumn(2).setMaxWidth(75);
+            jTablebusca.getColumnModel().getColumn(2).setResizable(false);
+            jTablebusca.getColumnModel().getColumn(3).setResizable(false);
         }
 
         jPanelRodape.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

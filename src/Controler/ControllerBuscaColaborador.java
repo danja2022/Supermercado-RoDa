@@ -1,4 +1,3 @@
-
 package Controler;
 
 import Model.DAO.ColaboradorDAO;
@@ -8,49 +7,42 @@ import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
 import view.FoBuscaColaborador;
 
-
 public class ControllerBuscaColaborador implements ActionListener {
 
     FoBuscaColaborador foBuscaColaborador;
-    
-    public ControllerBuscaColaborador (FoBuscaColaborador foBuscaColaborador){
+    ControllerCadColaborador cadColaborador;
+
+    public ControllerBuscaColaborador(FoBuscaColaborador foBuscaColaborador, ControllerCadColaborador cadColaborador) {
         this.foBuscaColaborador = foBuscaColaborador;
-        
-            
-            foBuscaColaborador.getjButtonCarregar().addActionListener(this);
-            foBuscaColaborador.getjButtonSair().addActionListener(this);
-    
-            //carregar
-            
-            DefaultTableModel tabela = (DefaultTableModel) this.foBuscaColaborador.getjTablebusca().getModel();
-            ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
-            for (Colaborador colaboradorAtualDaLista: colaboradorDAO.retrieve()) {
-            
-            
-                tabela.addRow(new Object[]{colaboradorAtualDaLista.getId(),colaboradorAtualDaLista.getNome(),
-                                           colaboradorAtualDaLista.getFone(),colaboradorAtualDaLista.getFone2(),
-                                           colaboradorAtualDaLista.getComplementoEndereco(),colaboradorAtualDaLista.getEmail(),
-                                           colaboradorAtualDaLista.getDtCadastro(),colaboradorAtualDaLista.getObservacao(),
-                                           colaboradorAtualDaLista.getStatus(),colaboradorAtualDaLista.getLogin(),
-                                           colaboradorAtualDaLista.getSenha()
-                });
-            
-            }
-            
-            
-            
-            
-   
-}
+        this.cadColaborador = cadColaborador;
+
+        foBuscaColaborador.getjButtonCarregar().addActionListener(this);
+        foBuscaColaborador.getjButtonSair().addActionListener(this);
+
+        DefaultTableModel tabela = (DefaultTableModel) this.foBuscaColaborador.getjTablebusca().getModel();
+        ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
+        for (Colaborador colaboradorAtualDaLista : colaboradorDAO.retrieve()) {
+
+            tabela.addRow(new Object[]{colaboradorAtualDaLista.getId(), colaboradorAtualDaLista.getNome(),
+                colaboradorAtualDaLista.getFone(),
+                colaboradorAtualDaLista.getEmail(),
+                colaboradorAtualDaLista.getLogin()
+            });
+        }
+    }
 
     @Override
     public void actionPerformed(ActionEvent acao) {
-        if (acao.getSource() == this.foBuscaColaborador.getjButtonCarregar()){
-           
+        if (acao.getSource() == this.foBuscaColaborador.getjButtonCarregar()) {
+            if (this.foBuscaColaborador.getjTablebusca().getValueAt(this.foBuscaColaborador.getjTablebusca().getSelectedRow(), 0) != null) {
+                this.cadColaborador.atualizaCampos((int) this.foBuscaColaborador.getjTablebusca().getValueAt(this.foBuscaColaborador.getjTablebusca().getSelectedRow(), 0));
+                this.foBuscaColaborador.dispose();
+
+            }
+
         }
-        
-        if (acao.getSource() == this.foBuscaColaborador.getjButtonSair()){
-           this.foBuscaColaborador.dispose();
+        if (acao.getSource() == this.foBuscaColaborador.getjButtonSair()) {
+            this.foBuscaColaborador.dispose();
         }
     }
 }
