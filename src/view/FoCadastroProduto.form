@@ -27,18 +27,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnCentro" alignment="0" max="32767" attributes="0"/>
           <Component id="jPanel4" alignment="1" max="32767" attributes="0"/>
           <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pnCentro" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="pnCentro" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="pnCentro" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jPanel4" min="-2" pref="47" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -72,23 +76,25 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabelDescri" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabelUnidadeCompra" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabelValorCompra" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabelId" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jTextFieldId" min="-2" pref="24" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="jTextFieldUnidadeCompra" alignment="0" max="32767" attributes="0"/>
                                               <Component id="jTextFieldEstoqMin" alignment="0" max="32767" attributes="0"/>
                                               <Component id="jTextFieldBarraEntrada" alignment="1" max="32767" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jComboBoxClasse" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jToggleButtonAddClasse" min="-2" pref="33" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                                  <Component id="jLabelId" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jTextFieldId" min="-2" pref="24" max="-2" attributes="0"/>
+                                                  <Component id="jComboBoxClasse" max="32767" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="btCadClasse" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="jTextFieldNomeDescProd" alignment="0" max="32767" attributes="0"/>
                                               <Component id="jTextFieldValorCompra" alignment="0" pref="246" max="32767" attributes="0"/>
@@ -135,25 +141,27 @@
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="258" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="jComboBoxMarca" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxMarca" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jToggleButtonAddMarca" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btCadMarca" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jTextFieldValorVenda" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
-                      <Component id="jTextFieldUnidadeVenda" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
-                      <Component id="jTextFieldBarraSaida" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="jRadioBtAtivo" min="-2" pref="98" max="-2" attributes="0"/>
-                          <Component id="jTextFieldEstoqMax" min="-2" pref="258" max="-2" attributes="0"/>
-                          <Component id="jRadioBtInativo" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextFieldValorVenda" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
+                              <Component id="jTextFieldUnidadeVenda" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
+                              <Component id="jTextFieldBarraSaida" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="jRadioBtAtivo" min="-2" pref="98" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldEstoqMax" min="-2" pref="258" max="-2" attributes="0"/>
+                                  <Component id="jRadioBtInativo" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jFTextFieldDtCadastro" alignment="1" min="-2" pref="259" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -164,12 +172,12 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboBoxClasse" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jToggleButtonAddClasse" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboBoxMarca" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jToggleButtonAddMarca" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="jLabelId" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btCadClasse" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btCadMarca" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -225,7 +233,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextFieldFatorConversao" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelDataCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jFTextFieldDtCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -245,11 +253,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Data Cadastro:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -369,11 +372,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUnidadeCompraActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButtonAddMarca">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jToggleButton1"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabelUnidadeVenda">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -416,14 +414,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldFatorConversao">
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButtonAddClasse">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="..."/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButtonAddClasseActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldBarraEntrada">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelId">
@@ -448,6 +438,22 @@
               <ComponentRef name="buttonGroup1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Inativo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btCadClasse">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="+"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btCadMarca">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="+"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="jFTextFieldDtCadastro">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -540,7 +546,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="427" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

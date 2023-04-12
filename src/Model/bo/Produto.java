@@ -12,7 +12,7 @@ public class Produto {
     private String undCompra;
     private int fatorConversao;
     private char status;
-    private Date dataCadastro;
+    private String dataCadastro;
     private String barraEntrada;
     private String barraSaida;
     private float estoqueMinimo;
@@ -26,7 +26,7 @@ public class Produto {
     
     
     
-    public Produto(int id, String descricao, float valorCompra, float valorVenda, String undVenda,String undCompra, int fatorConversao, char status, Date dataCadastro, String barraEntrada, String barraSaida, float estoqueMinimo, float estoqueMaximo) {
+    public Produto(int id, String descricao, float valorCompra, float valorVenda, String undVenda,String undCompra, int fatorConversao, char status, String dataCadastro, String barraEntrada, String barraSaida, float estoqueMinimo, float estoqueMaximo) {
         this.id = id;
         this.descricao = descricao;
         this.valorCompra = valorCompra;
@@ -43,7 +43,7 @@ public class Produto {
     }
 
     public Produto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     public String getUndCompra() {
@@ -111,11 +111,11 @@ public class Produto {
         this.status = status;
     }
 
-    public Date getDataCadastro() {
+    public String getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
+    public void setDataCadastro(String dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 
@@ -151,6 +151,24 @@ public class Produto {
         this.estoqueMaximo = estoqueMaximo;
     }
 
+    public Classe getClasse() {
+        return classe;
+    }
+
+    public void setClasse(Classe classe) {
+        this.classe = classe;
+    }
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "Produto{" + "id=" + id + ", descricao=" + descricao + ", valorCompra=" + valorCompra + ", valorVenda=" + valorVenda + ", undVenda=" + undVenda + ", fatorConversao=" + fatorConversao + ", status=" + status + ", dataCadastro=" + dataCadastro + ", barraEntrada=" + barraEntrada + ", barraSaida=" + barraSaida + ", estoqueMinimo=" + estoqueMinimo + ", estoqueMaximo=" + estoqueMaximo + '}';

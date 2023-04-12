@@ -192,9 +192,14 @@ public class FormMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemSairActionPerformed
 
     private void jMenuItemCadProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadProdutoActionPerformed
-        FoCadastroProduto telaCadProduto = new FoCadastroProduto();
-        ControllerCadastroProduto controllerCadastroProduto = new ControllerCadastroProduto(telaCadProduto) {};
-        telaCadProduto.setVisible(true);
+        FoCadastroProduto telaCadProduto;
+        try {
+            telaCadProduto = new FoCadastroProduto();
+            ControllerCadastroProduto controllerCadastroProduto = new ControllerCadastroProduto(telaCadProduto) {};
+            telaCadProduto.setVisible(true);
+        } catch (ParseException ex) {
+            Logger.getLogger(FormMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }   
     }//GEN-LAST:event_jMenuItemCadProdutoActionPerformed
 
     private void jMenuItemBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBairroActionPerformed

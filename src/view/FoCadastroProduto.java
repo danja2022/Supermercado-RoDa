@@ -6,6 +6,9 @@
 package view;
 
 import java.awt.Component;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -15,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -25,9 +29,15 @@ public class FoCadastroProduto extends javax.swing.JFrame {
     /**
      * Creates new form ClasseExcluir
      */
-    public FoCadastroProduto() {
+    public FoCadastroProduto() throws ParseException {
         
         initComponents();
+        
+        MaskFormatter data = new MaskFormatter();
+        data.setMask("##/##/####");
+        
+        data.install(jFTextFieldDtCadastro);
+        
     }
 
     public JButton getBtBuscar() {
@@ -86,14 +96,15 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         this.jTextFieldBarraSaida = jTextFieldBarraSaida;
     }
 
-    public JTextField getjTextFieldDtCadastro() {
-        return jTextField1;
+    public JFormattedTextField getjFTextFieldDtCadastro() {
+        return jFTextFieldDtCadastro;
     }
 
-    public void setjTextFieldDtCadastro(JTextField jTextFieldDtCadastro) {
-        this.jTextField1 = jTextFieldDtCadastro;
+    public void setjFTextFieldDtCadastro(JFormattedTextField jFTextFieldDtCadastro) {
+        this.jFTextFieldDtCadastro = jFTextFieldDtCadastro;
     }
 
+    
     public JTextField getjTextFieldEstoqMax() {
         return jTextFieldEstoqMax;
     }
@@ -205,6 +216,38 @@ public class FoCadastroProduto extends javax.swing.JFrame {
     public void setjRadioBtInativo(JRadioButton jRadioBtInativo) {
         this.jRadioBtInativo = jRadioBtInativo;
     }
+
+    public JComboBox<String> getjComboBoxClasse() {
+        return jComboBoxClasse;
+    }
+
+    public void setjComboBoxClasse(JComboBox<String> jComboBoxClasse) {
+        this.jComboBoxClasse = jComboBoxClasse;
+    }
+
+    public JComboBox<String> getjComboBoxMarca() {
+        return jComboBoxMarca;
+    }
+
+    public void setjComboBoxMarca(JComboBox<String> jComboBoxMarca) {
+        this.jComboBoxMarca = jComboBoxMarca;
+    }
+
+    public JButton getBtCadClasse() {
+        return btCadClasse;
+    }
+
+    public void setBtCadClasse(JButton btCadClasse) {
+        this.btCadClasse = btCadClasse;
+    }
+
+    public JButton getBtCadMarca() {
+        return btCadMarca;
+    }
+
+    public void setBtCadMarca(JButton btCadMarca) {
+        this.btCadMarca = btCadMarca;
+    }
     
     
     public void ativa (boolean estadoComponente){
@@ -236,6 +279,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
             //    ((JScrollPane)componente).get
        // }
             componente.setEnabled(estadoComponente);
+            jTextFieldId.setEnabled(false);
         }
     
     }
@@ -248,7 +292,6 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         pnCentro = new javax.swing.JPanel();
         jLabelDataCadastro = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jComboBoxClasse = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -265,7 +308,6 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         jTextFieldEstoqMax = new javax.swing.JTextField();
         jTextFieldBarraSaida = new javax.swing.JTextField();
         jTextFieldUnidadeCompra = new javax.swing.JTextField();
-        jToggleButtonAddMarca = new javax.swing.JToggleButton();
         jLabelUnidadeVenda = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldUnidadeVenda = new javax.swing.JTextField();
@@ -275,12 +317,14 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         jTextFieldValorVenda = new javax.swing.JTextField();
         jLabelFatorConversao = new javax.swing.JLabel();
         jTextFieldFatorConversao = new javax.swing.JTextField();
-        jToggleButtonAddClasse = new javax.swing.JToggleButton();
         jTextFieldBarraEntrada = new javax.swing.JTextField();
         jLabelId = new javax.swing.JLabel();
         jTextFieldId = new javax.swing.JTextField();
         jRadioBtAtivo = new javax.swing.JRadioButton();
         jRadioBtInativo = new javax.swing.JRadioButton();
+        btCadClasse = new javax.swing.JButton();
+        btCadMarca = new javax.swing.JButton();
+        jFTextFieldDtCadastro = new javax.swing.JFormattedTextField();
         jPanel4 = new javax.swing.JPanel();
         btNovo = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
@@ -296,12 +340,6 @@ public class FoCadastroProduto extends javax.swing.JFrame {
 
         jLabelDataCadastro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelDataCadastro.setText("Data Cadastro:");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Classe:");
@@ -346,8 +384,6 @@ public class FoCadastroProduto extends javax.swing.JFrame {
             }
         });
 
-        jToggleButtonAddMarca.setText("jToggleButton1");
-
         jLabelUnidadeVenda.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelUnidadeVenda.setText("Unidade Venda:");
 
@@ -360,13 +396,6 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         jLabelFatorConversao.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelFatorConversao.setText("Fator Conversão:");
 
-        jToggleButtonAddClasse.setText("...");
-        jToggleButtonAddClasse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButtonAddClasseActionPerformed(evt);
-            }
-        });
-
         jLabelId.setText("Id:");
 
         buttonGroup1.add(jRadioBtAtivo);
@@ -375,6 +404,13 @@ public class FoCadastroProduto extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioBtInativo);
         jRadioBtInativo.setText("Inativo");
+
+        btCadClasse.setText("+");
+
+        btCadMarca.setText("+");
+        btCadMarca.setToolTipText("");
+
+        jFTextFieldDtCadastro.setEditable(false);
 
         javax.swing.GroupLayout pnCentroLayout = new javax.swing.GroupLayout(pnCentro);
         pnCentro.setLayout(pnCentroLayout);
@@ -393,22 +429,23 @@ public class FoCadastroProduto extends javax.swing.JFrame {
                                     .addGroup(pnCentroLayout.createSequentialGroup()
                                         .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabelDescri)
-                                            .addComponent(jLabel3)
                                             .addComponent(jLabelUnidadeCompra)
-                                            .addComponent(jLabelValorCompra))
+                                            .addComponent(jLabelValorCompra)
+                                            .addGroup(pnCentroLayout.createSequentialGroup()
+                                                .addComponent(jLabelId)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(39, 39, 39)
                                         .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(jTextFieldUnidadeCompra, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextFieldEstoqMin, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextFieldBarraEntrada)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnCentroLayout.createSequentialGroup()
-                                                .addComponent(jComboBoxClasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jToggleButtonAddClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(34, 34, 34)
-                                                .addComponent(jLabelId)
+                                            .addGroup(pnCentroLayout.createSequentialGroup()
+                                                .addComponent(jLabel3)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jComboBoxClasse, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btCadClasse))
                                             .addComponent(jTextFieldNomeDescProd, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextFieldValorCompra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)))
                                     .addComponent(jLabelBarraEntrada)
@@ -439,21 +476,22 @@ public class FoCadastroProduto extends javax.swing.JFrame {
                         .addGap(156, 156, 156)))
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnCentroLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnCentroLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jComboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButtonAddMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextFieldValorVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldUnidadeVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldBarraSaida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jRadioBtAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldEstoqMax, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jRadioBtInativo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btCadMarca)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnCentroLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldValorVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldUnidadeVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldBarraSaida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioBtAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldEstoqMax, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jRadioBtInativo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jFTextFieldDtCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         pnCentroLayout.setVerticalGroup(
             pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,12 +500,12 @@ public class FoCadastroProduto extends javax.swing.JFrame {
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jComboBoxClasse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButtonAddClasse)
                     .addComponent(jLabel4)
                     .addComponent(jComboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButtonAddMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelId)
-                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCadClasse)
+                    .addComponent(btCadMarca))
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnCentroLayout.createSequentialGroup()
                         .addGap(34, 34, 34)
@@ -512,7 +550,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
                         .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldFatorConversao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelDataCadastro)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jFTextFieldDtCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
                         .addComponent(jLabel5))
                     .addComponent(jLabelFatorConversao, javax.swing.GroupLayout.Alignment.LEADING))
@@ -581,7 +619,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(268, 268, 268)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(427, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -595,17 +633,20 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnCentro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnCentro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -634,10 +675,6 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         ativa(false);
     }//GEN-LAST:event_btSairActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jTextFieldUnidadeCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUnidadeCompraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUnidadeCompraActionPerformed
@@ -645,10 +682,6 @@ public class FoCadastroProduto extends javax.swing.JFrame {
     private void jTextFieldNomeDescProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeDescProdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeDescProdActionPerformed
-
-    private void jToggleButtonAddClasseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAddClasseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButtonAddClasseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -682,12 +715,18 @@ public class FoCadastroProduto extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new FoCadastroProduto().setVisible(true);
+            try {
+                new FoCadastroProduto().setVisible(true);
+            } catch (ParseException ex) {
+                Logger.getLogger(FoCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscar;
+    private javax.swing.JButton btCadClasse;
+    private javax.swing.JButton btCadMarca;
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSair;
@@ -695,6 +734,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> jComboBoxClasse;
     private javax.swing.JComboBox<String> jComboBoxMarca;
+    private javax.swing.JFormattedTextField jFTextFieldDtCadastro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -716,7 +756,6 @@ public class FoCadastroProduto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioBtAtivo;
     private javax.swing.JRadioButton jRadioBtInativo;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldBarraEntrada;
     private javax.swing.JTextField jTextFieldBarraSaida;
     private javax.swing.JTextField jTextFieldEstoqMax;
@@ -728,8 +767,6 @@ public class FoCadastroProduto extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldUnidadeVenda;
     private javax.swing.JTextField jTextFieldValorCompra;
     private javax.swing.JTextField jTextFieldValorVenda;
-    private javax.swing.JToggleButton jToggleButtonAddClasse;
-    private javax.swing.JToggleButton jToggleButtonAddMarca;
     private javax.swing.JPanel pnCentro;
     // End of variables declaration//GEN-END:variables
 }

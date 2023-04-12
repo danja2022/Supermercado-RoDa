@@ -12,7 +12,7 @@ public class ConnectionFactory {
     private static final String driver = "com.mysql.jdbc.Driver";
     private static final String banco = "jdbc:mysql://localhost:3306/retaguarda";
     private static final String user = "root";
-    private static final String senha = "$@Lame123";
+    private static final String senha = "$@lame123";
 
     public static Connection getConnection() {
         //MysqlDataSource mySqlDataSource;
