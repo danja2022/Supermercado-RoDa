@@ -53,6 +53,7 @@ public final class FoCadastroFornecedor extends javax.swing.JFrame {
         btBuscar.setEnabled(estadoComponente);
         btCancelar.setEnabled(!estadoComponente);
         btSair.setEnabled(estadoComponente);
+        btDeletar.setEnabled(!estadoComponente);
 
     }
 
@@ -71,7 +72,6 @@ public final class FoCadastroFornecedor extends javax.swing.JFrame {
     public void setjTextArea1(JTextArea jTextArea1) {
         this.jTextArea1 = jTextArea1;
     }
-
 
     public JTextField getTfContato() {
         return tfContato;
@@ -129,8 +129,6 @@ public final class FoCadastroFornecedor extends javax.swing.JFrame {
         this.jCbCep = jCbCep;
     }
 
-  
-
     public JButton getjBtCadCep() {
         return jBtCadCep;
     }
@@ -138,9 +136,6 @@ public final class FoCadastroFornecedor extends javax.swing.JFrame {
     public void setjBtCadCep(JButton jBtCadCep) {
         this.jBtCadCep = jBtCadCep;
     }
-
-    
-    
 
     public JFormattedTextField getFtfCNPJ() {
         return ftfCNPJ;
@@ -277,7 +272,14 @@ public final class FoCadastroFornecedor extends javax.swing.JFrame {
     public void setRbInativo(JRadioButton rbInativo) {
         this.rbInativo = rbInativo;
     }
-    
+
+    public JButton getBtDeletar() {
+        return btDeletar;
+    }
+
+    public void setBtDeletar(JButton btDeletar) {
+        this.btDeletar = btDeletar;
+    }
 
     public void ligaDesliga(boolean estadoComponente) {
 
@@ -355,6 +357,7 @@ public final class FoCadastroFornecedor extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
         btBuscar = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
+        btDeletar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -644,7 +647,7 @@ public final class FoCadastroFornecedor extends javax.swing.JFrame {
         });
         jPanel4.add(btSalvar);
 
-        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.setEnabled(false);
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -671,6 +674,11 @@ public final class FoCadastroFornecedor extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btSair);
+
+        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btDeletar.setText("Deletar");
+        btDeletar.setEnabled(false);
+        jPanel4.add(btDeletar);
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -784,6 +792,7 @@ public final class FoCadastroFornecedor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscar;
     private javax.swing.JButton btCancelar;
+    private javax.swing.JButton btDeletar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSalvar;

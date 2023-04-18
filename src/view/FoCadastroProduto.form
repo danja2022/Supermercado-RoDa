@@ -146,20 +146,15 @@
                           <Component id="btCadMarca" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldValorVenda" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
-                              <Component id="jTextFieldUnidadeVenda" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
-                              <Component id="jTextFieldBarraSaida" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="jRadioBtAtivo" min="-2" pref="98" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldEstoqMax" min="-2" pref="258" max="-2" attributes="0"/>
-                                  <Component id="jRadioBtInativo" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jFTextFieldDtCadastro" alignment="1" min="-2" pref="259" max="-2" attributes="0"/>
-                          </Group>
+                      <Component id="jTextFieldValorVenda" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
+                      <Component id="jTextFieldUnidadeVenda" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
+                      <Component id="jTextFieldBarraSaida" alignment="1" min="-2" pref="258" max="-2" attributes="0"/>
+                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                          <Component id="jRadioBtAtivo" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEstoqMax" min="-2" pref="258" max="-2" attributes="0"/>
+                          <Component id="jRadioBtInativo" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jFTextFieldDtCadastro" alignment="1" min="-2" pref="259" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -495,7 +490,7 @@
         <Component class="javax.swing.JButton" name="btCancelar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/Delete.png"/>
+              <Image iconType="3" name="/imagens/Cancel.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
             <Property name="enabled" type="boolean" value="false"/>
@@ -525,6 +520,15 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSairActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btDeletar">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/Delete.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Deletar"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

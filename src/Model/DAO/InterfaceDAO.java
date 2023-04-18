@@ -11,7 +11,7 @@ public interface InterfaceDAO <T> {
     public abstract T retrieve(String descricao);
     public abstract List<T> retrieve();
     public abstract void update(T objeto);
-    public abstract void delete(T objeto);
+    public abstract int delete(T objeto);
     
     
 }

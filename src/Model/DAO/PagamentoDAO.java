@@ -32,7 +32,7 @@ public class PagamentoDAO implements InterfaceDAO<Pagamento> {
     }
 
     @Override
-    public void delete(Pagamento objeto) {
+    public int delete(Pagamento objeto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

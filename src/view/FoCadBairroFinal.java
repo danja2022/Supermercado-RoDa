@@ -1,4 +1,3 @@
-
 package view;
 
 import java.awt.Component;
@@ -21,12 +20,10 @@ public class FoCadBairroFinal extends javax.swing.JFrame {
      * Creates new form ObjetoCadastro
      */
     public FoCadBairroFinal() {
-        
+
         initComponents();
     }
 
-  
-    
     public JButton getBtBuscar() {
         return btBuscar;
     }
@@ -75,8 +72,6 @@ public class FoCadBairroFinal extends javax.swing.JFrame {
         this.pnCentro = pnCentro;
     }
 
-
-    
     public JTextField getjTextFieldBairro() {
         return jTextFieldBairro;
     }
@@ -93,44 +88,44 @@ public class FoCadBairroFinal extends javax.swing.JFrame {
         this.jTextFieldId = jTextFieldId;
     }
 
-    
-    
-    public void ativa (boolean estadoComponente){
+    public JButton getBtDeletar() {
+        return btDeletar;
+    }
+
+    public void setBtDeletar(JButton btDeletar) {
+        this.btDeletar = btDeletar;
+    }
+
+    public void ativa(boolean estadoComponente) {
         btNovo.setEnabled(estadoComponente);
         btSalvar.setEnabled(!estadoComponente);
         btBuscar.setEnabled(estadoComponente);
         btCancelar.setEnabled(!estadoComponente);
         btSair.setEnabled(estadoComponente);
-      
+        btDeletar.setEnabled(!estadoComponente);
     }
-    
-    public void ligaDesliga (boolean estadoComponente){
-    
+
+    public void ligaDesliga(boolean estadoComponente) {
+
         Component[] componentes = pnCentro.getComponents();
-       
-        
-        for (Component componente : componentes ) {
-            if(componente instanceof JTextField){
-                ((JTextField)componente).setText("");
-        }
-            else if (componente instanceof JFormattedTextField){
-                ((JFormattedTextField)componente).setText ("");
-        }
-            else if (componente instanceof JTextArea){
-               ((JTextArea)componente).setText ("");     
-        }
-            else if (componente instanceof JComboBox){
-                ((JComboBox)componente).setSelectedIndex(0);
-                    }
-           else if (componente instanceof JScrollPane){
-            ((JScrollPane)componente).getClass();
-       }
+
+        for (Component componente : componentes) {
+            if (componente instanceof JTextField) {
+                ((JTextField) componente).setText("");
+            } else if (componente instanceof JFormattedTextField) {
+                ((JFormattedTextField) componente).setText("");
+            } else if (componente instanceof JTextArea) {
+                ((JTextArea) componente).setText("");
+            } else if (componente instanceof JComboBox) {
+                ((JComboBox) componente).setSelectedIndex(0);
+            } else if (componente instanceof JScrollPane) {
+                ((JScrollPane) componente).getClass();
+            }
             componente.setEnabled(estadoComponente);
         }
-    
+
     }
-  
-   
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -146,6 +141,7 @@ public class FoCadBairroFinal extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
         btBuscar = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
+        btDeletar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -209,7 +205,7 @@ public class FoCadBairroFinal extends javax.swing.JFrame {
         });
         jPanel4.add(btSalvar);
 
-        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.setEnabled(false);
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -236,6 +232,11 @@ public class FoCadBairroFinal extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btSair);
+
+        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btDeletar.setText("Deletar");
+        btDeletar.setEnabled(false);
+        jPanel4.add(btDeletar);
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -283,15 +284,15 @@ public class FoCadBairroFinal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-       
+
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        
+
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        
+
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
@@ -345,6 +346,7 @@ public class FoCadBairroFinal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscar;
     private javax.swing.JButton btCancelar;
+    private javax.swing.JButton btDeletar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSalvar;

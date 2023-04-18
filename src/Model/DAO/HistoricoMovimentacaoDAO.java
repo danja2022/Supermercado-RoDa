@@ -33,7 +33,7 @@ public class HistoricoMovimentacaoDAO implements InterfaceDAO<HistoricoMovimenta
     }
 
     @Override
-    public void delete(HistoricoMovimentacao objeto) {
+    public int delete(HistoricoMovimentacao objeto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -27,6 +27,7 @@ public class ControllerCadCliente implements ActionListener {
         telaCadCliente.getBtSair().addActionListener(this);
         telaCadCliente.getjComboBoxCep().addActionListener(this);
         telaCadCliente.getjBtCadCep().addActionListener(this);
+        telaCadCliente.getBtDeletar().addActionListener(this);
 
         telaCadCliente.ativa(true);
         telaCadCliente.ligaDesliga(false);
@@ -251,6 +252,20 @@ public class ControllerCadCliente implements ActionListener {
             FoCadastroEndereco telaCadEndereco = new FoCadastroEndereco();
             ControllerCadEndereco cadEndereco = new ControllerCadEndereco(telaCadEndereco, this);
             telaCadEndereco.setVisible(true);
+        }else if(acao.getSource() == telaCadCliente.getBtDeletar()){
+            if (!telaCadCliente.getjTfId().getText().trim().equalsIgnoreCase("")){
+                Cliente cliente = new Cliente();
+                ClienteDAO clienteDAO = new ClienteDAO();
+                cliente = clienteDAO.retrieve(Integer.parseInt(telaCadCliente.getjTfId().getText()));
+                
+                if(clienteDAO.delete(cliente) == -1){
+                    JOptionPane.showMessageDialog(null, "Erro ao deletar.");
+                }else {
+                    telaCadCliente.ativa(true);
+                    telaCadCliente.ligaDesliga(false);
+                    setComboBox();
+                }
+            }
         }
 
     }

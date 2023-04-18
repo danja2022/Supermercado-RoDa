@@ -33,7 +33,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
     }
 
     @Override
-    public void delete(CondicaoPgto objeto) {
+    public int delete(CondicaoPgto objeto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

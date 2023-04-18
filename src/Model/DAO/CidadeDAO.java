@@ -140,7 +140,7 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
     }
 
     @Override
-    public void delete(Cidade objeto) {
+    public int delete(Cidade objeto) {
         Connection conexao = ConnectionFactory.getConnection();
         String sqlExecutar = "DELETE FROM cidade WHERE id = ?";
         PreparedStatement pstm = null;
@@ -149,10 +149,14 @@ public class CidadeDAO implements InterfaceDAO<Cidade> {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setInt(1, objeto.getId());
             pstm.executeUpdate();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return -1;
         }
-        ConnectionFactory.closeConnection(conexao, pstm);
+        
 
     }
 

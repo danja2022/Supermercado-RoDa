@@ -135,7 +135,7 @@ public class ClasseDAO implements InterfaceDAO<Classe> {
     }
 
     @Override
-    public void delete(Classe objeto) {
+    public int delete(Classe objeto) {
         Connection conexao = ConnectionFactory.getConnection();
         String sqlExecutar = "DELETE FROM classe WHERE id = ?";
         PreparedStatement pstm = null;
@@ -144,10 +144,14 @@ public class ClasseDAO implements InterfaceDAO<Classe> {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setInt(1, objeto.getId());
             pstm.executeUpdate();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return -1;
         }
-        ConnectionFactory.closeConnection(conexao, pstm);
+        
 
     }
 

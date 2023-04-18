@@ -33,7 +33,7 @@ public class PagarDAO implements InterfaceDAO<Pagar> {
     }
 
     @Override
-    public void delete(Pagar objeto) {
+    public int delete(Pagar objeto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

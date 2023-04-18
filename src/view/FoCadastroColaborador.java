@@ -28,6 +28,7 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
 
     /**
      * Creates new form ClasseExcluir
+     *
      * @throws java.text.ParseException
      */
     public FoCadastroColaborador() throws ParseException {
@@ -43,236 +44,235 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         maskData.install(FtDataCadastro);
         
     }
-
     
-    public void ativa (boolean estadoComponente){
+    public void ativa(boolean estadoComponente) {
         btNovo.setEnabled(estadoComponente);
         btSalvar.setEnabled(!estadoComponente);
         btBuscar.setEnabled(estadoComponente);
         btCancelar.setEnabled(!estadoComponente);
-        btSair.setEnabled(estadoComponente);
-      
+        btSair.setEnabled(!estadoComponente);
+        btDeletar.setEnabled(!estadoComponente);
     }
     
-
     public JButton getBtBuscar() {
         return btBuscar;
     }
-
+    
     public void setBtBuscar(JButton btBuscar) {
         this.btBuscar = btBuscar;
     }
-
+    
     public JButton getBtCancelar() {
         return btCancelar;
     }
-
+    
     public void setBtCancelar(JButton btCancelar) {
         this.btCancelar = btCancelar;
     }
-
+    
     public JButton getBtNovo() {
         return btNovo;
     }
-
+    
     public void setBtNovo(JButton btNovo) {
         this.btNovo = btNovo;
     }
-
+    
     public JButton getBtSair() {
         return btSair;
     }
-
+    
     public void setBtSair(JButton btSair) {
         this.btSair = btSair;
     }
-
+    
     public JButton getBtSalvar() {
         return btSalvar;
     }
-
+    
     public void setBtSalvar(JButton btSalvar) {
         this.btSalvar = btSalvar;
     }
-
-
+    
     public JFormattedTextField getFtfTelefone1() {
         return ftfTelefone1;
     }
-
+    
     public void setFtfTelefone1(JFormattedTextField ftfTelefone1) {
         this.ftfTelefone1 = ftfTelefone1;
     }
-
+    
     public JFormattedTextField getFtfTelefone2() {
         return ftfTelefone2;
     }
-
+    
     public void setFtfTelefone2(JFormattedTextField ftfTelefone2) {
         this.ftfTelefone2 = ftfTelefone2;
     }
-
+    
     public JPanel getPnCentro() {
         return pnCentro;
     }
-
+    
     public void setPnCentro(JPanel pnCentro) {
         this.pnCentro = pnCentro;
     }
-
+    
     public JTextField getTfBairro() {
         return tfBairro;
     }
-
+    
     public void setTfBairro(JTextField tfBairro) {
         this.tfBairro = tfBairro;
     }
-
+    
     public JTextField getTfCidade() {
         return tfCidade;
     }
-
+    
     public void setTfCidade(JTextField tfCidade) {
         this.tfCidade = tfCidade;
     }
-
+    
     public JTextField getTfComplemento() {
         return tfComplemento;
     }
-
+    
     public void setTfComplemento(JTextField tfComplemento) {
         this.tfComplemento = tfComplemento;
     }
-
+    
     public JTextField getTfEmail() {
         return tfEmail;
     }
-
+    
     public void setTfEmail(JTextField tfEmail) {
         this.tfEmail = tfEmail;
     }
-
-
+    
     public JTextField getTfLogradouro() {
         return tfLogradouro;
     }
-
+    
     public void setTfLogradouro(JTextField tfLogradouro) {
         this.tfLogradouro = tfLogradouro;
     }
-
+    
     public JTextField getTfNome() {
         return tfNome;
     }
-
+    
     public void setTfNome(JTextField tfNome) {
         this.tfNome = tfNome;
     }
-
+    
     public JTextField getTfUsuario() {
         return tfUsuario;
     }
-
+    
     public void setTfUsuario(JTextField tfUsuario) {
         this.tfUsuario = tfUsuario;
     }
-
+    
     public JRadioButton getjRadioBtAtivo() {
         return jRadioBtAtivo;
     }
-
+    
     public void setjRadioBtAtivo(JRadioButton jRadioBtAtivo) {
         this.jRadioBtAtivo = jRadioBtAtivo;
     }
-
+    
     public JRadioButton getjRadioBtInativo() {
         return jRadioBtInativo;
     }
-
+    
     public void setjRadioBtInativo(JRadioButton jRadioBtInativo) {
         this.jRadioBtInativo = jRadioBtInativo;
     }
-
+    
     public JPasswordField getPfSenha() {
         return pfSenha;
     }
-
+    
     public void setPfSenha(JPasswordField pfSenha) {
         this.pfSenha = pfSenha;
     }
-
+    
     public JPasswordField getPfSenhaConfirm() {
         return pfSenhaConfirm;
     }
-
+    
     public void setPfSenhaConfirm(JPasswordField pfSenhaConfirm) {
         this.pfSenhaConfirm = pfSenhaConfirm;
     }
-
+    
     public JButton getBtCadCep() {
         return BtCadCep;
     }
-
+    
     public void setBtCadCep(JButton BtCadCep) {
         this.BtCadCep = BtCadCep;
     }
-
+    
     public JFormattedTextField getFtDataCadastro() {
         return FtDataCadastro;
     }
-
+    
     public void setFtDataCadastro(JFormattedTextField FtDataCadastro) {
         this.FtDataCadastro = FtDataCadastro;
     }
-
+    
     public JComboBox<String> getjCbCep() {
         return jCbCep;
     }
-
+    
     public void setjCbCep(JComboBox<String> jCbCep) {
         this.jCbCep = jCbCep;
     }
-
+    
     public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
-
+    
     public void setjScrollPane1(JScrollPane jScrollPane1) {
         this.jScrollPane1 = jScrollPane1;
     }
-
+    
     public JTextArea getjTextArea1() {
         return jTextArea1;
     }
-
+    
     public void setjTextArea1(JTextArea jTextArea1) {
         this.jTextArea1 = jTextArea1;
     }
-
+    
     public JTextField gettFId() {
         return tFId;
     }
-
+    
     public void settFId(JTextField tFId) {
         this.tFId = tFId;
     }
     
+    public JButton getBtDeletar() {
+        return btDeletar;
+    }
     
+    public void setBtDeletar(JButton btDeletar) {
+        this.btDeletar = btDeletar;
+    }
     
-    
-    public void ligaDesliga (boolean estadoComponente){
-    
+    public void ligaDesliga(boolean estadoComponente) {
+        
         Component[] componentes = pnCentro.getComponents();
-        for (Component componente : componentes ) {
-            if(componente instanceof JTextField){
-                ((JTextField)componente).setText("");
-        }
-            else if (componente instanceof JFormattedTextField){
-                ((JFormattedTextField)componente).setText ("");
-        }
-            else if (componente instanceof JComboBox){
-                ((JComboBox)componente).setSelectedIndex(0);
-        }   else if (componente instanceof JScrollPane) {
+        for (Component componente : componentes) {
+            if (componente instanceof JTextField) {
+                ((JTextField) componente).setText("");
+            } else if (componente instanceof JFormattedTextField) {
+                ((JFormattedTextField) componente).setText("");
+            } else if (componente instanceof JComboBox) {
+                ((JComboBox) componente).setSelectedIndex(0);
+            } else if (componente instanceof JScrollPane) {
                 ((JScrollPane) componente).setViewportView(jTextArea1 = new JTextArea("", 5, 5));
             }
             componente.setEnabled(estadoComponente);
@@ -280,8 +280,7 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         tfComplemento.setEnabled(estadoComponente);
         tFId.setEnabled(false);
     }
-  
-   
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -330,6 +329,7 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
         btBuscar = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
+        btDeletar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabelTituloCadColaborador = new javax.swing.JLabel();
 
@@ -592,7 +592,7 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         });
         jPanel4.add(btSalvar);
 
-        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.setEnabled(false);
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -619,6 +619,11 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btSair);
+
+        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btDeletar.setText("Deletar");
+        btDeletar.setEnabled(false);
+        jPanel4.add(btDeletar);
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -666,15 +671,15 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
-      
+
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-      
+
     }//GEN-LAST:event_btSalvarActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-      
+
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
@@ -734,6 +739,7 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField FtDataCadastro;
     private javax.swing.JButton btBuscar;
     private javax.swing.JButton btCancelar;
+    private javax.swing.JButton btDeletar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSalvar;

@@ -33,7 +33,7 @@ public class ItensCompraDAO implements InterfaceDAO<ItensCompra> {
     }
 
     @Override
-    public void delete(ItensCompra objeto) {
+    public int delete(ItensCompra objeto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
