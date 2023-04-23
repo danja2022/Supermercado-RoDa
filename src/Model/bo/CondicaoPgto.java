@@ -23,6 +23,7 @@ public class CondicaoPgto {
         this.status = status;
     }
 
+    
     public int getId() {
         return id;
     }
