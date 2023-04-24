@@ -50,7 +50,7 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         btSalvar.setEnabled(!estadoComponente);
         btBuscar.setEnabled(estadoComponente);
         btCancelar.setEnabled(!estadoComponente);
-        btSair.setEnabled(!estadoComponente);
+        btSair.setEnabled(estadoComponente);
         btDeletar.setEnabled(!estadoComponente);
     }
     

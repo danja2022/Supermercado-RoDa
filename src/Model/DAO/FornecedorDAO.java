@@ -57,7 +57,7 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
     @Override
     public Fornecedor retrieve(int codigo) {
           Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, nome, fone1, fone2, complementoEndereco, email, dataCadastro, observacao, status, cnpj, cpf, rg,inscEstadual, contato, razaoSocial, endereco_id "
+        String sqlExecutar = "SELECT id, nome, fone1, fone2, complementoEndereco, email, dataCadastro, observacao, status, cnpj, cpf, rg,inscEstadual, contato, razaoSocial, endereco_id"
                 + " FROM fornecedor"
                 + " WHERE id = ?";
         
@@ -142,7 +142,7 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
             fornecedor.setRazaoSocial(rst.getString("razaoSocial"));
             Endereco endereco = new Endereco();
             EnderecoDAO enderecoDAO = new EnderecoDAO();
-            endereco = enderecoDAO.retrieve(fornecedor.getId());
+            endereco = enderecoDAO.retrieve(rst.getInt("endereco_id"));
             fornecedor.setEndereco(endereco);
             
            }
@@ -192,7 +192,7 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
             fornecedor.setRazaoSocial(rst.getString("razaoSocial"));
             Endereco endereco = new Endereco();
             EnderecoDAO enderecoDAO = new EnderecoDAO();
-            endereco = enderecoDAO.retrieve(fornecedor.getId());
+            endereco = enderecoDAO.retrieve(rst.getInt("endereco_id"));
             fornecedor.setEndereco(endereco);
             
             listaFornecedor.add(fornecedor);
