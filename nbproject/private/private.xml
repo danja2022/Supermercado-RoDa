@@ -6,13 +6,16 @@
             <file>file:/home/rodrigo/Documents/MercadoRoda/src/Controler/ControllerCadFornecedor.java</file>
             <file>file:/home/rodrigo/Documents/MercadoRoda/src/Controler/ControllerCadCliente.java</file>
             <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/FornecedorDAO.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/ColaboradorDAO.java</file>
             <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/ClienteDAO.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Controler/ControllerCadColaborador.java</file>
             <file>file:/home/rodrigo/Documents/MercadoRoda/src/view/FoCadastroColaborador.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/EnderecoDAO.java</file>
+            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/ClasseDAO.java</file>
+            <file>file:/home/rodrigo/Documents/MercadoRoda/src/view/FoCadastroProduto.java</file>
             <file>file:/home/rodrigo/Documents/MercadoRoda/src/Controler/ControllerBuscaCliente.java</file>
             <file>file:/home/rodrigo/Documents/MercadoRoda/src/Controler/ControllerBuscaFornecedor.java</file>
+            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/ColaboradorDAO.java</file>
+            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/CondicaoPgtoDAO.java</file>
+            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Controler/ControllerCadColaborador.java</file>
+            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/EnderecoDAO.java</file>
         </group>
     </open-files>
 </project-private>

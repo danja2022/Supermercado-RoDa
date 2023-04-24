@@ -126,6 +126,7 @@ public class ClienteDAO implements InterfaceDAO<Cliente> {
                 Endereco endereco = new Endereco();
                 EnderecoDAO enderecoDAO = new EnderecoDAO();
                 endereco = enderecoDAO.retrieve(rst.getInt("endereco_id"));
+
                 cliente.setEndereco(endereco);
                 cliente.setSexo(rst.getString("sexo").charAt(0));
             }

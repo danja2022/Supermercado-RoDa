@@ -9,6 +9,7 @@ import Controler.ControllerCadMarca;
 import Controler.ControllerCadastroProduto;
 import Controler.ControllerCadCliente;
 import Controler.ControllerCadColaborador;
+import Controler.ControllerCadCondPag;
 import Controler.ControllerCadFornecedor;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -39,8 +40,11 @@ public class FormMenuPrincipal extends javax.swing.JFrame {
         jMenuColaborador = new javax.swing.JMenuItem();
         jMenuFornecedor = new javax.swing.JMenuItem();
         jMenuCliente = new javax.swing.JMenuItem();
-        jMenuItemSair = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        jMenuConPag = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        jMenuItemSair = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
@@ -141,6 +145,18 @@ public class FormMenuPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuCliente);
+        jMenu1.add(jSeparator3);
+
+        jMenuConPag.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.SHIFT_MASK));
+        jMenuConPag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Dollar.png"))); // NOI18N
+        jMenuConPag.setText("Condição Pagamento");
+        jMenuConPag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuConPagActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuConPag);
+        jMenu1.add(jSeparator4);
 
         jMenuItemSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
@@ -151,7 +167,7 @@ public class FormMenuPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItemSair);
-        jMenu1.add(jSeparator3);
+        jMenu1.add(jSeparator5);
 
         jMenuBar1.add(jMenu1);
 
@@ -262,6 +278,13 @@ public class FormMenuPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuColaboradorActionPerformed
 
+    private void jMenuConPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuConPagActionPerformed
+        FoCadCondicaoPagamento telaCadCondicaoPagamento = new FoCadCondicaoPagamento();
+        ControllerCadCondPag controllerCadCondPag = new ControllerCadCondPag(telaCadCondicaoPagamento) {};
+        telaCadCondicaoPagamento.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuConPagActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -305,6 +328,7 @@ public class FormMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuCliente;
     private javax.swing.JMenuItem jMenuColaborador;
+    private javax.swing.JMenuItem jMenuConPag;
     private javax.swing.JMenuItem jMenuFornecedor;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -317,5 +341,7 @@ public class FormMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
     // End of variables declaration//GEN-END:variables
 }
