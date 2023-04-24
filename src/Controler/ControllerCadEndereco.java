@@ -28,66 +28,42 @@ public class ControllerCadEndereco implements ActionListener {
         this.cadCliente = null;
         this.cadFornecedor = null;
         this.cadColaborador = null;
-        
 
-        telaCadEndereco.getBtBuscar().addActionListener(this);
-        telaCadEndereco.getBtCancelar().addActionListener(this);
-        telaCadEndereco.getBtSalvar().addActionListener(this);
-        telaCadEndereco.getBtNovo().addActionListener(this);
-        telaCadEndereco.getBtSair().addActionListener(this);
-        telaCadEndereco.getjBtCadBairro().addActionListener(this);
-        telaCadEndereco.getjBtCadCidade().addActionListener(this);
-
-        telaCadEndereco.ativa(true);
-        telaCadEndereco.ligaDesliga(false);
-        setComboBox();
+        adicionaAction();
 
     }
-    
-        public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco, ControllerCadCliente cadCliente) {
+
+    public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco, ControllerCadCliente cadCliente) {
         this.telaCadEndereco = partelaCadEndereco;
         this.cadCliente = cadCliente;
         this.cadFornecedor = null;
         this.cadColaborador = null;
 
-        telaCadEndereco.getBtBuscar().addActionListener(this);
-        telaCadEndereco.getBtCancelar().addActionListener(this);
-        telaCadEndereco.getBtSalvar().addActionListener(this);
-        telaCadEndereco.getBtNovo().addActionListener(this);
-        telaCadEndereco.getBtSair().addActionListener(this);
-        telaCadEndereco.getjBtCadBairro().addActionListener(this);
-        telaCadEndereco.getjBtCadCidade().addActionListener(this);
-
-        telaCadEndereco.ativa(true);
-        telaCadEndereco.ligaDesliga(false);
-        setComboBox();
+        adicionaAction();
 
     }
-     public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco, ControllerCadFornecedor cadFornecedor) {
+
+    public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco, ControllerCadFornecedor cadFornecedor) {
         this.telaCadEndereco = partelaCadEndereco;
         this.cadCliente = null;
         this.cadFornecedor = cadFornecedor;
         this.cadColaborador = null;
 
-        telaCadEndereco.getBtBuscar().addActionListener(this);
-        telaCadEndereco.getBtCancelar().addActionListener(this);
-        telaCadEndereco.getBtSalvar().addActionListener(this);
-        telaCadEndereco.getBtNovo().addActionListener(this);
-        telaCadEndereco.getBtSair().addActionListener(this);
-        telaCadEndereco.getjBtCadBairro().addActionListener(this);
-        telaCadEndereco.getjBtCadCidade().addActionListener(this);
-
-        telaCadEndereco.ativa(true);
-        telaCadEndereco.ligaDesliga(false);
-        setComboBox();
+        adicionaAction();
 
     }
-     public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco, ControllerCadColaborador cadColaborador) {
+
+    public ControllerCadEndereco(FoCadastroEndereco partelaCadEndereco, ControllerCadColaborador cadColaborador) {
         this.telaCadEndereco = partelaCadEndereco;
         this.cadCliente = null;
         this.cadFornecedor = null;
         this.cadColaborador = cadColaborador;
 
+        adicionaAction();
+
+    }
+
+    private void adicionaAction() {
         telaCadEndereco.getBtBuscar().addActionListener(this);
         telaCadEndereco.getBtCancelar().addActionListener(this);
         telaCadEndereco.getBtSalvar().addActionListener(this);
@@ -95,6 +71,7 @@ public class ControllerCadEndereco implements ActionListener {
         telaCadEndereco.getBtSair().addActionListener(this);
         telaCadEndereco.getjBtCadBairro().addActionListener(this);
         telaCadEndereco.getjBtCadCidade().addActionListener(this);
+        telaCadEndereco.getBtDeletar().addActionListener(this);
 
         telaCadEndereco.ativa(true);
         telaCadEndereco.ligaDesliga(false);
@@ -116,7 +93,7 @@ public class ControllerCadEndereco implements ActionListener {
 
         telaCadEndereco.getjComboBoxBairro().setSelectedItem(endereco.getBairro().getDescricao());
         telaCadEndereco.getjComboBoxCidade().setSelectedItem(endereco.getCidade().getDescricao());
-        
+
         telaCadEndereco.getjTextFieldCadIdEndereco().setEnabled(false);
 
     }
@@ -132,14 +109,16 @@ public class ControllerCadEndereco implements ActionListener {
 
         telaCadEndereco.getjComboBoxCidade().removeAllItems();
         telaCadEndereco.getjComboBoxBairro().removeAllItems();
-        
-        if(listaCidade != null)
-        for (Cidade cidade : listaCidade) {
-            telaCadEndereco.getjComboBoxCidade().addItem(cidade.getDescricao());
+
+        if (listaCidade != null) {
+            for (Cidade cidade : listaCidade) {
+                telaCadEndereco.getjComboBoxCidade().addItem(cidade.getDescricao());
+            }
         }
-        if(listaBairro != null)
-        for (Bairro bairro : listaBairro) {
-            telaCadEndereco.getjComboBoxBairro().addItem(bairro.getDescricao());
+        if (listaBairro != null) {
+            for (Bairro bairro : listaBairro) {
+                telaCadEndereco.getjComboBoxBairro().addItem(bairro.getDescricao());
+            }
         }
     }
 
@@ -167,7 +146,6 @@ public class ControllerCadEndereco implements ActionListener {
                 BairroDAO bairroDAO = new BairroDAO();
                 CidadeDAO cidadeDAO = new CidadeDAO();
 
-                
                 endereco.setCep(telaCadEndereco.getjTfCep().getText());
                 endereco.setLogradouro(telaCadEndereco.getjTextFieldDescricaoLogradouro().getText());
                 bairro = bairroDAO.retrieve(telaCadEndereco.getjComboBoxBairro().getSelectedItem().toString());
@@ -195,22 +173,22 @@ public class ControllerCadEndereco implements ActionListener {
             telaBuscaEndereco.setVisible(true);
 
         } else if (acao.getSource() == telaCadEndereco.getBtSair()) {
-            if(this.cadCliente != null)
+            if (this.cadCliente != null) {
                 this.cadCliente.setComboBox();
-            else if(this.cadFornecedor != null){
-                this.cadFornecedor.setComboBox();   
-            }else if(this.cadColaborador != null){
+            } else if (this.cadFornecedor != null) {
+                this.cadFornecedor.setComboBox();
+            } else if (this.cadColaborador != null) {
                 this.cadColaborador.setComboBox();
             }
-            
+
             telaCadEndereco.dispose();
 
         } else if (acao.getSource() == telaCadEndereco.getjBtCadBairro()) {
             FoCadBairroFinal telaCadBairro = new FoCadBairroFinal();
             ControllerCadBairro cadBairro = new ControllerCadBairro(telaCadBairro, this);
             telaCadBairro.setVisible(true);
-           // telaCadEndereco.ativa(true);
-          //  telaCadEndereco.ligaDesliga(false);
+            // telaCadEndereco.ativa(true);
+            //  telaCadEndereco.ligaDesliga(false);
 
         } else if (acao.getSource() == telaCadEndereco.getjBtCadCidade()) {
             FoCadCidade telaCadCidade = new FoCadCidade();
@@ -218,6 +196,21 @@ public class ControllerCadEndereco implements ActionListener {
             telaCadCidade.setVisible(true);
             //telaCadEndereco.ativa(true);
             //telaCadEndereco.ligaDesliga(false);
+        } else if (acao.getSource() == telaCadEndereco.getBtDeletar()) {
+            if (!telaCadEndereco.getjTextFieldCadIdEndereco().getText().trim().equalsIgnoreCase("")) {
+                Endereco endereco = new Endereco();
+                EnderecoDAO enderecoDAO = new EnderecoDAO();
+                endereco = enderecoDAO.retrieve(Integer.parseInt(telaCadEndereco.getjTextFieldCadIdEndereco().getText()));
+
+                if (enderecoDAO.delete(endereco) == -1) {
+                    JOptionPane.showMessageDialog(null, "Erro ao deletar, verifique se o endereço está cadastrado em algum cliente/colaborador");
+                } else {
+                    telaCadEndereco.ativa(true);
+                    telaCadEndereco.ligaDesliga(false);
+                    setComboBox();
+                }
+
+            }
         }
     }
 

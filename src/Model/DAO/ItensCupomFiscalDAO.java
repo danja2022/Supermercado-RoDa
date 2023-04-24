@@ -33,7 +33,7 @@ public class ItensCupomFiscalDAO implements InterfaceDAO<ItensCupomFiscal> {
     }
 
     @Override
-    public void delete(ItensCupomFiscal objeto) {
+    public int delete(ItensCupomFiscal objeto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

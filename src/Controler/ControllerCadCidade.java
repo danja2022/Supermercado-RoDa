@@ -38,6 +38,7 @@ public class ControllerCadCidade implements ActionListener {
         this.telaCadCidade.getBtSalvar().addActionListener(this);
         this.telaCadCidade.getBtNovo().addActionListener(this);
         this.telaCadCidade.getBtSair().addActionListener(this);
+        this.telaCadCidade.getBtDeletar().addActionListener(this);
 
         this.telaCadCidade.ativa(true);
         this.telaCadCidade.ligaDesliga(false);
@@ -98,7 +99,19 @@ public class ControllerCadCidade implements ActionListener {
             if(this.cadEndereco != null)
                 this.cadEndereco.setComboBox();
             telaCadCidade.dispose();
-
+        }else if(acao.getSource() == telaCadCidade.getBtDeletar()){
+            if (!telaCadCidade.getjTextFieldId().getText().trim().equalsIgnoreCase("")){
+                Cidade cidade = new Cidade();
+                CidadeDAO cidadeDAO = new CidadeDAO();
+                cidade = cidadeDAO.retrieve(Integer.parseInt(telaCadCidade.getjTextFieldId().getText()));
+                
+                if(cidadeDAO.delete(cidade) == -1){
+                    JOptionPane.showMessageDialog(null, "Erro ao deletar. Verifique se a cidade está cadastrado em algum endereço");
+                }else {
+                    telaCadCidade.ativa(true);
+                    telaCadCidade.ligaDesliga(false);
+                }
+            }
         }
     }
 }

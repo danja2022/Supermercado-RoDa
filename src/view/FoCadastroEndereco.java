@@ -124,12 +124,22 @@ public class FoCadastroEndereco extends javax.swing.JFrame {
         this.jBtCadCidade = jBtCadCidade;
     }
 
+    public JButton getBtDeletar() {
+        return btDeletar;
+    }
+
+    public void setBtDeletar(JButton btDeletar) {
+        this.btDeletar = btDeletar;
+    }
+
+
     public void ativa(boolean estadoComponente) {
         btNovo.setEnabled(estadoComponente);
         btSalvar.setEnabled(!estadoComponente);
         btBuscar.setEnabled(estadoComponente);
         btCancelar.setEnabled(!estadoComponente);
         btSair.setEnabled(estadoComponente);
+        btDeletar.setEnabled(!estadoComponente);
 
     }
 
@@ -143,7 +153,7 @@ public class FoCadastroEndereco extends javax.swing.JFrame {
                 ((JFormattedTextField) componente).setText("");
             } else if (componente instanceof JTextArea) {
                 ((JTextArea) componente).setText("");
-            //} else if (componente instanceof JComboBox) {
+                //} else if (componente instanceof JComboBox) {
                 //((JComboBox) componente).setSelectedIndex(0);
             }
             //  else if (componente instanceof JScrollPane){
@@ -177,6 +187,7 @@ public class FoCadastroEndereco extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
         btBuscar = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
+        btDeletar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabelCadastroEndereco = new javax.swing.JLabel();
 
@@ -332,6 +343,11 @@ public class FoCadastroEndereco extends javax.swing.JFrame {
         });
         jPanel4.add(btSair);
 
+        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btDeletar.setText("Deletar");
+        btDeletar.setEnabled(false);
+        jPanel4.add(btDeletar);
+
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -403,11 +419,11 @@ public class FoCadastroEndereco extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxBairroActionPerformed
 
     private void jBtCadCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtCadCidadeActionPerformed
-       
+
     }//GEN-LAST:event_jBtCadCidadeActionPerformed
 
     private void jBtCadBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtCadBairroActionPerformed
-   
+
     }//GEN-LAST:event_jBtCadBairroActionPerformed
 
     /**
@@ -446,6 +462,7 @@ public class FoCadastroEndereco extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscar;
     private javax.swing.JButton btCancelar;
+    private javax.swing.JButton btDeletar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSalvar;

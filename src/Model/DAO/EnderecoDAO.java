@@ -188,21 +188,27 @@ public class EnderecoDAO implements InterfaceDAO<Endereco> {
     }
 
     @Override
-    public void delete(Endereco objeto) {
+    public int delete(Endereco objeto) {
 
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "DELETE FROM endereco WHERE endereco.id = ?";
+      Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "DELETE FROM endereco WHERE id = ?";
         PreparedStatement pstm = null;
 
         try {
             pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(0, objeto.getId());
+            pstm.setInt(1, objeto.getId());
             pstm.executeUpdate();
+            
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return 0;
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return -1;
         }
-        ConnectionFactory.closeConnection(conexao, pstm);
+        
     }
 
 }

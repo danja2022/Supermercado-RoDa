@@ -248,6 +248,15 @@ public class FoCadastroProduto extends javax.swing.JFrame {
     public void setBtCadMarca(JButton btCadMarca) {
         this.btCadMarca = btCadMarca;
     }
+
+    public JButton getBtDeletar() {
+        return btDeletar;
+    }
+
+    public void setBtDeletar(JButton btDeletar) {
+        this.btDeletar = btDeletar;
+    }
+    
     
     
     public void ativa (boolean estadoComponente){
@@ -256,6 +265,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         btBuscar.setEnabled(estadoComponente);
         btCancelar.setEnabled(!estadoComponente);
         btSair.setEnabled(estadoComponente);
+        btDeletar.setEnabled(!estadoComponente);
       
     }
     
@@ -272,9 +282,9 @@ public class FoCadastroProduto extends javax.swing.JFrame {
             else if (componente instanceof JTextArea){
                ((JTextArea)componente).setText ("");     
         }
-            else if (componente instanceof JComboBox){
-                ((JComboBox)componente).setSelectedIndex(0);
-                    }
+            //else if (componente instanceof JComboBox){
+                //((JComboBox)componente).setSelectedIndex(0);
+                    //}
           //  else if (componente instanceof JScrollPane){
             //    ((JScrollPane)componente).get
        // }
@@ -331,6 +341,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
         btBuscar = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
+        btDeletar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -479,7 +490,11 @@ public class FoCadastroProduto extends javax.swing.JFrame {
                         .addComponent(jComboBoxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btCadMarca)
+<<<<<<< HEAD
                         .addGap(0, 70, Short.MAX_VALUE))
+=======
+                        .addGap(0, 0, Short.MAX_VALUE))
+>>>>>>> 0367c47eaba60e060f15bb26e9f33f9c4ee2bb76
                     .addComponent(jTextFieldValorVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldUnidadeVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldBarraSaida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -575,7 +590,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         });
         jPanel4.add(btSalvar);
 
-        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
         btCancelar.setText("Cancelar");
         btCancelar.setEnabled(false);
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -602,6 +617,11 @@ public class FoCadastroProduto extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btSair);
+
+        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btDeletar.setText("Deletar");
+        btDeletar.setEnabled(false);
+        jPanel4.add(btDeletar);
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -725,6 +745,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
     private javax.swing.JButton btCadClasse;
     private javax.swing.JButton btCadMarca;
     private javax.swing.JButton btCancelar;
+    private javax.swing.JButton btDeletar;
     private javax.swing.JButton btNovo;
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSalvar;

@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import view.FoBuscaProduto;
+import view.FoCadastroClasse;
+import view.FoCadastroMarca;
 import view.FoCadastroProduto;
 
 public class ControllerCadastroProduto implements ActionListener {
@@ -30,6 +32,7 @@ public class ControllerCadastroProduto implements ActionListener {
         telaCadProduto.getBtSair().addActionListener(this);
         telaCadProduto.getBtCadMarca().addActionListener(this);
         telaCadProduto.getBtCadClasse().addActionListener(this);
+        telaCadProduto.getBtDeletar().addActionListener(this);
 
         telaCadProduto.ativa(true);
         telaCadProduto.ligaDesliga(false);
@@ -67,13 +70,16 @@ public class ControllerCadastroProduto implements ActionListener {
 
         telaCadProduto.getjComboBoxClasse().removeAllItems();
         telaCadProduto.getjComboBoxMarca().removeAllItems();
-
-        for (Marca marca : listaMarca) {
-            telaCadProduto.getjComboBoxMarca().addItem(marca.getDescricao());
-        }
-        for (Classe classe : listaClasse) {
-            telaCadProduto.getjComboBoxClasse().addItem(classe.getDescricao());
-        }
+        if (listaMarca != null)
+            for (Marca marca : listaMarca) {
+                telaCadProduto.getjComboBoxMarca().addItem(marca.getDescricao());
+            }
+        
+        if (listaClasse != null)
+            for (Classe classe : listaClasse) {
+                telaCadProduto.getjComboBoxClasse().addItem(classe.getDescricao());
+            }
+        
     }
 
     public void atualizaCampos(int codigo) {
@@ -215,6 +221,30 @@ public class ControllerCadastroProduto implements ActionListener {
 
         } else if (acao.getSource() == telaCadProduto.getBtSair()) {
             telaCadProduto.dispose();
+        } else if (acao.getSource() == telaCadProduto.getBtCadMarca()) {
+            FoCadastroMarca telaMarca = new FoCadastroMarca();
+            ControllerCadMarca cadMarca = new ControllerCadMarca(telaMarca, this) {
+            };
+            telaMarca.setVisible(true);
+        }else if(acao.getSource() == telaCadProduto.getBtCadClasse()){
+            FoCadastroClasse telaClasse = new FoCadastroClasse();
+            ControllerCadClasse cadClasse = new ControllerCadClasse(telaClasse, this){};
+            telaClasse.setVisible(true);
+        }else if (acao.getSource() == telaCadProduto.getBtDeletar()) {
+            if (!telaCadProduto.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
+                Produto produto = new Produto();
+                ProdutoDAO produtoDAO = new ProdutoDAO();
+                produto = produtoDAO.retrieve(Integer.parseInt(telaCadProduto.getjTextFieldId().getText()));
+
+                if (produtoDAO.delete(produto) == -1) {
+                    JOptionPane.showMessageDialog(null, "Erro ao deletar.");
+                } else {
+                    telaCadProduto.ativa(true);
+                    telaCadProduto.ligaDesliga(false);
+                    setComboBox();
+                }
+
+            }
         }
     }
 

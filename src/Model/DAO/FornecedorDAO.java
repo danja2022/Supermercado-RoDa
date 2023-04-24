@@ -230,8 +230,23 @@ public class FornecedorDAO implements InterfaceDAO<Fornecedor> {
     }
 
     @Override
-    public void delete(Fornecedor objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int delete(Fornecedor objeto) {
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "DELETE FROM fornecedor WHERE id = ?";
+        PreparedStatement pstm = null;
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setInt(1, objeto.getId());
+            pstm.executeUpdate();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return -1;
+        }
+        
     }
 
 }

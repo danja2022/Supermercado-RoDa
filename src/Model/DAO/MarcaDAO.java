@@ -136,7 +136,7 @@ public class MarcaDAO implements InterfaceDAO<Marca> {
     }
 
     @Override
-    public void delete(Marca objeto) {
+    public int delete(Marca objeto) {
         Connection conexao = ConnectionFactory.getConnection();
         String sqlExecutar = "DELETE FROM marca WHERE id = ?";
         PreparedStatement pstm = null;
@@ -145,10 +145,14 @@ public class MarcaDAO implements InterfaceDAO<Marca> {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setInt(1, objeto.getId());
             pstm.executeUpdate();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return -1;
         }
-        ConnectionFactory.closeConnection(conexao, pstm);
+        
     }
 
 }

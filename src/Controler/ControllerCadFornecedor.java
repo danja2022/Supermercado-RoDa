@@ -28,6 +28,7 @@ public class ControllerCadFornecedor implements ActionListener {
         telaCadFornecedor.getBtSair().addActionListener(this);
         telaCadFornecedor.getjBtCadCep().addActionListener(this);
         telaCadFornecedor.getjCbCep().addActionListener(this);
+        telaCadFornecedor.getBtDeletar().addActionListener(this);
 
         telaCadFornecedor.ativa(true);
         telaCadFornecedor.ligaDesliga(false);
@@ -236,6 +237,21 @@ public class ControllerCadFornecedor implements ActionListener {
                 telaCadFornecedor.getTfBairro().setText(endereco.getBairro().getDescricao());
                 telaCadFornecedor.getTfCidade().setText(endereco.getCidade().getDescricao());
                 telaCadFornecedor.getTfLogradouro().setText(endereco.getLogradouro());
+            }
+        }else if (acao.getSource() == telaCadFornecedor.getBtDeletar()) {
+            if (!telaCadFornecedor.getjTextFieldIdCadFornecedor().getText().trim().equalsIgnoreCase("")) {
+                Fornecedor fornecedor = new Fornecedor();
+                FornecedorDAO fornecedorDAO = new FornecedorDAO();
+                fornecedor = fornecedorDAO.retrieve(Integer.parseInt(telaCadFornecedor.getjTextFieldIdCadFornecedor().getText()));
+
+                if (fornecedorDAO.delete(fornecedor) == -1) {
+                    JOptionPane.showMessageDialog(null, "Erro ao deletar. Verifique se existe um produto cadastrado com esse fornecedor");
+                } else {
+                    telaCadFornecedor.ativa(true);
+                    telaCadFornecedor.ligaDesliga(false);
+                    setComboBox();
+                }
+
             }
         }
 

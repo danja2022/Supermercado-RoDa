@@ -125,7 +125,11 @@ public class ClienteDAO implements InterfaceDAO<Cliente> {
                 cliente.setDtNascimento(rst.getString("dataNascimento"));
                 Endereco endereco = new Endereco();
                 EnderecoDAO enderecoDAO = new EnderecoDAO();
+
                 endereco = enderecoDAO.retrieve(rst.getInt("endereco_id"));
+
+                endereco = enderecoDAO.retrieve(cliente.getId());
+
                 cliente.setEndereco(endereco);
                 cliente.setSexo(rst.getString("sexo").charAt(0));
             }
@@ -218,8 +222,50 @@ public class ClienteDAO implements InterfaceDAO<Cliente> {
     }
 
     @Override
-    public void delete(Cliente objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int delete(Cliente objeto) {
+        Connection conexao = ConnectionFactory.getConnection();
+        int retorno;
+
+        String sqlExecutar = "SET foreign_key_checks = 0;";
+        PreparedStatement pstm = null;
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+        }
+
+        sqlExecutar = "DELETE FROM cliente WHERE id = ?";
+        pstm = null;
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setInt(1, objeto.getId());
+            pstm.executeUpdate();
+            retorno = 0;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return -1;
+        }
+
+        sqlExecutar = "SET foreign_key_checks = 1;";
+        pstm = null;
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.executeUpdate();
+            return retorno;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return -1;
+        }
+
     }
 
 }

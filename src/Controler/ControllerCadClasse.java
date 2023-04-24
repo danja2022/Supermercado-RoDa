@@ -14,19 +14,33 @@ import view.FoCadastroClasse;
 public class ControllerCadClasse implements ActionListener {
 
     FoCadastroClasse telaCadClasse;
+    ControllerCadastroProduto cadProd;
 
     public ControllerCadClasse(FoCadastroClasse parTelaCadClasse) {
         this.telaCadClasse = parTelaCadClasse;
+        this.cadProd = null;
 
+        adicionaAction();
+
+    }
+    public ControllerCadClasse(FoCadastroClasse parTelaCadClasse, ControllerCadastroProduto cadProd) {
+        this.telaCadClasse = parTelaCadClasse;
+        this.cadProd = cadProd;
+
+        adicionaAction();
+
+    }
+    
+    private void adicionaAction(){
         telaCadClasse.getBtBuscar().addActionListener(this);
         telaCadClasse.getBtCancelar().addActionListener(this);
         telaCadClasse.getBtSalvar().addActionListener(this);
         telaCadClasse.getBtNovo().addActionListener(this);
         telaCadClasse.getBtSair().addActionListener(this);
+        telaCadClasse.getBtDeletar().addActionListener(this);
 
         telaCadClasse.ativa(true);
         telaCadClasse.ligaDesliga(false);
-
     }
     
     public void atualizaCampos(int codigo){
@@ -87,6 +101,20 @@ public class ControllerCadClasse implements ActionListener {
             telaBuscaClasse.setVisible(true);
         } else if (acao.getSource() == telaCadClasse.getBtSair()) {
             telaCadClasse.dispose();
+            cadProd.setComboBox();
+        }else if(acao.getSource() == telaCadClasse.getBtDeletar()){
+            if (!telaCadClasse.getjTextFieldIdClasse().getText().trim().equalsIgnoreCase("")){
+                Classe classe = new Classe();
+                ClasseDAO classeDAO = new ClasseDAO();
+                classe = classeDAO.retrieve(Integer.parseInt(telaCadClasse.getjTextFieldIdClasse().getText()));
+                
+                if(classeDAO.delete(classe) == -1){
+                    JOptionPane.showMessageDialog(null, "Erro ao deletar. Verifique se a classe está cadastrado em algum produto");
+                }else {
+                    telaCadClasse.ativa(true);
+                    telaCadClasse.ligaDesliga(false);
+                }
+            }
         }
     }
 }

@@ -168,20 +168,10 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
     }
 
     @Override
-    public void delete(CondicaoPgto objeto) {
-        Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "DELETE FROM condicaopagamento WHERE id = ?";
-        PreparedStatement pstm = null;
-
-        try {
-            pstm = conexao.prepareStatement(sqlExecutar);
-            pstm.setInt(1, objeto.getId());
-            pstm.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        ConnectionFactory.closeConnection(conexao, pstm);
-
+    public int delete(CondicaoPgto objeto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+  
 
 }

@@ -32,6 +32,7 @@ public class ControllerCadColaborador implements ActionListener {
             telacadColaborador.getBtSair().addActionListener(this);
             telacadColaborador.getBtCadCep().addActionListener(this);
             telacadColaborador.getjCbCep().addActionListener(this);
+            telacadColaborador.getBtDeletar().addActionListener(this);
             
     
             telacadColaborador.ativa(true);
@@ -197,6 +198,20 @@ public class ControllerCadColaborador implements ActionListener {
             FoCadastroEndereco telaCadEndereco = new FoCadastroEndereco();
             ControllerCadEndereco cadEndereco = new ControllerCadEndereco(telaCadEndereco, this);
             telaCadEndereco.setVisible(true);
+        }else if(acao.getSource() == telacadColaborador.getBtDeletar()){
+            if (!telacadColaborador.gettFId().getText().trim().equalsIgnoreCase("")){
+                Colaborador colaborador = new Colaborador();
+                ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
+                colaborador = colaboradorDAO.retrieve(Integer.parseInt(telacadColaborador.gettFId().getText()));
+                
+                if(colaboradorDAO.delete(colaborador) == -1){
+                    JOptionPane.showMessageDialog(null, "Erro ao deletar.");
+                }else {
+                    telacadColaborador.ativa(true);
+                    telacadColaborador.ligaDesliga(false);
+                    setComboBox();
+                }
+            }
         }
     }
     

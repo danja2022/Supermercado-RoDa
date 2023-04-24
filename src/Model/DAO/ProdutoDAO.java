@@ -247,8 +247,50 @@ public class ProdutoDAO implements InterfaceDAO<Produto> {
     }
 
     @Override
-    public void delete(Produto objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int delete(Produto objeto) {
+            Connection conexao = ConnectionFactory.getConnection();
+        int retorno;
+
+        String sqlExecutar = "SET foreign_key_checks = 0;";
+        PreparedStatement pstm = null;
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+        }
+
+        sqlExecutar = "DELETE FROM produto WHERE id = ?";
+        pstm = null;
+
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setInt(1, objeto.getId());
+            pstm.executeUpdate();
+            retorno = 0;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return -1;
+        }
+
+        sqlExecutar = "SET foreign_key_checks = 1;";
+        pstm = null;
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.executeUpdate();
+            return retorno;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return -1;
+        }
+        
     }
 
 }
