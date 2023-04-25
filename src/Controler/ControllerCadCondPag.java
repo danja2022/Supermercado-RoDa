@@ -1,5 +1,6 @@
 package Controler;
 
+import Model.DAO.CondicaoPgtoDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.FoCadCondicaoPagamento;
@@ -61,7 +62,13 @@ public class ControllerCadCondPag implements ActionListener {
                     condicaoPgto.setStatus('I');
                 }
                 
-                //colocar aqui dentro o dao
+                CondicaoPgtoDAO condicaoPgtoDAO = new CondicaoPgtoDAO();
+                if (telaCadCondicaoPagamento.getjTfIdConPag().getText().trim().equalsIgnoreCase("")){
+                    condicaoPgtoDAO.create(condicaoPgto);
+                }else {
+                    condicaoPgto.setId(Integer.parseInt(telaCadCondicaoPagamento.getjTfIdConPag().getText()));
+                    condicaoPgtoDAO.update(condicaoPgto);
+                }
                 
                 
                 telaCadCondicaoPagamento.ativa(true);

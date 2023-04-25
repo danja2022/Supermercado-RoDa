@@ -18,8 +18,8 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
         Connection conexao = ConnectionFactory.getConnection();
 
         String sqlExecutar = "INSERT INTO condicaopagamento (descricaoCondicao, numeroParcelas, diasPrimeiraParcela, "
-                + " diasEntreParcela, status)"
-                + " VALUES(?,?,?,?,?);";
+                + " diaEntreParcela, status)"
+                + " VALUE(?,?,?,?,?);";
 
         PreparedStatement pstm = null;
 
@@ -44,7 +44,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
     @Override
     public CondicaoPgto retrieve(int codigo) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diasPrimeiraParcela, diasEntreParcela, status "
+        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diasPrimeiraParcela, diaEntreParcela, status "
                 + " FROM condicaopagamento"
                 + " WHERE id = ?";
 
@@ -62,7 +62,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
                 condicaoPgto.setDescricaoCondicao(rst.getString("descricaoCondicao"));
                 condicaoPgto.setNumeroParcelas(rst.getInt("numeroParcelas"));
                 condicaoPgto.setDiasPrimeiraParcela(rst.getInt("diasPrimeiraParcela"));
-                condicaoPgto.setDiaEntreParcela(rst.getInt("diasEntreParcela"));
+                condicaoPgto.setDiaEntreParcela(rst.getInt("diaEntreParcela"));
                 condicaoPgto.setStatus(rst.getString("status").charAt(0));
 
             }
@@ -79,7 +79,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
     @Override
     public CondicaoPgto retrieve(String descricao) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diasPrimeiraParcela, diasEntreParcela, status  FROM condicaopagamento WHERE descricao = ?";
+        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diasPrimeiraParcela, diaEntreParcela, status  FROM condicaopagamento WHERE descricao = ?";
 
         PreparedStatement pstm = null;
         ResultSet rst = null;
@@ -95,7 +95,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
                 condicaoPgto.setDescricaoCondicao(rst.getString("descricaoCondicao"));
                 condicaoPgto.setNumeroParcelas(rst.getInt("numeroParcelas"));
                 condicaoPgto.setDiasPrimeiraParcela(rst.getInt("diasPrimeiraParcela"));
-                condicaoPgto.setDiaEntreParcela(rst.getInt("diasEntreParcela"));
+                condicaoPgto.setDiaEntreParcela(rst.getInt("diaEntreParcela"));
                 condicaoPgto.setStatus(rst.getString("status").charAt(0));
 
             }
@@ -112,7 +112,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
     @Override
     public List<CondicaoPgto> retrieve() {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diasPrimeiraParcela, diasEntreParcela, status FROM condicaoPgto ";
+        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diasPrimeiraParcela, diaEntreParcela, status FROM condicaopagamento ";
 
         PreparedStatement pstm = null;
         ResultSet rst = null;
@@ -127,7 +127,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
                 condicaoPgto.setId(rst.getInt("id"));
                 condicaoPgto.setDescricaoCondicao(rst.getString("descricaoCondicao"));
                 condicaoPgto.setNumeroParcelas(rst.getInt("diasPrimeiraParcela"));
-                condicaoPgto.setDiasPrimeiraParcela(rst.getInt("diasEntreParcela"));
+                condicaoPgto.setDiasPrimeiraParcela(rst.getInt("diaEntreParcela"));
                 condicaoPgto.setStatus(rst.getString("status").charAt(0));
                 listacondicaoPgto.add(condicaoPgto);
 
@@ -146,7 +146,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
     @Override
     public void update(CondicaoPgto objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "UPDATE condicaopagamento SET descricaoCondicao = ?, numeroParcelas = ?, diasPrimeiraParcela = ?, diasEntreParcela = ?, status = ? ,  "
+        String sqlExecutar = "UPDATE condicaopagamento SET descricaoCondicao = ?, numeroParcelas = ?, diasPrimeiraParcela = ?, diaEntreParcela = ?, status = ? ,  "
                 + "WHERE id = ?";
 
         PreparedStatement pstm = null;
