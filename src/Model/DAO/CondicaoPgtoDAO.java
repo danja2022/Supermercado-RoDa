@@ -17,9 +17,9 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
     public void create(CondicaoPgto objeto) {
         Connection conexao = ConnectionFactory.getConnection();
 
-        String sqlExecutar = "INSERT INTO condicaopagamento (descricaoCondicao, numeroParcelas, diasPrimeiraParcela, "
-                + " diasEntreParcela, status)"
-                + " VALUES(?,?,?,?,?);";
+        String sqlExecutar = "INSERT INTO condicaopagamento (descricaoCondicao, numeroParcelas, diaPrimeiraParcela, "
+                + " diaEntreParcela, status)"
+                + " VALUE(?,?,?,?,?);";
 
         PreparedStatement pstm = null;
 
@@ -27,7 +27,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getDescricaoCondicao());
             pstm.setInt(2, objeto.getNumeroParcelas());
-            pstm.setInt(3, objeto.getDiasPrimeiraParcela());
+            pstm.setString(3, objeto.getDiasPrimeiraParcela());
             pstm.setInt(4, objeto.getDiaEntreParcela());
             pstm.setString(5, String.valueOf(objeto.getStatus()));
 
@@ -44,7 +44,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
     @Override
     public CondicaoPgto retrieve(int codigo) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diasPrimeiraParcela, diasEntreParcela, status "
+        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diaPrimeiraParcela, diaEntreParcela, status "
                 + " FROM condicaopagamento"
                 + " WHERE id = ?";
 
@@ -61,8 +61,8 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
                 condicaoPgto.setId(rst.getInt("id"));
                 condicaoPgto.setDescricaoCondicao(rst.getString("descricaoCondicao"));
                 condicaoPgto.setNumeroParcelas(rst.getInt("numeroParcelas"));
-                condicaoPgto.setDiasPrimeiraParcela(rst.getInt("diasPrimeiraParcela"));
-                condicaoPgto.setDiaEntreParcela(rst.getInt("diasEntreParcela"));
+                condicaoPgto.setDiasPrimeiraParcela(rst.getString("diaPrimeiraParcela"));
+                condicaoPgto.setDiaEntreParcela(rst.getInt("diaEntreParcela"));
                 condicaoPgto.setStatus(rst.getString("status").charAt(0));
 
             }
@@ -79,7 +79,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
     @Override
     public CondicaoPgto retrieve(String descricao) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diasPrimeiraParcela, diasEntreParcela, status  FROM condicaopagamento WHERE descricao = ?";
+        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diaPrimeiraParcela, diaEntreParcela, status  FROM condicaopagamento WHERE descricao = ?";
 
         PreparedStatement pstm = null;
         ResultSet rst = null;
@@ -94,8 +94,8 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
                 condicaoPgto.setId(rst.getInt("id"));
                 condicaoPgto.setDescricaoCondicao(rst.getString("descricaoCondicao"));
                 condicaoPgto.setNumeroParcelas(rst.getInt("numeroParcelas"));
-                condicaoPgto.setDiasPrimeiraParcela(rst.getInt("diasPrimeiraParcela"));
-                condicaoPgto.setDiaEntreParcela(rst.getInt("diasEntreParcela"));
+                condicaoPgto.setDiasPrimeiraParcela(rst.getString("diaPrimeiraParcela"));
+                condicaoPgto.setDiaEntreParcela(rst.getInt("diaEntreParcela"));
                 condicaoPgto.setStatus(rst.getString("status").charAt(0));
 
             }
@@ -112,7 +112,7 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
     @Override
     public List<CondicaoPgto> retrieve() {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diasPrimeiraParcela, diasEntreParcela, status FROM condicaoPgto ";
+        String sqlExecutar = "SELECT id, descricaoCondicao, numeroParcelas, diaPrimeiraParcela, diaEntreParcela, status FROM condicaopagamento ";
 
         PreparedStatement pstm = null;
         ResultSet rst = null;
@@ -126,8 +126,9 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
                 CondicaoPgto condicaoPgto = new CondicaoPgto();
                 condicaoPgto.setId(rst.getInt("id"));
                 condicaoPgto.setDescricaoCondicao(rst.getString("descricaoCondicao"));
-                condicaoPgto.setNumeroParcelas(rst.getInt("diasPrimeiraParcela"));
-                condicaoPgto.setDiasPrimeiraParcela(rst.getInt("diasEntreParcela"));
+                condicaoPgto.setNumeroParcelas(rst.getInt("numeroParcelas"));
+                condicaoPgto.setDiasPrimeiraParcela(rst.getString("diaPrimeiraParcela"));
+                condicaoPgto.setDiaEntreParcela(rst.getInt("diaEntreParcela"));
                 condicaoPgto.setStatus(rst.getString("status").charAt(0));
                 listacondicaoPgto.add(condicaoPgto);
 
@@ -146,8 +147,8 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
     @Override
     public void update(CondicaoPgto objeto) {
         Connection conexao = ConnectionFactory.getConnection();
-        String sqlExecutar = "UPDATE condicaopagamento SET descricaoCondicao = ?, numeroParcelas = ?, diasPrimeiraParcela = ?, diasEntreParcela = ?, status = ? ,  "
-                + "WHERE id = ?";
+        String sqlExecutar = "UPDATE condicaopagamento SET descricaoCondicao = ?, numeroParcelas = ?, diaPrimeiraParcela = ?, diaEntreParcela = ?, status = ?"
+                + " WHERE id = ?;";
 
         PreparedStatement pstm = null;
 
@@ -155,9 +156,10 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
             pstm = conexao.prepareStatement(sqlExecutar);
             pstm.setString(1, objeto.getDescricaoCondicao());
             pstm.setInt(2, objeto.getNumeroParcelas());
-            pstm.setInt(3, objeto.getDiasPrimeiraParcela());
+            pstm.setString(3, objeto.getDiasPrimeiraParcela());
             pstm.setInt(4, objeto.getDiaEntreParcela());
             pstm.setString(5, String.valueOf(objeto.getStatus()));
+            pstm.setInt(6,objeto.getId());
 
             pstm.executeUpdate();
 
@@ -169,9 +171,22 @@ public class CondicaoPgtoDAO implements InterfaceDAO<CondicaoPgto> {
 
     @Override
     public int delete(CondicaoPgto objeto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        Connection conexao = ConnectionFactory.getConnection();
+        String sqlExecutar = "DELETE FROM condicaopagamento WHERE id = ?";
+        PreparedStatement pstm = null;
 
-  
+        try {
+            pstm = conexao.prepareStatement(sqlExecutar);
+            pstm.setInt(1, objeto.getId());
+            pstm.executeUpdate();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            ConnectionFactory.closeConnection(conexao, pstm);
+            return -1;
+        }
+
+    }
 
 }

@@ -23,7 +23,8 @@ public class ControllerBuscaCondPag implements ActionListener {
         CondicaoPgtoDAO condicaoPgtoDAO = new CondicaoPgtoDAO();
         for (CondicaoPgto CondicaoPgtoAtualDaLista : condicaoPgtoDAO.retrieve()) {
 
-            tabela.addRow(new Object[]{CondicaoPgtoAtualDaLista.getId(), CondicaoPgtoAtualDaLista.getDescricaoCondicao(),
+            tabela.addRow(new Object[]{CondicaoPgtoAtualDaLista.getId(), 
+                CondicaoPgtoAtualDaLista.getDescricaoCondicao(),
                 CondicaoPgtoAtualDaLista.getNumeroParcelas(),
                 CondicaoPgtoAtualDaLista.getDiasPrimeiraParcela(),
                 CondicaoPgtoAtualDaLista.getDiaEntreParcela(),
@@ -37,7 +38,7 @@ public class ControllerBuscaCondPag implements ActionListener {
 
         if (acao.getSource() == this.foBuscaCondicaoPagamento.getjButtonCarregar()) {
             if (this.foBuscaCondicaoPagamento.getjTablebusca().getValueAt(this.foBuscaCondicaoPagamento.getjTablebusca().getSelectedRow(), 0) != null) {
-              //  this.ControllerCadCondPag.atualizaCampos((int) this.foBuscaCondicaoPagamento.getjTablebusca().getValueAt(this.foBuscaCondicaoPagamento.getjTablebusca().getSelectedRow(), 0));
+               this.controllerCadCondPag.atualizaCampos((int) this.foBuscaCondicaoPagamento.getjTablebusca().getValueAt(this.foBuscaCondicaoPagamento.getjTablebusca().getSelectedRow(), 0));
                 this.foBuscaCondicaoPagamento.dispose();
 
             }

@@ -94,14 +94,14 @@ public class FoBuscaCondicaoPagamento extends javax.swing.JFrame {
 
         jTablebusca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Descrição", "Status"
+                "ID", "Descrição", "Parcelas", "Primeira Parcela", "Dias Entre Parcelas", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -112,7 +112,7 @@ public class FoBuscaCondicaoPagamento extends javax.swing.JFrame {
         if (jTablebusca.getColumnModel().getColumnCount() > 0) {
             jTablebusca.getColumnModel().getColumn(0).setMaxWidth(25);
             jTablebusca.getColumnModel().getColumn(1).setMaxWidth(475);
-            jTablebusca.getColumnModel().getColumn(2).setMaxWidth(75);
+            jTablebusca.getColumnModel().getColumn(5).setMaxWidth(75);
         }
 
         jPanelRodape.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

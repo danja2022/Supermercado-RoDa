@@ -5,7 +5,7 @@ public class CondicaoPgto {
     private int id;
     private String descricaoCondicao;
     private int numeroParcelas;
-    private int diasPrimeiraParcela;
+    private String diasPrimeiraParcela;
     private int diaEntreParcela;
     private char status;
 
@@ -14,7 +14,7 @@ public class CondicaoPgto {
     public CondicaoPgto() {
     }
 
-    public CondicaoPgto(int id, String descricaoCondicao, int numeroParcelas, int diasPrimeiraParcela, int diaEntreParcela, char status) {
+    public CondicaoPgto(int id, String descricaoCondicao, int numeroParcelas, String diasPrimeiraParcela, int diaEntreParcela, char status) {
         this.id = id;
         this.descricaoCondicao = descricaoCondicao;
         this.numeroParcelas = numeroParcelas;
@@ -48,11 +48,11 @@ public class CondicaoPgto {
         this.numeroParcelas = numeroParcelas;
     }
 
-    public int getDiasPrimeiraParcela() {
+    public String getDiasPrimeiraParcela() {
         return diasPrimeiraParcela;
     }
 
-    public void setDiasPrimeiraParcela(int diasPrimeiraParcela) {
+    public void setDiasPrimeiraParcela(String diasPrimeiraParcela) {
         this.diasPrimeiraParcela = diasPrimeiraParcela;
     }
 

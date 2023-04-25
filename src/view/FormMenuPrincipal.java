@@ -279,9 +279,16 @@ public class FormMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuColaboradorActionPerformed
 
     private void jMenuConPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuConPagActionPerformed
-        FoCadCondicaoPagamento telaCadCondicaoPagamento = new FoCadCondicaoPagamento();
-        ControllerCadCondPag controllerCadCondPag = new ControllerCadCondPag(telaCadCondicaoPagamento) {};
-        telaCadCondicaoPagamento.setVisible(true);
+        FoCadCondicaoPagamento telaCadCondicaoPagamento;
+        try {
+            telaCadCondicaoPagamento = new FoCadCondicaoPagamento();
+            ControllerCadCondPag controllerCadCondPag = new ControllerCadCondPag(telaCadCondicaoPagamento) {};
+            telaCadCondicaoPagamento.setVisible(true);
+        } catch (ParseException ex) {
+            Logger.getLogger(FormMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         
     }//GEN-LAST:event_jMenuConPagActionPerformed
 

@@ -6,6 +6,9 @@
 package view;
 
 import java.awt.Component;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -13,6 +16,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -23,9 +27,14 @@ public class FoCadCondicaoPagamento extends javax.swing.JFrame {
     /**
      * Creates new form ObjetoCadastro
      */
-    public FoCadCondicaoPagamento() {
+    public FoCadCondicaoPagamento() throws ParseException {
 
         initComponents();
+        
+        MaskFormatter maskData = new MaskFormatter("##-##-####");
+        
+        maskData.install(jFTfDiaPrimeiraParcela);
+        
     }
 
     public void ativa(boolean estadoComponente) {
@@ -55,12 +64,12 @@ public class FoCadCondicaoPagamento extends javax.swing.JFrame {
             //    ((JScrollPane)componente).get
             // }
             componente.setEnabled(estadoComponente);
-            
+
         }
         jTfIdConPag.setEnabled(false);
     }
-    
-        public JButton getBtBuscar() {
+
+    public JButton getBtBuscar() {
         return btBuscar;
     }
 
@@ -140,14 +149,12 @@ public class FoCadCondicaoPagamento extends javax.swing.JFrame {
         this.jTfDiaEntreParcela = jTfDiaEntreParcela;
     }
 
-
-
-    public JTextField getjTfPrimeiraParcela() {
-        return jTfPrimeiraParcela;
+    public JFormattedTextField getjFTfDiaPrimeiraParcela() {
+        return jFTfDiaPrimeiraParcela;
     }
 
-    public void setjTfPrimeiraParcela(JTextField jTfPrimeiraParcela) {
-        this.jTfPrimeiraParcela = jTfPrimeiraParcela;
+    public void setjFTfDiaPrimeiraParcela(JFormattedTextField jFTfDiaPrimeiraParcela) {
+        this.jFTfDiaPrimeiraParcela = jFTfDiaPrimeiraParcela;
     }
 
     public JTextField getjTfIdConPag() {
@@ -179,13 +186,13 @@ public class FoCadCondicaoPagamento extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTfNumParcelas = new javax.swing.JTextField();
         jLabelDiasPrimerParcelaCadConPag = new javax.swing.JLabel();
-        jTfPrimeiraParcela = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTfDiaEntreParcela = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jRadioBtAtivo = new javax.swing.JRadioButton();
         jRadioBtInativo = new javax.swing.JRadioButton();
+        jFTfDiaPrimeiraParcela = new javax.swing.JFormattedTextField();
         jPanel4 = new javax.swing.JPanel();
         btNovo = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
@@ -232,71 +239,84 @@ public class FoCadCondicaoPagamento extends javax.swing.JFrame {
         jLabel6.setText("Status:");
 
         buttonGroup1.add(jRadioBtAtivo);
+        jRadioBtAtivo.setSelected(true);
         jRadioBtAtivo.setText("Ativo");
 
         buttonGroup1.add(jRadioBtInativo);
         jRadioBtInativo.setText("Inativo");
+        jRadioBtInativo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioBtInativoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnCentroLayout = new javax.swing.GroupLayout(pnCentro);
         pnCentro.setLayout(pnCentroLayout);
         pnCentroLayout.setHorizontalGroup(
             pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnCentroLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(765, Short.MAX_VALUE))
+            .addGroup(pnCentroLayout.createSequentialGroup()
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnCentroLayout.createSequentialGroup()
-                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnCentroLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel3))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTfIdConPag, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                            .addComponent(jTfNumParcelas))
-                        .addGap(25, 25, 25)
-                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelDescricaoCondPag)
-                            .addComponent(jLabelDiasPrimerParcelaCadConPag))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTfPrimeiraParcela, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioBtAtivo)
-                            .addComponent(jRadioBtInativo)
-                            .addComponent(jTfDiaEntreParcela, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel3))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTfNumParcelas, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                    .addComponent(jTfIdConPag))
+                .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnCentroLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabelDescricaoCondPag)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTfDescricao)
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel6))
+                    .addGroup(pnCentroLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabelDiasPrimerParcelaCadConPag)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jFTfDiaPrimeiraParcela, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4)))
+                .addGap(18, 18, 18)
+                .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnCentroLayout.createSequentialGroup()
+                        .addComponent(jTfDiaEntreParcela, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnCentroLayout.createSequentialGroup()
+                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioBtInativo)
+                            .addComponent(jRadioBtAtivo))
+                        .addGap(28, 28, 28))))
         );
         pnCentroLayout.setVerticalGroup(
             pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnCentroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
+                    .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(jRadioBtAtivo)
+                        .addComponent(jTfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelDescricaoCondPag, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTfIdConPag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabelDescricaoCondPag, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jRadioBtAtivo)
-                        .addComponent(jTfDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioBtInativo)
-                .addGap(35, 35, 35)
+                .addGap(39, 39, 39)
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTfNumParcelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDiasPrimerParcelaCadConPag)
-                    .addComponent(jTfPrimeiraParcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTfDiaEntreParcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(jFTfDiaPrimeiraParcela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(93, 93, 93)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -389,8 +409,11 @@ public class FoCadCondicaoPagamento extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
-            .addComponent(pnCentro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnCentro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -446,9 +469,9 @@ public class FoCadCondicaoPagamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btDeletarActionPerformed
 
-
-
-    
+    private void jRadioBtInativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioBtInativoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioBtInativoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -479,7 +502,11 @@ public class FoCadCondicaoPagamento extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new FoCadCondicaoPagamento().setVisible(true);
+            try {
+                new FoCadCondicaoPagamento().setVisible(true);
+            } catch (ParseException ex) {
+                Logger.getLogger(FoCadCondicaoPagamento.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
 
@@ -492,6 +519,7 @@ public class FoCadCondicaoPagamento extends javax.swing.JFrame {
     private javax.swing.JButton btSair;
     private javax.swing.JButton btSalvar;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JFormattedTextField jFTfDiaPrimeiraParcela;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -508,7 +536,6 @@ public class FoCadCondicaoPagamento extends javax.swing.JFrame {
     private javax.swing.JTextField jTfDiaEntreParcela;
     private javax.swing.JTextField jTfIdConPag;
     private javax.swing.JTextField jTfNumParcelas;
-    private javax.swing.JTextField jTfPrimeiraParcela;
     private javax.swing.JPanel pnCentro;
     // End of variables declaration//GEN-END:variables
 }
