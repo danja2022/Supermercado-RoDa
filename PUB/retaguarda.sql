@@ -29,6 +29,10 @@ CREATE TABLE `bairro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `cidade`
+--
+
 DROP TABLE IF EXISTS `cidade`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -38,7 +42,9 @@ CREATE TABLE `cidade` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+--
+-- Table structure for table `classe`
+--
 
 DROP TABLE IF EXISTS `classe`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -50,6 +56,9 @@ CREATE TABLE `classe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COMMENT='	';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `cliente`
+--
 
 DROP TABLE IF EXISTS `cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -75,6 +84,10 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `colaborador`
+--
+
 DROP TABLE IF EXISTS `colaborador`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -90,12 +103,15 @@ CREATE TABLE `colaborador` (
   `status` char(1) DEFAULT NULL,
   `login` varchar(10) NOT NULL,
   `senha` varchar(10) NOT NULL,
-  `endereco_id INT` int NOT NULL,
+  `endereco_id` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_colaborador_endereco1_idx` (`endereco_id INT`),
-  CONSTRAINT `fk_colaboradorEndereco` FOREIGN KEY (`endereco_id INT`) REFERENCES `endereco` (`id`)
+  KEY `fk_colaborador_endereco1_idx` (`endereco_id`),
+  CONSTRAINT `fk_colaboradorEndereco` FOREIGN KEY (`endereco_id`) REFERENCES `endereco` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+--
+-- Table structure for table `compra`
+--
 
 DROP TABLE IF EXISTS `compra`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -115,31 +131,38 @@ CREATE TABLE `compra` (
   PRIMARY KEY (`id`),
   KEY `fk_compra_fornecedor1_idx` (`fornecedor_id`),
   KEY `fk_compra_condicaoPagamento1_idx` (`condicaoPagamento_id`),
-  CONSTRAINT `fk_compra_condPagamento` FOREIGN KEY (`condicaoPagamento_id`) REFERENCES `condicaoPagamento` (`id`),
+  CONSTRAINT `fk_compra_condPagamento` FOREIGN KEY (`condicaoPagamento_id`) REFERENCES `condicaopagamento` (`id`),
   CONSTRAINT `fk_compraFornecedor` FOREIGN KEY (`fornecedor_id`) REFERENCES `fornecedor` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-DROP TABLE IF EXISTS `condicaoPagamento`;
+--
+-- Table structure for table `condicaopagamento`
+--
+
+DROP TABLE IF EXISTS `condicaopagamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `condicaoPagamento` (
+CREATE TABLE `condicaopagamento` (
   `id` int NOT NULL AUTO_INCREMENT,
   `descricaoCondicao` varchar(45) NOT NULL,
   `numeroParcelas` int NOT NULL,
-  `diasPrimeiraParcela` int NOT NULL,
+  `diaPrimeiraParcela` varchar(20) NOT NULL,
   `diaEntreParcela` int NOT NULL,
   `status` char(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `cupomfiscal`
+--
 
-DROP TABLE IF EXISTS `cupomFiscal`;
+DROP TABLE IF EXISTS `cupomfiscal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cupomFiscal` (
+CREATE TABLE `cupomfiscal` (
   `id` int NOT NULL AUTO_INCREMENT,
   `dataVenda` date NOT NULL,
   `horaVenda` time NOT NULL,
@@ -152,10 +175,15 @@ CREATE TABLE `cupomFiscal` (
   PRIMARY KEY (`id`),
   KEY `fk_cupomFiscal_colaborador1_idx` (`colaborador_id`),
   KEY `cliente_id` (`cliente_id`),
-  CONSTRAINT `cupomFiscal_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
+  CONSTRAINT `cupomfiscal_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`),
   CONSTRAINT `fk_cupomFiscalColaborador` FOREIGN KEY (`colaborador_id`) REFERENCES `colaborador` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
+-- Table structure for table `endereco`
+--
 
 DROP TABLE IF EXISTS `endereco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -174,6 +202,9 @@ CREATE TABLE `endereco` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `fornecedor`
+--
 
 DROP TABLE IF EXISTS `fornecedor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -187,25 +218,29 @@ CREATE TABLE `fornecedor` (
   `email` varchar(45) NOT NULL,
   `dataCadastro` date NOT NULL,
   `status` varchar(45) DEFAULT NULL,
-  `Fornecedor` varchar(45) NOT NULL,
-  `InscEstadual` varchar(45) NOT NULL,
+  `cnpj` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `inscEstadual` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `contato` varchar(45) NOT NULL,
   `razaoSocial` varchar(60) NOT NULL,
-  `CPF` varchar(11) NOT NULL,
-  `rg` varchar(9) NOT NULL,
-  `endereco_id INT` int NOT NULL,
+  `cpf` varchar(20) DEFAULT NULL,
+  `rg` varchar(15) DEFAULT NULL,
+  `endereco_id` int NOT NULL,
   `observacao` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_fornecedor_endereco1_idx` (`endereco_id INT`),
-  CONSTRAINT `fk_forneEndereco` FOREIGN KEY (`endereco_id INT`) REFERENCES `endereco` (`id`)
+  KEY `fk_fornecedor_endereco1_idx` (`endereco_id`),
+  CONSTRAINT `fk_forneEndereco` FOREIGN KEY (`endereco_id`) REFERENCES `endereco` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
-DROP TABLE IF EXISTS `historicoMovimentacao`;
+--
+-- Table structure for table `historicomovimentacao`
+--
+
+DROP TABLE IF EXISTS `historicomovimentacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `historicoMovimentacao` (
+CREATE TABLE `historicomovimentacao` (
   `id` int NOT NULL AUTO_INCREMENT,
   `data` date NOT NULL,
   `hora` time NOT NULL,
@@ -220,11 +255,14 @@ CREATE TABLE `historicoMovimentacao` (
   KEY `itemCupomFiscal_id` (`itemCupomFiscal_id`),
   KEY `produto_id` (`produto_id`),
   CONSTRAINT `fk_historicoMovItensCompra` FOREIGN KEY (`itensCompra_id`) REFERENCES `itensCompra` (`id`),
-  CONSTRAINT `historicoMovimentacao_ibfk_1` FOREIGN KEY (`itemCupomFiscal_id`) REFERENCES `itensCupomFiscal` (`id`),
-  CONSTRAINT `historicoMovimentacao_ibfk_2` FOREIGN KEY (`produto_id`) REFERENCES `produto` (`id`)
+  CONSTRAINT `historicomovimentacao_ibfk_1` FOREIGN KEY (`itemCupomFiscal_id`) REFERENCES `itensCupomFiscal` (`id`),
+  CONSTRAINT `historicomovimentacao_ibfk_2` FOREIGN KEY (`produto_id`) REFERENCES `produto` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `itensCompra`
+--
 
 DROP TABLE IF EXISTS `itensCompra`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -244,6 +282,9 @@ CREATE TABLE `itensCompra` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `itensCupomFiscal`
+--
 
 DROP TABLE IF EXISTS `itensCupomFiscal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -258,11 +299,15 @@ CREATE TABLE `itensCupomFiscal` (
   PRIMARY KEY (`id`),
   KEY `cupomFiscal_id` (`cupomFiscal_id`),
   KEY `produto_id` (`produto_id`),
-  CONSTRAINT `itensCupomFiscal_ibfk_1` FOREIGN KEY (`cupomFiscal_id`) REFERENCES `cupomFiscal` (`id`),
+  CONSTRAINT `itensCupomFiscal_ibfk_1` FOREIGN KEY (`cupomFiscal_id`) REFERENCES `cupomfiscal` (`id`),
   CONSTRAINT `itensCupomFiscal_ibfk_2` FOREIGN KEY (`produto_id`) REFERENCES `produto` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Table structure for table `marca`
+--
 
 DROP TABLE IF EXISTS `marca`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -274,6 +319,10 @@ CREATE TABLE `marca` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+
+--
+-- Table structure for table `pagamento`
+--
 
 DROP TABLE IF EXISTS `pagamento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -294,6 +343,10 @@ CREATE TABLE `pagamento` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
+--
+-- Table structure for table `pagar`
+--
+
 DROP TABLE IF EXISTS `pagar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -311,6 +364,9 @@ CREATE TABLE `pagar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Table structure for table `produto`
+--
 
 DROP TABLE IF EXISTS `produto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -347,4 +403,4 @@ CREATE TABLE `produto` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-27 20:59:36
+-- Dump completed on 2023-04-25  1:56:32
