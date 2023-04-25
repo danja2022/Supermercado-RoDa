@@ -117,6 +117,7 @@ public class FoBuscaBairro extends javax.swing.JFrame {
         jButtonCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Bottom.png"))); // NOI18N
         jButtonCarregar.setText("Carregar");
 
+        jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         jButtonSair.setText("Sair");
 
         javax.swing.GroupLayout jPanelRodapeLayout = new javax.swing.GroupLayout(jPanelRodape);
@@ -126,7 +127,7 @@ public class FoBuscaBairro extends javax.swing.JFrame {
             .addGroup(jPanelRodapeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonCarregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 414, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 394, Short.MAX_VALUE)
                 .addComponent(jButtonSair)
                 .addContainerGap())
         );

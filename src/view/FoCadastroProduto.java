@@ -561,7 +561,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
                             .addComponent(jTextFieldFatorConversao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelDataCadastro)
                             .addComponent(jFTextFieldDtCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
+                        .addGap(20, 20, 20)
                         .addComponent(jLabel5)))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
@@ -615,7 +615,7 @@ public class FoCadastroProduto extends javax.swing.JFrame {
         });
         jPanel4.add(btSair);
 
-        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Bomb.png"))); // NOI18N
         btDeletar.setText("Deletar");
         btDeletar.setEnabled(false);
         jPanel4.add(btDeletar);

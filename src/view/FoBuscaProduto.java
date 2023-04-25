@@ -124,7 +124,7 @@ public class FoBuscaProduto extends javax.swing.JFrame {
         jButtonCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Bottom.png"))); // NOI18N
         jButtonCarregar.setText("Carregar");
 
-        jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
+        jButtonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         jButtonSair.setText("Sair");
 
         javax.swing.GroupLayout jPanelRodapeLayout = new javax.swing.GroupLayout(jPanelRodape);

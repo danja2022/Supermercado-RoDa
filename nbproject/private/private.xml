@@ -3,22 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Controler/ControllerCadFornecedor.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Controler/ControllerCadCliente.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/FornecedorDAO.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/view/FormMenuPrincipal.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/ConnectionFactory.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/ClienteDAO.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/view/ModeloBuscas.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Controler/ControllerBuscaCliente.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Controler/ControllerCadCondPag.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/bo/CondicaoPgto.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/view/FoBuscaCondicaoPagamento.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/CondicaoPgtoDAO.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Controler/ControllerBuscaCondPag.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/Model/DAO/EnderecoDAO.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/view/FoCadCondicaoPagamento.java</file>
-            <file>file:/home/rodrigo/Documents/MercadoRoda/src/view/FoCadastroCliente.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Documentos/MercadoRoda/src/Model/DAO/ClienteDAO.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Documentos/MercadoRoda/src/Model/DAO/FornecedorDAO.java</file>
         </group>
     </open-files>
 </project-private>

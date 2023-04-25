@@ -371,7 +371,7 @@ public class FoCadCondicaoPagamento extends javax.swing.JFrame {
         });
         jPanel4.add(btSair);
 
-        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Bomb.png"))); // NOI18N
         btDeletar.setText("Deletar");
         btDeletar.setEnabled(false);
         btDeletar.addActionListener(new java.awt.event.ActionListener() {

@@ -120,7 +120,7 @@ public class FoBuscaCidade extends javax.swing.JFrame {
         jButtonCarregarBuscaCidade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Bottom.png"))); // NOI18N
         jButtonCarregarBuscaCidade.setText("Carregar");
 
-        jButtonSairBuscaCidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
+        jButtonSairBuscaCidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         jButtonSairBuscaCidades.setText("Sair");
 
         javax.swing.GroupLayout jPanelRodapeLayout = new javax.swing.GroupLayout(jPanelRodape);

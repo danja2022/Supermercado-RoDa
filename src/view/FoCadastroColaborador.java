@@ -461,6 +461,8 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         buttonGroup1.add(jRadioBtInativo);
         jRadioBtInativo.setText("Inativo");
 
+        FtDataCadastro.setEditable(false);
+
         javax.swing.GroupLayout pnCentroLayout = new javax.swing.GroupLayout(pnCentro);
         pnCentro.setLayout(pnCentroLayout);
         pnCentroLayout.setHorizontalGroup(
@@ -620,7 +622,7 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         });
         jPanel4.add(btSair);
 
-        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Delete.png"))); // NOI18N
+        btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Bomb.png"))); // NOI18N
         btDeletar.setText("Deletar");
         btDeletar.setEnabled(false);
         jPanel4.add(btDeletar);
