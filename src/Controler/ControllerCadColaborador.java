@@ -33,7 +33,7 @@ public class ControllerCadColaborador implements ActionListener {
         telacadColaborador.getBtDeletar().addActionListener(this);
 
         telacadColaborador.ativa(true);
-        telacadColaborador.ligaDesliga(false);
+        telacadColaborador.ligaDesliga(false,this.telacadColaborador.getPnCentro());
         this.setComboBox();
 
     }
@@ -47,7 +47,7 @@ public class ControllerCadColaborador implements ActionListener {
         endereco = enderecoDAO.retrieve(colaborador.getEndereco().getId());
 
         telacadColaborador.ativa(false);
-        telacadColaborador.ligaDesliga(true);
+        telacadColaborador.ligaDesliga(true,this.telacadColaborador.getPnCentro());
 
         telacadColaborador.gettFId().setText(colaborador.getId() + "");
         if (colaborador.getStatus() == 'A') {
@@ -115,12 +115,12 @@ public class ControllerCadColaborador implements ActionListener {
 
         if (acao.getSource() == telacadColaborador.getBtNovo()) {
             telacadColaborador.ativa(false);
-            telacadColaborador.ligaDesliga(true);
+            telacadColaborador.ligaDesliga(true,this.telacadColaborador.getPnCentro());
             telacadColaborador.gettFId().setEnabled(false);
 
         } else if (acao.getSource() == telacadColaborador.getBtCancelar()) {
             telacadColaborador.ativa(true);
-            telacadColaborador.ligaDesliga(false);
+            telacadColaborador.ligaDesliga(false,this.telacadColaborador.getPnCentro());
 
         } else if (acao.getSource() == telacadColaborador.getBtSalvar()) {
 
@@ -173,7 +173,7 @@ public class ControllerCadColaborador implements ActionListener {
                 }
 
                 telacadColaborador.ativa(true);
-                telacadColaborador.ligaDesliga(false);
+                telacadColaborador.ligaDesliga(false,this.telacadColaborador.getPnCentro());
 
             } else {
                 JOptionPane.showMessageDialog(null, "As Senhas não conferem");
@@ -211,7 +211,7 @@ public class ControllerCadColaborador implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar.");
                 } else {
                     telacadColaborador.ativa(true);
-                    telacadColaborador.ligaDesliga(false);
+                    telacadColaborador.ligaDesliga(false,this.telacadColaborador.getPnCentro());
                     setComboBox();
                 }
             }

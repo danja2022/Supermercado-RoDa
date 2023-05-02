@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Daniel/OneDrive/Documentos/MercadoRoda/src/Model/DAO/ClienteDAO.java</file>
-            <file>file:/C:/Users/Daniel/OneDrive/Documentos/MercadoRoda/src/Model/DAO/FornecedorDAO.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Documentos/MercadoRoda/src/view/FormMenuPrincipal.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Documentos/MercadoRoda/src/view/FoCadastroColaborador.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Documentos/MercadoRoda/src/view/FoCadastroFornecedor.java</file>
+            <file>file:/C:/Users/Daniel/OneDrive/Documentos/MercadoRoda/src/Controler/ControllerCadColaborador.java</file>
         </group>
     </open-files>
 </project-private>

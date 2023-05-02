@@ -34,9 +34,10 @@ public class ControllerCadastroProduto implements ActionListener {
         telaCadProduto.getBtCadClasse().addActionListener(this);
         telaCadProduto.getBtDeletar().addActionListener(this);
 
+        setComboBox();
         telaCadProduto.ativa(true);
         telaCadProduto.ligaDesliga(false);
-        setComboBox();
+        
 
     }
 

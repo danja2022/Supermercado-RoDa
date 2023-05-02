@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.FoCadCondicaoPagamento;
 import Model.bo.CondicaoPgto;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import view.FoBuscaCondicaoPagamento;
 
@@ -96,6 +97,45 @@ public class ControllerCadCondPag implements ActionListener {
         return aData.length() == 8;
     }
 
+    private boolean verificaPrimeiraParcela(String data) {
+        LocalDate aData = LocalDate.now();
+        String ano = "", mes = "", dia = "";
+
+        for (int i = 0; i < (0 + 2); i++) {
+            dia = dia + data.charAt(i);
+        }
+
+        for (int i = 3; i < (3 + 2); i++) {
+            mes = mes + data.charAt(i);
+        }
+
+        for (int i = 6; i < (6 + 4); i++) {
+            ano = ano + data.charAt(i);
+        }
+
+        if (Integer.parseInt(ano) > aData.getYear()) {
+            return true;
+        } else if (Integer.parseInt(ano) == aData.getYear()) {
+            if (Integer.parseInt(mes) == aData.getMonthValue()) {
+                if (Integer.parseInt(dia) >= aData.getDayOfMonth()) {
+                    return true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Dia não pode ser inferior ao dia de hoje!");
+                    return false;
+                }
+            } else if (Integer.parseInt(mes) > aData.getMonthValue()) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Mês não pode ser inferior ao mês atual!");
+                return false;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ano não pode ser inferior ao ano atual!");
+            return false;
+        }
+
+    }
+
     @Override
     public void actionPerformed(ActionEvent acao) {
         if (acao.getSource() == telaCadCondicaoPagamento.getBtNovo()) {
@@ -113,10 +153,17 @@ public class ControllerCadCondPag implements ActionListener {
                 JOptionPane.showMessageDialog(null, "O campo 'Descrição' é obrigatório!");
             } else if (telaCadCondicaoPagamento.getjTfDiaEntreParcela().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "O campo 'Dias Entrega' é obrigatório!");
-            } else if (telaCadCondicaoPagamento.getjTfNumParcelas().getText().trim().equalsIgnoreCase("")) {
+            }else if((Integer.parseInt(telaCadCondicaoPagamento.getjTfDiaEntreParcela().getText()) < 1)
+                  ||  (Integer.parseInt(telaCadCondicaoPagamento.getjTfDiaEntreParcela().getText()) > 31)){
+                JOptionPane.showMessageDialog(null, "O campo 'Dias Entrega' deve estar entre 1 e 31!");
+            }else if (telaCadCondicaoPagamento.getjTfNumParcelas().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "O campo 'Número de Parcelas' é obrigatório!");
-            } else if (!verificaData( telaCadCondicaoPagamento.getjFTfDiaPrimeiraParcela().getText().trim())) {
+            } else if(Integer.parseInt(telaCadCondicaoPagamento.getjTfNumParcelas().getText()) < 1){
+                JOptionPane.showMessageDialog(null, "O campo 'Número de Parcelas' é deve ser maior que 0!");
+            }else if (!verificaData(telaCadCondicaoPagamento.getjFTfDiaPrimeiraParcela().getText().trim())){
                 JOptionPane.showMessageDialog(null, "O campo 'Primeira Parcela' é obrigatório!");
+            }else if(!verificaPrimeiraParcela(telaCadCondicaoPagamento.getjFTfDiaPrimeiraParcela().getText().trim())){
+                telaCadCondicaoPagamento.getjFTfDiaPrimeiraParcela().setText("");
             } else {
                 CondicaoPgto condicaoPgto = new CondicaoPgto();
 

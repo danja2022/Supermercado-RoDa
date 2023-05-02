@@ -282,9 +282,9 @@ public class FoCadastroProduto extends javax.swing.JFrame {
             else if (componente instanceof JTextArea){
                ((JTextArea)componente).setText ("");     
         }
-            //else if (componente instanceof JComboBox){
-                //((JComboBox)componente).setSelectedIndex(0);
-                    //}
+            else if (componente instanceof JComboBox){
+                ((JComboBox)componente).setSelectedIndex(-1);
+                    }
           //  else if (componente instanceof JScrollPane){
             //    ((JScrollPane)componente).get
        // }

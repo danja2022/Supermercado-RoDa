@@ -32,19 +32,19 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
      * @throws java.text.ParseException
      */
     public FoCadastroColaborador() throws ParseException {
-        
+
         initComponents();
-        ligaDesliga(false);
+        ligaDesliga(false,pnCentro);
         MaskFormatter maskTelefone1 = new MaskFormatter("(##) #####-####");
         MaskFormatter maskTelefone2 = new MaskFormatter("(##) #####-####");
         MaskFormatter maskData = new MaskFormatter("##/##/####");
-        
+
         maskTelefone1.install(ftfTelefone1);
         maskTelefone2.install(ftfTelefone2);
         maskData.install(FtDataCadastro);
-        
+
     }
-    
+
     public void ativa(boolean estadoComponente) {
         btNovo.setEnabled(estadoComponente);
         btSalvar.setEnabled(!estadoComponente);
@@ -53,218 +53,235 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         btSair.setEnabled(estadoComponente);
         btDeletar.setEnabled(!estadoComponente);
     }
-    
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JPanel getjPanel4() {
+        return jPanel4;
+    }
+
+    public void setjPanel4(JPanel jPanel4) {
+        this.jPanel4 = jPanel4;
+    }
+
+    public JPanel getPnEndereco() {
+        return pnEndereco;
+    }
+
+    public void setPnEndereco(JPanel pnEndereco) {
+        this.pnEndereco = pnEndereco;
+    }
+
     public JButton getBtBuscar() {
         return btBuscar;
     }
-    
+
     public void setBtBuscar(JButton btBuscar) {
         this.btBuscar = btBuscar;
     }
-    
+
     public JButton getBtCancelar() {
         return btCancelar;
     }
-    
+
     public void setBtCancelar(JButton btCancelar) {
         this.btCancelar = btCancelar;
     }
-    
+
     public JButton getBtNovo() {
         return btNovo;
     }
-    
+
     public void setBtNovo(JButton btNovo) {
         this.btNovo = btNovo;
     }
-    
+
     public JButton getBtSair() {
         return btSair;
     }
-    
+
     public void setBtSair(JButton btSair) {
         this.btSair = btSair;
     }
-    
+
     public JButton getBtSalvar() {
         return btSalvar;
     }
-    
+
     public void setBtSalvar(JButton btSalvar) {
         this.btSalvar = btSalvar;
     }
-    
+
     public JFormattedTextField getFtfTelefone1() {
         return ftfTelefone1;
     }
-    
+
     public void setFtfTelefone1(JFormattedTextField ftfTelefone1) {
         this.ftfTelefone1 = ftfTelefone1;
     }
-    
+
     public JFormattedTextField getFtfTelefone2() {
         return ftfTelefone2;
     }
-    
+
     public void setFtfTelefone2(JFormattedTextField ftfTelefone2) {
         this.ftfTelefone2 = ftfTelefone2;
     }
-    
+
     public JPanel getPnCentro() {
         return pnCentro;
     }
-    
+
     public void setPnCentro(JPanel pnCentro) {
         this.pnCentro = pnCentro;
     }
-    
+
     public JTextField getTfBairro() {
         return tfBairro;
     }
-    
+
     public void setTfBairro(JTextField tfBairro) {
         this.tfBairro = tfBairro;
     }
-    
+
     public JTextField getTfCidade() {
         return tfCidade;
     }
-    
+
     public void setTfCidade(JTextField tfCidade) {
         this.tfCidade = tfCidade;
     }
-    
+
     public JTextField getTfComplemento() {
         return tfComplemento;
     }
-    
+
     public void setTfComplemento(JTextField tfComplemento) {
         this.tfComplemento = tfComplemento;
     }
-    
+
     public JTextField getTfEmail() {
         return tfEmail;
     }
-    
+
     public void setTfEmail(JTextField tfEmail) {
         this.tfEmail = tfEmail;
     }
-    
+
     public JTextField getTfLogradouro() {
         return tfLogradouro;
     }
-    
+
     public void setTfLogradouro(JTextField tfLogradouro) {
         this.tfLogradouro = tfLogradouro;
     }
-    
+
     public JTextField getTfNome() {
         return tfNome;
     }
-    
+
     public void setTfNome(JTextField tfNome) {
         this.tfNome = tfNome;
     }
-    
+
     public JTextField getTfUsuario() {
         return tfUsuario;
     }
-    
+
     public void setTfUsuario(JTextField tfUsuario) {
         this.tfUsuario = tfUsuario;
     }
-    
+
     public JRadioButton getjRadioBtAtivo() {
         return jRadioBtAtivo;
     }
-    
+
     public void setjRadioBtAtivo(JRadioButton jRadioBtAtivo) {
         this.jRadioBtAtivo = jRadioBtAtivo;
     }
-    
+
     public JRadioButton getjRadioBtInativo() {
         return jRadioBtInativo;
     }
-    
+
     public void setjRadioBtInativo(JRadioButton jRadioBtInativo) {
         this.jRadioBtInativo = jRadioBtInativo;
     }
-    
+
     public JPasswordField getPfSenha() {
         return pfSenha;
     }
-    
+
     public void setPfSenha(JPasswordField pfSenha) {
         this.pfSenha = pfSenha;
     }
-    
+
     public JPasswordField getPfSenhaConfirm() {
         return pfSenhaConfirm;
     }
-    
+
     public void setPfSenhaConfirm(JPasswordField pfSenhaConfirm) {
         this.pfSenhaConfirm = pfSenhaConfirm;
     }
-    
+
     public JButton getBtCadCep() {
         return BtCadCep;
     }
-    
+
     public void setBtCadCep(JButton BtCadCep) {
         this.BtCadCep = BtCadCep;
     }
-    
+
     public JFormattedTextField getFtDataCadastro() {
         return FtDataCadastro;
     }
-    
+
     public void setFtDataCadastro(JFormattedTextField FtDataCadastro) {
         this.FtDataCadastro = FtDataCadastro;
     }
-    
+
     public JComboBox<String> getjCbCep() {
         return jCbCep;
     }
-    
+
     public void setjCbCep(JComboBox<String> jCbCep) {
         this.jCbCep = jCbCep;
     }
-    
-    public JScrollPane getjScrollPane1() {
-        return jScrollPane1;
-    }
-    
-    public void setjScrollPane1(JScrollPane jScrollPane1) {
-        this.jScrollPane1 = jScrollPane1;
-    }
-    
+
+
     public JTextArea getjTextArea1() {
         return jTextArea1;
     }
-    
+
     public void setjTextArea1(JTextArea jTextArea1) {
         this.jTextArea1 = jTextArea1;
     }
-    
+
     public JTextField gettFId() {
         return tFId;
     }
-    
+
     public void settFId(JTextField tFId) {
         this.tFId = tFId;
     }
-    
+
     public JButton getBtDeletar() {
         return btDeletar;
     }
-    
+
     public void setBtDeletar(JButton btDeletar) {
         this.btDeletar = btDeletar;
     }
-    
-    public void ligaDesliga(boolean estadoComponente) {
-        
-        Component[] componentes = pnCentro.getComponents();
+
+    public void ligaDesliga(boolean estadoComponente, JPanel painel) {
+
+        Component[] componentes = painel.getComponents();
         for (Component componente : componentes) {
             if (componente instanceof JTextField) {
                 ((JTextField) componente).setText("");
@@ -272,15 +289,15 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
                 ((JFormattedTextField) componente).setText("");
             } else if (componente instanceof JComboBox) {
                 ((JComboBox) componente).setSelectedIndex(0);
-            } else if (componente instanceof JScrollPane) {
+            } /*else if (componente instanceof JScrollPane) {
                 ((JScrollPane) componente).setViewportView(jTextArea1 = new JTextArea("", 5, 5));
+            }*/else if (componente instanceof JTextArea){
+                ((JTextArea) componente).setText("");
             }
             componente.setEnabled(estadoComponente);
         }
-        tfComplemento.setEnabled(estadoComponente);
-        tFId.setEnabled(false);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -295,8 +312,6 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         jLabelTel2CadColaborador = new javax.swing.JLabel();
         ftfTelefone2 = new javax.swing.JFormattedTextField();
         jLabelOBSCadColaborador = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jLabelConfiSenhaCadColaborador = new javax.swing.JLabel();
         tfUsuario = new javax.swing.JTextField();
         jLabelUsuarioCadColaborador = new javax.swing.JLabel();
@@ -323,6 +338,8 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         jRadioBtAtivo = new javax.swing.JRadioButton();
         jRadioBtInativo = new javax.swing.JRadioButton();
         FtDataCadastro = new javax.swing.JFormattedTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         btNovo = new javax.swing.JButton();
         btSalvar = new javax.swing.JButton();
@@ -343,6 +360,12 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         jLabelTelefone1CadColaborador.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelTelefone1CadColaborador.setText("Telefone 1* :");
 
+        try {
+            ftfTelefone1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(0##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         jLabelTel2CadColaborador.setText("Telefone 2 :");
 
         ftfTelefone2.addActionListener(new java.awt.event.ActionListener() {
@@ -352,11 +375,6 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
         });
 
         jLabelOBSCadColaborador.setText("Observação :");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setEnabled(false);
-        jScrollPane1.setViewportView(jTextArea1);
 
         jLabelConfiSenhaCadColaborador.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelConfiSenhaCadColaborador.setText("Confirme sua senha*  :");
@@ -463,6 +481,10 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
 
         FtDataCadastro.setEditable(false);
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout pnCentroLayout = new javax.swing.GroupLayout(pnCentro);
         pnCentro.setLayout(pnCentroLayout);
         pnCentroLayout.setHorizontalGroup(
@@ -497,12 +519,15 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
                                 .addComponent(jRadioBtInativo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelOBSCadColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pfSenhaConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelEmailCadColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelConfiSenhaCadColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(pnCentroLayout.createSequentialGroup()
+                                    .addComponent(jLabelOBSCadColaborador, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabelConfiSenhaCadColaborador, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnCentroLayout.createSequentialGroup()
                         .addComponent(jLabelIDCadColaborador)
@@ -543,22 +568,25 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelOBSCadColaborador)
-                    .addComponent(jLabelTel2CadColaborador)
-                    .addComponent(jLabelTelefone1CadColaborador))
-                .addGap(18, 18, 18)
-                .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnCentroLayout.createSequentialGroup()
-                            .addGap(3, 3, 3)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(ftfTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnCentroLayout.createSequentialGroup()
-                        .addComponent(ftfTelefone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)))
-                .addGap(6, 6, 6)
+                        .addGap(12, 12, 12)
+                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelOBSCadColaborador)
+                            .addComponent(jLabelTel2CadColaborador)
+                            .addComponent(jLabelTelefone1CadColaborador))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnCentroLayout.createSequentialGroup()
+                                .addComponent(ftfTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35))
+                            .addGroup(pnCentroLayout.createSequentialGroup()
+                                .addComponent(ftfTelefone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnCentroLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(pnCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelConfiSenhaCadColaborador)
                     .addComponent(jLabelDigSenhaCadColaborador)
@@ -685,7 +713,6 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
-        ligaDesliga(false);
     }//GEN-LAST:event_btBuscarActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
@@ -770,7 +797,7 @@ public final class FoCadastroColaborador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioBtAtivo;
     private javax.swing.JRadioButton jRadioBtInativo;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPasswordField pfSenha;
     private javax.swing.JPasswordField pfSenhaConfirm;
