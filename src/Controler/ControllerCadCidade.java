@@ -24,15 +24,15 @@ public class ControllerCadCidade implements ActionListener {
         telaCadCidade.getBtNovo().addActionListener(this);
         telaCadCidade.getBtSair().addActionListener(this);
 
-        telaCadCidade.ativa(true);
-        telaCadCidade.ligaDesliga(false);
+        utilities.Utils.ativa(true, telaCadCidade.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadCidade.getPnCentro());
 
     }
 
     public ControllerCadCidade(FoCadCidade telaCadCidade, ControllerCadEndereco cadEndereco) {
         this.telaCadCidade = telaCadCidade;
         this.cadEndereco = cadEndereco;
-        
+
         this.telaCadCidade.getBtBuscar().addActionListener(this);
         this.telaCadCidade.getBtCancelar().addActionListener(this);
         this.telaCadCidade.getBtSalvar().addActionListener(this);
@@ -40,20 +40,19 @@ public class ControllerCadCidade implements ActionListener {
         this.telaCadCidade.getBtSair().addActionListener(this);
         this.telaCadCidade.getBtDeletar().addActionListener(this);
 
-        this.telaCadCidade.ativa(true);
-        this.telaCadCidade.ligaDesliga(false);
-        
+        utilities.Utils.ativa(true, telaCadCidade.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadCidade.getPnCentro());
+
     }
-    
-    
-    public void atualizaCampos(int codigo){
+
+    public void atualizaCampos(int codigo) {
         CidadeDAO cidadeDAO = new CidadeDAO();
         Cidade cidade = new Cidade();
         cidade = cidadeDAO.retrieve(codigo);
-        
-        telaCadCidade.ativa(false);
-        telaCadCidade.ligaDesliga(true); 
-        telaCadCidade.getjTextFieldId().setText(cidade.getId()+"");
+
+        utilities.Utils.ativa(false, telaCadCidade.getjPanel4());
+        utilities.Utils.ligaDesliga(true, telaCadCidade.getPnCentro());
+        telaCadCidade.getjTextFieldId().setText(cidade.getId() + "");
         telaCadCidade.getjTextFieldDescricao().setText(cidade.getDescricao());
         telaCadCidade.getjTextFieldId().setEnabled(false);
     }
@@ -62,12 +61,12 @@ public class ControllerCadCidade implements ActionListener {
     public void actionPerformed(ActionEvent acao) {
 
         if (acao.getSource() == telaCadCidade.getBtNovo()) {
-            telaCadCidade.ativa(false);
-            telaCadCidade.ligaDesliga(true);
+            utilities.Utils.ativa(false, telaCadCidade.getjPanel4());
+            utilities.Utils.ligaDesliga(true, telaCadCidade.getPnCentro());
             telaCadCidade.getjTextFieldId().setEnabled(false);
         } else if (acao.getSource() == telaCadCidade.getBtCancelar()) {
-            telaCadCidade.ativa(true);
-            telaCadCidade.ligaDesliga(false);
+            utilities.Utils.ativa(true, telaCadCidade.getjPanel4());
+            utilities.Utils.ligaDesliga(false, telaCadCidade.getPnCentro());
         } else if (acao.getSource() == telaCadCidade.getBtSalvar()) {
             if (telaCadCidade.getjTextFieldDescricao().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "Atributo Descrição é Obrigatório");
@@ -75,17 +74,16 @@ public class ControllerCadCidade implements ActionListener {
                 Cidade cidade = new Cidade();
                 CidadeDAO cidadeDAO = new CidadeDAO();
                 cidade.setDescricao(telaCadCidade.getjTextFieldDescricao().getText());
-                
-                if(telaCadCidade.getjTextFieldId().getText().equalsIgnoreCase("")){
+
+                if (telaCadCidade.getjTextFieldId().getText().equalsIgnoreCase("")) {
                     cidadeDAO.create(cidade);
-                }else{
-                    cidade.setId(Integer.parseInt( telaCadCidade.getjTextFieldId().getText()));
+                } else {
+                    cidade.setId(Integer.parseInt(telaCadCidade.getjTextFieldId().getText()));
                     cidadeDAO.update(cidade);
                 }
-                
 
-                telaCadCidade.ativa(true);
-                telaCadCidade.ligaDesliga(false);
+                utilities.Utils.ativa(true, telaCadCidade.getjPanel4());
+                utilities.Utils.ligaDesliga(false, telaCadCidade.getPnCentro());
             }
 
         } else if (acao.getSource() == telaCadCidade.getBtBuscar()) {
@@ -96,20 +94,21 @@ public class ControllerCadCidade implements ActionListener {
             telaBuscaCidade.setVisible(true);
 
         } else if (acao.getSource() == telaCadCidade.getBtSair()) {
-            if(this.cadEndereco != null)
+            if (this.cadEndereco != null) {
                 this.cadEndereco.setComboBox();
+            }
             telaCadCidade.dispose();
-        }else if(acao.getSource() == telaCadCidade.getBtDeletar()){
-            if (!telaCadCidade.getjTextFieldId().getText().trim().equalsIgnoreCase("")){
+        } else if (acao.getSource() == telaCadCidade.getBtDeletar()) {
+            if (!telaCadCidade.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
                 Cidade cidade = new Cidade();
                 CidadeDAO cidadeDAO = new CidadeDAO();
                 cidade = cidadeDAO.retrieve(Integer.parseInt(telaCadCidade.getjTextFieldId().getText()));
-                
-                if(cidadeDAO.delete(cidade) == -1){
+
+                if (cidadeDAO.delete(cidade) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar. Verifique se a cidade está cadastrado em algum endereço");
-                }else {
-                    telaCadCidade.ativa(true);
-                    telaCadCidade.ligaDesliga(false);
+                } else {
+                    utilities.Utils.ativa(true, telaCadCidade.getjPanel4());
+                    utilities.Utils.ligaDesliga(false, telaCadCidade.getPnCentro());
                 }
             }
         }

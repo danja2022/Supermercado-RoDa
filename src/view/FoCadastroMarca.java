@@ -27,6 +27,16 @@ public class FoCadastroMarca extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JPanel getjPanel4() {
+        return jPanel4;
+    }
+
+    public void setjPanel4(JPanel jPanel4) {
+        this.jPanel4 = jPanel4;
+    }
+    
+    
+
     public JButton getBtBuscar() {
         return btBuscar;
     }
@@ -100,43 +110,6 @@ public class FoCadastroMarca extends javax.swing.JFrame {
     }
 
     
-    
-    
-    
-    
-    public void ativa (boolean estadoComponente){
-        btNovo.setEnabled(estadoComponente);
-        btSalvar.setEnabled(!estadoComponente);
-        btBuscar.setEnabled(estadoComponente);
-        btCancelar.setEnabled(!estadoComponente);
-        btSair.setEnabled(estadoComponente);
-        btDeletar.setEnabled(!estadoComponente);
-      
-    }
-    
-    public void ligaDesliga (boolean estadoComponente){
-    
-        Component[] componentes = pnCentro.getComponents();
-        for (Component componente : componentes ) {
-            if(componente instanceof JTextField){
-                ((JTextField)componente).setText("");
-        }
-            else if (componente instanceof JFormattedTextField){
-                ((JFormattedTextField)componente).setText ("");
-        }
-            else if (componente instanceof JTextArea){
-               ((JTextArea)componente).setText ("");     
-        }
-            else if (componente instanceof JComboBox){
-                ((JComboBox)componente).setSelectedIndex(0);
-                    }
-          //  else if (componente instanceof JScrollPane){
-            //    ((JScrollPane)componente).get
-       // }
-            componente.setEnabled(estadoComponente);
-        }
-    
-    }
   
    
     @SuppressWarnings("unchecked")
@@ -200,6 +173,7 @@ public class FoCadastroMarca extends javax.swing.JFrame {
 
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Create.png"))); // NOI18N
         btNovo.setText("Novo");
+        btNovo.setActionCommand("0");
         btNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNovoActionPerformed(evt);
@@ -209,6 +183,7 @@ public class FoCadastroMarca extends javax.swing.JFrame {
 
         btSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Download.png"))); // NOI18N
         btSalvar.setText("Salvar");
+        btSalvar.setActionCommand("1");
         btSalvar.setEnabled(false);
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,6 +194,7 @@ public class FoCadastroMarca extends javax.swing.JFrame {
 
         btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Cancel.png"))); // NOI18N
         btCancelar.setText("Cancelar");
+        btCancelar.setActionCommand("1");
         btCancelar.setEnabled(false);
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,6 +205,7 @@ public class FoCadastroMarca extends javax.swing.JFrame {
 
         btBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Eye.png"))); // NOI18N
         btBuscar.setText("Buscar");
+        btBuscar.setActionCommand("0");
         btBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBuscarActionPerformed(evt);
@@ -238,6 +215,7 @@ public class FoCadastroMarca extends javax.swing.JFrame {
 
         btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Exit.png"))); // NOI18N
         btSair.setText("Sair");
+        btSair.setActionCommand("0");
         btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSairActionPerformed(evt);
@@ -247,6 +225,7 @@ public class FoCadastroMarca extends javax.swing.JFrame {
 
         btDeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Bomb.png"))); // NOI18N
         btDeletar.setText("Deletar");
+        btDeletar.setActionCommand("1");
         btDeletar.setEnabled(false);
         jPanel4.add(btDeletar);
 
@@ -308,11 +287,9 @@ public class FoCadastroMarca extends javax.swing.JFrame {
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
-        ligaDesliga(false);
     }//GEN-LAST:event_btBuscarActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
-        ativa(false);
     }//GEN-LAST:event_btSairActionPerformed
 
     /**

@@ -35,9 +35,8 @@ public class ControllerCadastroProduto implements ActionListener {
         telaCadProduto.getBtDeletar().addActionListener(this);
 
         setComboBox();
-        telaCadProduto.ativa(true);
-        telaCadProduto.ligaDesliga(false);
-        
+        utilities.Utils.ativa(true, telaCadProduto.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadProduto.getPnCentro());
 
     }
 
@@ -71,22 +70,24 @@ public class ControllerCadastroProduto implements ActionListener {
 
         telaCadProduto.getjComboBoxClasse().removeAllItems();
         telaCadProduto.getjComboBoxMarca().removeAllItems();
-        if (listaMarca != null)
+        if (listaMarca != null) {
             for (Marca marca : listaMarca) {
                 telaCadProduto.getjComboBoxMarca().addItem(marca.getDescricao());
             }
-        
-        if (listaClasse != null)
+        }
+
+        if (listaClasse != null) {
             for (Classe classe : listaClasse) {
                 telaCadProduto.getjComboBoxClasse().addItem(classe.getDescricao());
             }
-        
+        }
+
     }
 
     public void atualizaCampos(int codigo) {
 
-        telaCadProduto.ativa(false);
-        telaCadProduto.ligaDesliga(true);
+        utilities.Utils.ativa(false, telaCadProduto.getjPanel4());
+        utilities.Utils.ligaDesliga(true, telaCadProduto.getPnCentro());
         Produto produto = new Produto();
         ProdutoDAO produtoDAO = new ProdutoDAO();
 
@@ -117,13 +118,13 @@ public class ControllerCadastroProduto implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent acao) {
         if (acao.getSource() == telaCadProduto.getBtNovo()) {
-            telaCadProduto.ativa(false);
-            telaCadProduto.ligaDesliga(true);
+            utilities.Utils.ativa(false, telaCadProduto.getjPanel4());
+            utilities.Utils.ligaDesliga(true, telaCadProduto.getPnCentro());
 
             //devo criar o text field de cada um?; Quero entender o que está acontecendo nessa parte do código;
         } else if (acao.getSource() == telaCadProduto.getBtCancelar()) {
-            telaCadProduto.ativa(true);
-            telaCadProduto.ligaDesliga(false);
+            utilities.Utils.ativa(true, telaCadProduto.getjPanel4());
+            utilities.Utils.ligaDesliga(false, telaCadProduto.getPnCentro());
 
         } else if (acao.getSource() == telaCadProduto.getBtSalvar()) {
             //campo descrição mercadoria será obrigatório
@@ -210,8 +211,8 @@ public class ControllerCadastroProduto implements ActionListener {
 
                 }
 
-                telaCadProduto.ativa(true);
-                telaCadProduto.ligaDesliga(false);
+                utilities.Utils.ativa(true, telaCadProduto.getjPanel4());
+                utilities.Utils.ligaDesliga(false, telaCadProduto.getPnCentro());
             }
 
         } else if (acao.getSource() == telaCadProduto.getBtBuscar()) {
@@ -227,11 +228,12 @@ public class ControllerCadastroProduto implements ActionListener {
             ControllerCadMarca cadMarca = new ControllerCadMarca(telaMarca, this) {
             };
             telaMarca.setVisible(true);
-        }else if(acao.getSource() == telaCadProduto.getBtCadClasse()){
+        } else if (acao.getSource() == telaCadProduto.getBtCadClasse()) {
             FoCadastroClasse telaClasse = new FoCadastroClasse();
-            ControllerCadClasse cadClasse = new ControllerCadClasse(telaClasse, this){};
+            ControllerCadClasse cadClasse = new ControllerCadClasse(telaClasse, this) {
+            };
             telaClasse.setVisible(true);
-        }else if (acao.getSource() == telaCadProduto.getBtDeletar()) {
+        } else if (acao.getSource() == telaCadProduto.getBtDeletar()) {
             if (!telaCadProduto.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
                 Produto produto = new Produto();
                 ProdutoDAO produtoDAO = new ProdutoDAO();
@@ -240,8 +242,8 @@ public class ControllerCadastroProduto implements ActionListener {
                 if (produtoDAO.delete(produto) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar.");
                 } else {
-                    telaCadProduto.ativa(true);
-                    telaCadProduto.ligaDesliga(false);
+                    utilities.Utils.ativa(true, telaCadProduto.getjPanel4());
+                    utilities.Utils.ligaDesliga(false, telaCadProduto.getPnCentro());
                     setComboBox();
                 }
 

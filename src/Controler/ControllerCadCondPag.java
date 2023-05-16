@@ -23,8 +23,8 @@ public class ControllerCadCondPag implements ActionListener {
         telaCadCondicaoPagamento.getBtSair().addActionListener(this);
         telaCadCondicaoPagamento.getBtDeletar().addActionListener(this);
 
-        telaCadCondicaoPagamento.ativa(true);
-        telaCadCondicaoPagamento.ligaDesliga(false);
+        utilities.Utils.ativa(true, telaCadCondicaoPagamento.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadCondicaoPagamento.getPnCentro());
 
     }
 
@@ -33,8 +33,8 @@ public class ControllerCadCondPag implements ActionListener {
         CondicaoPgtoDAO condicaoPgtoDAO = new CondicaoPgtoDAO();
         condicaoPgto = condicaoPgtoDAO.retrieve(codigo);
 
-        telaCadCondicaoPagamento.ativa(false);
-        telaCadCondicaoPagamento.ligaDesliga(true);
+        utilities.Utils.ativa(false, telaCadCondicaoPagamento.getjPanel4());
+        utilities.Utils.ligaDesliga(true, telaCadCondicaoPagamento.getPnCentro());
 
         telaCadCondicaoPagamento.getjTfIdConPag().setText(condicaoPgto.getId() + "");
         telaCadCondicaoPagamento.getjTfDescricao().setText(condicaoPgto.getDescricaoCondicao());
@@ -139,13 +139,13 @@ public class ControllerCadCondPag implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent acao) {
         if (acao.getSource() == telaCadCondicaoPagamento.getBtNovo()) {
-            telaCadCondicaoPagamento.ativa(false);
-            telaCadCondicaoPagamento.ligaDesliga(true);
+            utilities.Utils.ativa(false, telaCadCondicaoPagamento.getjPanel4());
+            utilities.Utils.ligaDesliga(true, telaCadCondicaoPagamento.getPnCentro());
             telaCadCondicaoPagamento.getjTfIdConPag().setEnabled(false);
 
         } else if (acao.getSource() == telaCadCondicaoPagamento.getBtCancelar()) {
-            telaCadCondicaoPagamento.ativa(true);
-            telaCadCondicaoPagamento.ligaDesliga(false);
+            utilities.Utils.ativa(true, telaCadCondicaoPagamento.getjPanel4());
+            utilities.Utils.ligaDesliga(false, telaCadCondicaoPagamento.getPnCentro());
 
         } else if (acao.getSource() == telaCadCondicaoPagamento.getBtSalvar()) {
 
@@ -153,16 +153,16 @@ public class ControllerCadCondPag implements ActionListener {
                 JOptionPane.showMessageDialog(null, "O campo 'Descrição' é obrigatório!");
             } else if (telaCadCondicaoPagamento.getjTfDiaEntreParcela().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "O campo 'Dias Entrega' é obrigatório!");
-            }else if((Integer.parseInt(telaCadCondicaoPagamento.getjTfDiaEntreParcela().getText()) < 1)
-                  ||  (Integer.parseInt(telaCadCondicaoPagamento.getjTfDiaEntreParcela().getText()) > 31)){
+            } else if ((Integer.parseInt(telaCadCondicaoPagamento.getjTfDiaEntreParcela().getText()) < 1)
+                    || (Integer.parseInt(telaCadCondicaoPagamento.getjTfDiaEntreParcela().getText()) > 31)) {
                 JOptionPane.showMessageDialog(null, "O campo 'Dias Entrega' deve estar entre 1 e 31!");
-            }else if (telaCadCondicaoPagamento.getjTfNumParcelas().getText().trim().equalsIgnoreCase("")) {
+            } else if (telaCadCondicaoPagamento.getjTfNumParcelas().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "O campo 'Número de Parcelas' é obrigatório!");
-            } else if(Integer.parseInt(telaCadCondicaoPagamento.getjTfNumParcelas().getText()) < 1){
+            } else if (Integer.parseInt(telaCadCondicaoPagamento.getjTfNumParcelas().getText()) < 1) {
                 JOptionPane.showMessageDialog(null, "O campo 'Número de Parcelas' é deve ser maior que 0!");
-            }else if (!verificaData(telaCadCondicaoPagamento.getjFTfDiaPrimeiraParcela().getText().trim())){
+            } else if (!verificaData(telaCadCondicaoPagamento.getjFTfDiaPrimeiraParcela().getText().trim())) {
                 JOptionPane.showMessageDialog(null, "O campo 'Primeira Parcela' é obrigatório!");
-            }else if(!verificaPrimeiraParcela(telaCadCondicaoPagamento.getjFTfDiaPrimeiraParcela().getText().trim())){
+            } else if (!verificaPrimeiraParcela(telaCadCondicaoPagamento.getjFTfDiaPrimeiraParcela().getText().trim())) {
                 telaCadCondicaoPagamento.getjFTfDiaPrimeiraParcela().setText("");
             } else {
                 CondicaoPgto condicaoPgto = new CondicaoPgto();
@@ -186,8 +186,8 @@ public class ControllerCadCondPag implements ActionListener {
                     condicaoPgtoDAO.update(condicaoPgto);
                 }
 
-                telaCadCondicaoPagamento.ativa(true);
-                telaCadCondicaoPagamento.ligaDesliga(false);
+                utilities.Utils.ativa(true, telaCadCondicaoPagamento.getjPanel4());
+                utilities.Utils.ligaDesliga(false, telaCadCondicaoPagamento.getPnCentro());
             }
 
         } else if (acao.getSource() == telaCadCondicaoPagamento.getBtBuscar()) {
@@ -208,8 +208,8 @@ public class ControllerCadCondPag implements ActionListener {
                 if (condicaoPgtoDAO.delete(condicaoPgto) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar");
                 } else {
-                    telaCadCondicaoPagamento.ativa(true);
-                    telaCadCondicaoPagamento.ligaDesliga(false);
+                    utilities.Utils.ativa(true, telaCadCondicaoPagamento.getjPanel4());
+                    utilities.Utils.ligaDesliga(false, telaCadCondicaoPagamento.getPnCentro());
                 }
 
             }

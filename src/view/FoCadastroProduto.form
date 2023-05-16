@@ -472,6 +472,7 @@
               <Image iconType="3" name="/imagens/Create.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Novo"/>
+            <Property name="actionCommand" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btNovoActionPerformed"/>
@@ -483,6 +484,7 @@
               <Image iconType="3" name="/imagens/Download.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Salvar"/>
+            <Property name="actionCommand" type="java.lang.String" value="1"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -495,6 +497,7 @@
               <Image iconType="3" name="/imagens/Cancel.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
+            <Property name="actionCommand" type="java.lang.String" value="1"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -507,6 +510,7 @@
               <Image iconType="3" name="/imagens/Eye.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
+            <Property name="actionCommand" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btBuscarActionPerformed"/>
@@ -518,6 +522,7 @@
               <Image iconType="3" name="/imagens/Exit.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
+            <Property name="actionCommand" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSairActionPerformed"/>
@@ -529,6 +534,7 @@
               <Image iconType="3" name="/imagens/Bomb.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Deletar"/>
+            <Property name="actionCommand" type="java.lang.String" value="1"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>

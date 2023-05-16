@@ -32,8 +32,8 @@ public class ControllerCadColaborador implements ActionListener {
         telacadColaborador.getjCbCep().addActionListener(this);
         telacadColaborador.getBtDeletar().addActionListener(this);
 
-        telacadColaborador.ativa(true);
-        telacadColaborador.ligaDesliga(false,this.telacadColaborador.getPnCentro());
+        utilities.Utils.ativa(true, telacadColaborador.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telacadColaborador.getPnCentro());
         this.setComboBox();
 
     }
@@ -46,8 +46,8 @@ public class ControllerCadColaborador implements ActionListener {
         EnderecoDAO enderecoDAO = new EnderecoDAO();
         endereco = enderecoDAO.retrieve(colaborador.getEndereco().getId());
 
-        telacadColaborador.ativa(false);
-        telacadColaborador.ligaDesliga(true,this.telacadColaborador.getPnCentro());
+        utilities.Utils.ativa(false, telacadColaborador.getjPanel4());
+        utilities.Utils.ligaDesliga(true, telacadColaborador.getPnCentro());
 
         telacadColaborador.gettFId().setText(colaborador.getId() + "");
         if (colaborador.getStatus() == 'A') {
@@ -114,13 +114,13 @@ public class ControllerCadColaborador implements ActionListener {
     public void actionPerformed(ActionEvent acao) {
 
         if (acao.getSource() == telacadColaborador.getBtNovo()) {
-            telacadColaborador.ativa(false);
-            telacadColaborador.ligaDesliga(true,this.telacadColaborador.getPnCentro());
+            utilities.Utils.ativa(false, telacadColaborador.getjPanel4());
+            utilities.Utils.ligaDesliga(true, telacadColaborador.getPnCentro());
             telacadColaborador.gettFId().setEnabled(false);
 
         } else if (acao.getSource() == telacadColaborador.getBtCancelar()) {
-            telacadColaborador.ativa(true);
-            telacadColaborador.ligaDesliga(false,this.telacadColaborador.getPnCentro());
+            utilities.Utils.ativa(true, telacadColaborador.getjPanel4());
+            utilities.Utils.ligaDesliga(false, telacadColaborador.getPnCentro());
 
         } else if (acao.getSource() == telacadColaborador.getBtSalvar()) {
 
@@ -172,8 +172,8 @@ public class ControllerCadColaborador implements ActionListener {
                     colaboradorDAO.update(colaborador);
                 }
 
-                telacadColaborador.ativa(true);
-                telacadColaborador.ligaDesliga(false,this.telacadColaborador.getPnCentro());
+                utilities.Utils.ativa(true, telacadColaborador.getjPanel4());
+                utilities.Utils.ligaDesliga(false, telacadColaborador.getPnCentro());
 
             } else {
                 JOptionPane.showMessageDialog(null, "As Senhas não conferem");
@@ -210,8 +210,8 @@ public class ControllerCadColaborador implements ActionListener {
                 if (colaboradorDAO.delete(colaborador) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar.");
                 } else {
-                    telacadColaborador.ativa(true);
-                    telacadColaborador.ligaDesliga(false,this.telacadColaborador.getPnCentro());
+                    utilities.Utils.ativa(true, telacadColaborador.getjPanel4());
+                    utilities.Utils.ligaDesliga(false, telacadColaborador.getPnCentro());
                     setComboBox();
                 }
             }

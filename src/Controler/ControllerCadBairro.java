@@ -38,9 +38,12 @@ public class ControllerCadBairro implements ActionListener {
         this.telaCadBairro.getBtNovo().addActionListener(this);
         this.telaCadBairro.getBtSair().addActionListener(this);
         this.telaCadBairro.getBtDeletar().addActionListener(this);
-        this.telaCadBairro.ativa(true);
-        this.telaCadBairro.ligaDesliga(false);
+        utilities.Utils.ativa(true, telaCadBairro.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadBairro.getPnCentro());
         this.telaCadBairro.getjTextFieldBairro().setEnabled(false);
+
+        utilities.Utils.ativa(true, telaCadBairro.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadBairro.getPnCentro());
 
     }
 
@@ -49,8 +52,8 @@ public class ControllerCadBairro implements ActionListener {
         BairroDAO bairroDAO = new BairroDAO();
         bairro = bairroDAO.retrieve(Codigo);
 
-        telaCadBairro.ligaDesliga(true);
-        telaCadBairro.ativa(false);
+        utilities.Utils.ativa(false, telaCadBairro.getjPanel4());
+        utilities.Utils.ligaDesliga(true, telaCadBairro.getPnCentro());
         //telaCadBairro.getjTextFieldBairro().setEnabled(true);
 
         telaCadBairro.getjTextFieldId().setText(bairro.getId() + "");
@@ -63,14 +66,13 @@ public class ControllerCadBairro implements ActionListener {
     public void actionPerformed(ActionEvent acao) {
 
         if (acao.getSource() == telaCadBairro.getBtNovo()) {
-            telaCadBairro.ativa(false);
-            telaCadBairro.ligaDesliga(true);
+            utilities.Utils.ativa(false, telaCadBairro.getjPanel4());
+            utilities.Utils.ligaDesliga(true, telaCadBairro.getPnCentro());
             telaCadBairro.getjTextFieldId().setEnabled(false);
 
         } else if (acao.getSource() == telaCadBairro.getBtCancelar()) {
-            telaCadBairro.ativa(true);
-            telaCadBairro.ligaDesliga(false);
-
+            utilities.Utils.ativa(true, telaCadBairro.getjPanel4());
+            utilities.Utils.ligaDesliga(false, telaCadBairro.getPnCentro());
         } else if (acao.getSource() == telaCadBairro.getBtSalvar()) {
 
             if (telaCadBairro.getjTextFieldBairro().getText().trim().equalsIgnoreCase("")) {
@@ -89,8 +91,8 @@ public class ControllerCadBairro implements ActionListener {
                     bairro.setId(Integer.parseInt(telaCadBairro.getjTextFieldId().getText()));
                     bairroDAO.update(bairro);
                 }
-                telaCadBairro.ativa(true);
-                telaCadBairro.ligaDesliga(false);
+                utilities.Utils.ativa(true, telaCadBairro.getjPanel4());
+                utilities.Utils.ligaDesliga(true, telaCadBairro.getPnCentro());
             }
         } //Mudará na proxima aula
         else if (acao.getSource() == telaCadBairro.getBtBuscar()) {
@@ -114,8 +116,8 @@ public class ControllerCadBairro implements ActionListener {
                 if (bairroDAO.delete(bairro) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar. Verifique se o bairro está cadastrado em algum endereço");
                 } else {
-                    telaCadBairro.ativa(true);
-                    telaCadBairro.ligaDesliga(false);
+                    utilities.Utils.ativa(true, telaCadBairro.getjPanel4());
+                    utilities.Utils.ligaDesliga(false, telaCadBairro.getPnCentro());
                 }
             }
         }

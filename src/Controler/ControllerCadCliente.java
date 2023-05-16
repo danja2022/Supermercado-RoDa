@@ -29,43 +29,46 @@ public class ControllerCadCliente implements ActionListener {
         telaCadCliente.getjBtCadCep().addActionListener(this);
         telaCadCliente.getBtDeletar().addActionListener(this);
 
-        telaCadCliente.ativa(true);
-        telaCadCliente.ligaDesliga(false);
+        utilities.Utils.ativa(true, telaCadCliente.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadCliente.getPnCentro());
         this.setComboBox();
 
     }
-    public void atualizaCampos(int codigo){
+
+    public void atualizaCampos(int codigo) {
         Cliente cliente = new Cliente();
         ClienteDAO clienteDAO = new ClienteDAO();
         cliente = clienteDAO.retrieve(codigo);
-        
-        telaCadCliente.ativa(false);
-        telaCadCliente.ligaDesliga(true);
-        
+
+        utilities.Utils.ativa(false, telaCadCliente.getjPanel4());
+        utilities.Utils.ligaDesliga(true, telaCadCliente.getPnCentro());
+
         telaCadCliente.getTfNome().setText(cliente.getNome());
-        telaCadCliente.getjTfId().setText(cliente.getId()+ "");
-        if(cliente.getStatus() == 'A')
+        telaCadCliente.getjTfId().setText(cliente.getId() + "");
+        if (cliente.getStatus() == 'A') {
             telaCadCliente.getjRadioBtAtivo().setSelected(true);
-        else
+        } else {
             telaCadCliente.getjRadioBtInativo().setSelected(true);
-        
+        }
+
         telaCadCliente.getFtfDtNasc().setText(dateToString(cliente.getDtNascimento()));
         telaCadCliente.getFtfCPF().setText(cliente.getCpf());
         telaCadCliente.getTfRG().setText(cliente.getRg());
-        
-        if(cliente.getSexo() == 'M')
+
+        if (cliente.getSexo() == 'M') {
             telaCadCliente.getRbMasculino().setSelected(true);
-        else if (cliente.getSexo() == 'F')
+        } else if (cliente.getSexo() == 'F') {
             telaCadCliente.getRbFeminino().setSelected(true);
-        else
+        } else {
             telaCadCliente.getRbNaoInformar().setSelected(true);
-        
+        }
+
         telaCadCliente.getFtfTelefone1().setText(cliente.getFone());
         telaCadCliente.getFtfTelefone2().setText(cliente.getFone2());
         telaCadCliente.getTfEmail().setText(cliente.getEmail());
         telaCadCliente.getjTextArea1().setText(cliente.getObservacao());
         telaCadCliente.getjComboBoxCep().setSelectedItem(cliente.getEndereco().getCep());
-        telaCadCliente.getTfComplemento().setText(cliente.getComplementoEndereco()); 
+        telaCadCliente.getTfComplemento().setText(cliente.getComplementoEndereco());
 
     }
 
@@ -79,59 +82,65 @@ public class ControllerCadCliente implements ActionListener {
         return aCpf.length() == 11;
 
     }
-    private boolean verificaNumero(String fone){
+
+    private boolean verificaNumero(String fone) {
         String aFone = "";
-        for(int i = 0; i< fone.length(); i++){
-            if((fone.charAt(i) != '(') && (fone.charAt(i)!= ')') && (fone.charAt(i) != '-') && (fone.charAt(i) != ' '))
+        for (int i = 0; i < fone.length(); i++) {
+            if ((fone.charAt(i) != '(') && (fone.charAt(i) != ')') && (fone.charAt(i) != '-') && (fone.charAt(i) != ' ')) {
                 aFone = aFone + fone.charAt(i);
+            }
         }
         return aFone.length() == 11;
     }
-    private boolean verificaData(String data){
+
+    private boolean verificaData(String data) {
         String aData = "";
-        for(int i = 0; i < data.length(); i++){
-            if((data.charAt(i) != ' ') && (data.charAt(i) != '-'))
+        for (int i = 0; i < data.length(); i++) {
+            if ((data.charAt(i) != ' ') && (data.charAt(i) != '-')) {
                 aData = aData + data.charAt(i);
+            }
         }
         return aData.length() == 8;
-                
+
     }
+
     //10-06-2002
-    private String stringToDate(String data){
+    private String stringToDate(String data) {
         String aData = "";
         int dia = 0, mes = 3, ano = 6;
-        
-        for(int i = ano; i < (ano+4); i++){
+
+        for (int i = ano; i < (ano + 4); i++) {
             aData = aData + data.charAt(i);
         }
         aData = aData + '-';
-        for (int i = mes; i < (mes+2); i++){
+        for (int i = mes; i < (mes + 2); i++) {
             aData = aData + data.charAt(i);
         }
         aData = aData + '-';
-        for (int i = dia; i< (dia +2); i ++){
+        for (int i = dia; i < (dia + 2); i++) {
             aData = aData + data.charAt(i);
         }
-        
+
         return aData;
     }
-   //2002-06-10
-    private String dateToString(String  data){
+    //2002-06-10
+
+    private String dateToString(String data) {
         String aData = "";
         int dia = 8, mes = 5, ano = 0;
-        
-        for(int i = dia; i < (dia+2); i++){
+
+        for (int i = dia; i < (dia + 2); i++) {
             aData = aData + data.charAt(i);
         }
-      //  aData = aData + '-';
-        for (int i = mes; i < (mes+2); i++){
+        //  aData = aData + '-';
+        for (int i = mes; i < (mes + 2); i++) {
             aData = aData + data.charAt(i);
         }
-     //   aData = aData + '-';
-        for(int i = ano; i < (ano+4); i++){
+        //   aData = aData + '-';
+        for (int i = ano; i < (ano + 4); i++) {
             aData = aData + data.charAt(i);
         }
-        return aData;        
+        return aData;
     }
 
     public void setComboBox() {
@@ -152,19 +161,19 @@ public class ControllerCadCliente implements ActionListener {
     public void actionPerformed(ActionEvent acao) {
 
         if (acao.getSource() == telaCadCliente.getBtNovo()) {
-            telaCadCliente.ativa(false);
-            telaCadCliente.ligaDesliga(true);
+            utilities.Utils.ativa(false, telaCadCliente.getjPanel4());
+            utilities.Utils.ligaDesliga(true, telaCadCliente.getPnCentro());
             telaCadCliente.getjTfId().setEnabled(false);
 
         } else if (acao.getSource() == telaCadCliente.getBtCancelar()) {
-            telaCadCliente.ativa(true);
-            telaCadCliente.ligaDesliga(false);
+            utilities.Utils.ativa(true, telaCadCliente.getjPanel4());
+            utilities.Utils.ligaDesliga(false, telaCadCliente.getPnCentro());
 
         } else if (acao.getSource() == telaCadCliente.getBtSalvar()) {
 
             if (telaCadCliente.getTfNome().getText().trim().equalsIgnoreCase("")) {
                 JOptionPane.showMessageDialog(null, "O campo nome é obrigatório!");
-            } else if (!verificaData( telaCadCliente.getFtfDtNasc().getText().trim())) {
+            } else if (!verificaData(telaCadCliente.getFtfDtNasc().getText().trim())) {
                 JOptionPane.showMessageDialog(null, "O campo Data de Nascimento é obrigatório!");
             } else if (!verificaCpf(telaCadCliente.getFtfCPF().getText().trim())) {
                 JOptionPane.showMessageDialog(null, "Preencha o CPF corretamente!");
@@ -178,17 +187,19 @@ public class ControllerCadCliente implements ActionListener {
 
                 Cliente cliente = new Cliente();
                 cliente.setNome(telaCadCliente.getTfNome().getText());
-                cliente.setDtNascimento(stringToDate( telaCadCliente.getFtfDtNasc().getText()));
+                cliente.setDtNascimento(stringToDate(telaCadCliente.getFtfDtNasc().getText()));
                 cliente.setCpf(telaCadCliente.getFtfCPF().getText());
                 cliente.setFone(telaCadCliente.getFtfTelefone1().getText());
-                if(verificaNumero(telaCadCliente.getFtfTelefone2().getText()))
+                if (verificaNumero(telaCadCliente.getFtfTelefone2().getText())) {
                     cliente.setFone2(telaCadCliente.getFtfTelefone2().getText());
-                else
+                } else {
                     cliente.setFone2("");
-                if(!telaCadCliente.getTfEmail().getText().trim().equalsIgnoreCase(""))
+                }
+                if (!telaCadCliente.getTfEmail().getText().trim().equalsIgnoreCase("")) {
                     cliente.setEmail(telaCadCliente.getTfEmail().getText());
-                else
+                } else {
                     cliente.setEmail("");
+                }
 
                 if (telaCadCliente.getRbFeminino().isSelected()) {
                     cliente.setSexo('F');
@@ -205,10 +216,11 @@ public class ControllerCadCliente implements ActionListener {
                 } else {
                     cliente.setStatus('I');
                 }
-                if(!telaCadCliente.getTfComplemento().getText().trim().equalsIgnoreCase(""))
+                if (!telaCadCliente.getTfComplemento().getText().trim().equalsIgnoreCase("")) {
                     cliente.setComplementoEndereco(telaCadCliente.getTfComplemento().getText());
-                else
+                } else {
                     cliente.setComplementoEndereco("");
+                }
                 Endereco endereco = new Endereco();
                 EnderecoDAO enderecoDAO = new EnderecoDAO();
                 endereco = enderecoDAO.retrieve(telaCadCliente.getjComboBoxCep().getSelectedItem().toString());
@@ -225,21 +237,21 @@ public class ControllerCadCliente implements ActionListener {
                 }
 
                 //persistir o objeto de bairro criado
-                telaCadCliente.ativa(true);
-                telaCadCliente.ligaDesliga(false);
+                utilities.Utils.ativa(true, telaCadCliente.getjPanel4());
+                utilities.Utils.ligaDesliga(false, telaCadCliente.getPnCentro());
             }
 
         } else if (acao.getSource() == telaCadCliente.getBtBuscar()) {
 
             FoBuscaCliente telaBuscaCidade = new FoBuscaCliente();
-            ControllerBuscaCliente controllerBuscaCliente = new ControllerBuscaCliente(telaBuscaCidade,this) {
+            ControllerBuscaCliente controllerBuscaCliente = new ControllerBuscaCliente(telaBuscaCidade, this) {
             };
             telaBuscaCidade.setVisible(true);
 
         } else if (acao.getSource() == telaCadCliente.getBtSair()) {
             telaCadCliente.dispose();
-        }else if(acao.getSource() == telaCadCliente.getjComboBoxCep()){
-            if(telaCadCliente.getjComboBoxCep().getSelectedItem() != null){
+        } else if (acao.getSource() == telaCadCliente.getjComboBoxCep()) {
+            if (telaCadCliente.getjComboBoxCep().getSelectedItem() != null) {
                 Endereco endereco = new Endereco();
                 EnderecoDAO enderecoDAO = new EnderecoDAO();
                 endereco = enderecoDAO.retrieve(telaCadCliente.getjComboBoxCep().getSelectedItem().toString());
@@ -247,22 +259,22 @@ public class ControllerCadCliente implements ActionListener {
                 telaCadCliente.getTfCidade().setText(endereco.getCidade().getDescricao());
                 telaCadCliente.getTfLogradouro().setText(endereco.getLogradouro());
             }
-           
-        }else if(acao.getSource() == telaCadCliente.getjBtCadCep()){
+
+        } else if (acao.getSource() == telaCadCliente.getjBtCadCep()) {
             FoCadastroEndereco telaCadEndereco = new FoCadastroEndereco();
             ControllerCadEndereco cadEndereco = new ControllerCadEndereco(telaCadEndereco, this);
             telaCadEndereco.setVisible(true);
-        }else if(acao.getSource() == telaCadCliente.getBtDeletar()){
-            if (!telaCadCliente.getjTfId().getText().trim().equalsIgnoreCase("")){
+        } else if (acao.getSource() == telaCadCliente.getBtDeletar()) {
+            if (!telaCadCliente.getjTfId().getText().trim().equalsIgnoreCase("")) {
                 Cliente cliente = new Cliente();
                 ClienteDAO clienteDAO = new ClienteDAO();
                 cliente = clienteDAO.retrieve(Integer.parseInt(telaCadCliente.getjTfId().getText()));
-                
-                if(clienteDAO.delete(cliente) == -1){
+
+                if (clienteDAO.delete(cliente) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar.");
-                }else {
-                    telaCadCliente.ativa(true);
-                    telaCadCliente.ligaDesliga(false);
+                } else {
+                    utilities.Utils.ativa(true, telaCadCliente.getjPanel4());
+                    utilities.Utils.ligaDesliga(false, telaCadCliente.getPnCentro());
                     setComboBox();
                 }
             }

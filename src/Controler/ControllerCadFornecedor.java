@@ -30,8 +30,8 @@ public class ControllerCadFornecedor implements ActionListener {
         telaCadFornecedor.getjCbCep().addActionListener(this);
         telaCadFornecedor.getBtDeletar().addActionListener(this);
 
-        telaCadFornecedor.ativa(true);
-        telaCadFornecedor.ligaDesliga(false);
+        utilities.Utils.ativa(true, telaCadFornecedor.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadFornecedor.getPnCentro());
         this.setComboBox();
 
     }
@@ -41,8 +41,8 @@ public class ControllerCadFornecedor implements ActionListener {
         FornecedorDAO fornecedorDAO = new FornecedorDAO();
         fornecedor = fornecedorDAO.retrieve(codigo);
 
-        telaCadFornecedor.ativa(false);
-        telaCadFornecedor.ligaDesliga(true);
+        utilities.Utils.ativa(false, telaCadFornecedor.getjPanel4());
+        utilities.Utils.ligaDesliga(true, telaCadFornecedor.getPnCentro());
 
         telaCadFornecedor.getjTextFieldIdCadFornecedor().setText(fornecedor.getId() + "");
         if (fornecedor.getStatus() == 'A') {
@@ -133,13 +133,13 @@ public class ControllerCadFornecedor implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent acao) {
         if (acao.getSource() == telaCadFornecedor.getBtNovo()) {
-            telaCadFornecedor.ativa(false);
-            telaCadFornecedor.ligaDesliga(true);
+            utilities.Utils.ativa(false, telaCadFornecedor.getjPanel4());
+            utilities.Utils.ligaDesliga(true, telaCadFornecedor.getPnCentro());
             telaCadFornecedor.getjTextFieldIdCadFornecedor().setEnabled(false);
 
         } else if (acao.getSource() == telaCadFornecedor.getBtCancelar()) {
-            telaCadFornecedor.ativa(true);
-            telaCadFornecedor.ligaDesliga(false);
+            utilities.Utils.ativa(true, telaCadFornecedor.getjPanel4());
+            utilities.Utils.ligaDesliga(false, telaCadFornecedor.getPnCentro());
 
         } else if (acao.getSource() == telaCadFornecedor.getBtSalvar()) {
 
@@ -212,8 +212,8 @@ public class ControllerCadFornecedor implements ActionListener {
                     fornecedor.setId(Integer.parseInt(telaCadFornecedor.getjTextFieldIdCadFornecedor().getText()));
                     fornecedorDAO.update(fornecedor);
                 }
-                telaCadFornecedor.ativa(true);
-                telaCadFornecedor.ligaDesliga(false);
+                utilities.Utils.ativa(true, telaCadFornecedor.getjPanel4());
+                utilities.Utils.ligaDesliga(false, telaCadFornecedor.getPnCentro());
             }
 
         } else if (acao.getSource() == telaCadFornecedor.getBtBuscar()) {
@@ -238,7 +238,7 @@ public class ControllerCadFornecedor implements ActionListener {
                 telaCadFornecedor.getTfCidade().setText(endereco.getCidade().getDescricao());
                 telaCadFornecedor.getTfLogradouro().setText(endereco.getLogradouro());
             }
-        }else if (acao.getSource() == telaCadFornecedor.getBtDeletar()) {
+        } else if (acao.getSource() == telaCadFornecedor.getBtDeletar()) {
             if (!telaCadFornecedor.getjTextFieldIdCadFornecedor().getText().trim().equalsIgnoreCase("")) {
                 Fornecedor fornecedor = new Fornecedor();
                 FornecedorDAO fornecedorDAO = new FornecedorDAO();
@@ -247,8 +247,8 @@ public class ControllerCadFornecedor implements ActionListener {
                 if (fornecedorDAO.delete(fornecedor) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar. Verifique se existe um produto cadastrado com esse fornecedor");
                 } else {
-                    telaCadFornecedor.ativa(true);
-                    telaCadFornecedor.ligaDesliga(false);
+                    utilities.Utils.ativa(true, telaCadFornecedor.getjPanel4());
+                    utilities.Utils.ligaDesliga(false, telaCadFornecedor.getPnCentro());
                     setComboBox();
                 }
 

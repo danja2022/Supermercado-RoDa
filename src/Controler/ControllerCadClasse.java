@@ -23,6 +23,7 @@ public class ControllerCadClasse implements ActionListener {
         adicionaAction();
 
     }
+
     public ControllerCadClasse(FoCadastroClasse parTelaCadClasse, ControllerCadastroProduto cadProd) {
         this.telaCadClasse = parTelaCadClasse;
         this.cadProd = cadProd;
@@ -30,8 +31,8 @@ public class ControllerCadClasse implements ActionListener {
         adicionaAction();
 
     }
-    
-    private void adicionaAction(){
+
+    private void adicionaAction() {
         telaCadClasse.getBtBuscar().addActionListener(this);
         telaCadClasse.getBtCancelar().addActionListener(this);
         telaCadClasse.getBtSalvar().addActionListener(this);
@@ -39,35 +40,35 @@ public class ControllerCadClasse implements ActionListener {
         telaCadClasse.getBtSair().addActionListener(this);
         telaCadClasse.getBtDeletar().addActionListener(this);
 
-        telaCadClasse.ativa(true);
-        telaCadClasse.ligaDesliga(false);
+        utilities.Utils.ativa(true, telaCadClasse.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadClasse.getPnCentro());
     }
-    
-    public void atualizaCampos(int codigo){
+
+    public void atualizaCampos(int codigo) {
         Classe classe = new Classe();
         ClasseDAO classeDAO = new ClasseDAO();
         classe = classeDAO.retrieve(codigo);
-        
-        telaCadClasse.ativa(false);
-        telaCadClasse.ligaDesliga(true);
-        
-        
-        telaCadClasse.getjTextFieldIdClasse().setText(classe.getId()+"");
+
+        utilities.Utils.ativa(false, telaCadClasse.getjPanel4());
+        utilities.Utils.ligaDesliga(true, telaCadClasse.getPnCentro());
+
+        telaCadClasse.getjTextFieldIdClasse().setText(classe.getId() + "");
         telaCadClasse.getjTextFieldDescricaoClasseProduto().setText(classe.getDescricao());
         telaCadClasse.getjTextFieldIdClasse().setEnabled(false);
-        
+
     }
 
     @Override
     public void actionPerformed(ActionEvent acao) {
         if (acao.getSource() == telaCadClasse.getBtNovo()) {
-            telaCadClasse.ativa(false);
-            telaCadClasse.ligaDesliga(true);
+            utilities.Utils.ativa(false, telaCadClasse.getjPanel4());
+            utilities.Utils.ligaDesliga(true, telaCadClasse.getPnCentro());
+
             telaCadClasse.getjTextFieldIdClasse().setEnabled(false);
 
         } else if (acao.getSource() == telaCadClasse.getBtCancelar()) {
-            telaCadClasse.ativa(true);
-            telaCadClasse.ligaDesliga(false);
+            utilities.Utils.ativa(true, telaCadClasse.getjPanel4());
+            utilities.Utils.ligaDesliga(false, telaCadClasse.getPnCentro());
 
         } else if (acao.getSource() == telaCadClasse.getBtSalvar()) {
 
@@ -78,41 +79,40 @@ public class ControllerCadClasse implements ActionListener {
                 Classe classe = new Classe();
                 ClasseDAO classeDAO = new ClasseDAO();
                 classe.setDescricao(telaCadClasse.getjTextFieldDescricaoClasseProduto().getText());
-                
 
                 if (telaCadClasse.getjTextFieldIdClasse().getText().equalsIgnoreCase("")) {
                     classeDAO.create(classe);
-                }else{
+                } else {
                     classe.setId(Integer.parseInt(telaCadClasse.getjTextFieldIdClasse().getText()));
                     classeDAO.update(classe);
-                    
-                }
-                
 
-                telaCadClasse.ativa(true);
-                telaCadClasse.ligaDesliga(false);
+                }
+
+                utilities.Utils.ativa(true, telaCadClasse.getjPanel4());
+                utilities.Utils.ligaDesliga(false, telaCadClasse.getPnCentro());
 
             }
 
         } else if (acao.getSource() == telaCadClasse.getBtBuscar()) {
 
             FoBuscaClasses telaBuscaClasse = new FoBuscaClasses();
-            ControllerBuscaClasse controllerBuscaClasse = new ControllerBuscaClasse(telaBuscaClasse,this);
+            ControllerBuscaClasse controllerBuscaClasse = new ControllerBuscaClasse(telaBuscaClasse, this);
             telaBuscaClasse.setVisible(true);
         } else if (acao.getSource() == telaCadClasse.getBtSair()) {
             telaCadClasse.dispose();
             cadProd.setComboBox();
-        }else if(acao.getSource() == telaCadClasse.getBtDeletar()){
-            if (!telaCadClasse.getjTextFieldIdClasse().getText().trim().equalsIgnoreCase("")){
+        } else if (acao.getSource() == telaCadClasse.getBtDeletar()) {
+            if (!telaCadClasse.getjTextFieldIdClasse().getText().trim().equalsIgnoreCase("")) {
                 Classe classe = new Classe();
                 ClasseDAO classeDAO = new ClasseDAO();
                 classe = classeDAO.retrieve(Integer.parseInt(telaCadClasse.getjTextFieldIdClasse().getText()));
-                
-                if(classeDAO.delete(classe) == -1){
+
+                if (classeDAO.delete(classe) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar. Verifique se a classe está cadastrado em algum produto");
-                }else {
-                    telaCadClasse.ativa(true);
-                    telaCadClasse.ligaDesliga(false);
+                } else {
+                    utilities.Utils.ativa(true, telaCadClasse.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadClasse.getPnCentro());
+
                 }
             }
         }

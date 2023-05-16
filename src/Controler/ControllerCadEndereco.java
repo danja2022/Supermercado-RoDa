@@ -73,8 +73,8 @@ public class ControllerCadEndereco implements ActionListener {
         telaCadEndereco.getjBtCadCidade().addActionListener(this);
         telaCadEndereco.getBtDeletar().addActionListener(this);
 
-        telaCadEndereco.ativa(true);
-        telaCadEndereco.ligaDesliga(false);
+        utilities.Utils.ativa(true, telaCadEndereco.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadEndereco.getPnCentro());
         setComboBox();
 
     }
@@ -84,8 +84,8 @@ public class ControllerCadEndereco implements ActionListener {
         EnderecoDAO enderecoDAO = new EnderecoDAO();
         endereco = enderecoDAO.retrieve(codigo);
 
-        telaCadEndereco.ativa(false);
-        telaCadEndereco.ligaDesliga(true);
+        utilities.Utils.ativa(false, telaCadEndereco.getjPanel4());
+        utilities.Utils.ligaDesliga(true, telaCadEndereco.getPnCentro());
 
         telaCadEndereco.getjTextFieldCadIdEndereco().setText(endereco.getId() + "");
         telaCadEndereco.getjTextFieldDescricaoLogradouro().setText(endereco.getLogradouro());
@@ -126,13 +126,13 @@ public class ControllerCadEndereco implements ActionListener {
     public void actionPerformed(ActionEvent acao) {
 
         if (acao.getSource() == telaCadEndereco.getBtNovo()) {
-            telaCadEndereco.ativa(false);
-            telaCadEndereco.ligaDesliga(true);
+            utilities.Utils.ativa(false, telaCadEndereco.getjPanel4());
+            utilities.Utils.ligaDesliga(true, telaCadEndereco.getPnCentro());
             telaCadEndereco.getjTextFieldCadIdEndereco().setEnabled(false);
             //setComboBox();
         } else if (acao.getSource() == telaCadEndereco.getBtCancelar()) {
-            telaCadEndereco.ativa(true);
-            telaCadEndereco.ligaDesliga(false);
+            utilities.Utils.ativa(true, telaCadEndereco.getjPanel4());
+            utilities.Utils.ligaDesliga(false, telaCadEndereco.getPnCentro());
 
         } else if (acao.getSource() == telaCadEndereco.getBtSalvar()) {
             if (telaCadEndereco.getjTfCep().getText().trim().equalsIgnoreCase("")) {
@@ -162,8 +162,8 @@ public class ControllerCadEndereco implements ActionListener {
                     enderecoDAO.update(endereco);
                 }
 
-                telaCadEndereco.ativa(true);
-                telaCadEndereco.ligaDesliga(false);
+                utilities.Utils.ativa(true, telaCadEndereco.getjPanel4());
+                utilities.Utils.ligaDesliga(false, telaCadEndereco.getPnCentro());
             }
 
         } else if (acao.getSource() == telaCadEndereco.getBtBuscar()) {
@@ -205,8 +205,8 @@ public class ControllerCadEndereco implements ActionListener {
                 if (enderecoDAO.delete(endereco) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar, verifique se o endereço está cadastrado em algum cliente/colaborador");
                 } else {
-                    telaCadEndereco.ativa(true);
-                    telaCadEndereco.ligaDesliga(false);
+                    utilities.Utils.ativa(true, telaCadEndereco.getjPanel4());
+                    utilities.Utils.ligaDesliga(false, telaCadEndereco.getPnCentro());
                     setComboBox();
                 }
 

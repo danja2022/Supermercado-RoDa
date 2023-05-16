@@ -16,14 +16,15 @@ public class ControllerCadMarca implements ActionListener {
     public ControllerCadMarca(FoCadastroMarca partelaCadMarca) {
         this.telaCadMarca = partelaCadMarca;
         this.cadProd = null;
-        
+
         adicionaAction();
 
     }
+
     public ControllerCadMarca(FoCadastroMarca partelaCadMarca, ControllerCadastroProduto cadProd) {
         this.telaCadMarca = partelaCadMarca;
         this.cadProd = cadProd;
-        
+
         adicionaAction();
     }
 
@@ -35,8 +36,8 @@ public class ControllerCadMarca implements ActionListener {
         telaCadMarca.getBtSair().addActionListener(this);
         telaCadMarca.getBtDeletar().addActionListener(this);
 
-        telaCadMarca.ativa(true);
-        telaCadMarca.ligaDesliga(false);
+        utilities.Utils.ativa(true, telaCadMarca.getjPanel4());
+        utilities.Utils.ligaDesliga(false, telaCadMarca.getPnCentro());
 
     }
 
@@ -45,8 +46,8 @@ public class ControllerCadMarca implements ActionListener {
         MarcaDAO marcaDAO = new MarcaDAO();
         marca = marcaDAO.retrieve(codigo);
 
-        telaCadMarca.ativa(false);
-        telaCadMarca.ligaDesliga(true);
+        utilities.Utils.ativa(false, telaCadMarca.getjPanel4());
+        utilities.Utils.ligaDesliga(true, telaCadMarca.getPnCentro());
 
         telaCadMarca.getjTextFieldIdMarca().setText(marca.getId() + "");
         telaCadMarca.getjTextFieldCadMarca().setText(marca.getDescricao());
@@ -57,13 +58,13 @@ public class ControllerCadMarca implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent acao) {
         if (acao.getSource() == telaCadMarca.getBtNovo()) {
-            telaCadMarca.ativa(false);
-            telaCadMarca.ligaDesliga(true);
+            utilities.Utils.ativa(false, telaCadMarca.getjPanel4());
+            utilities.Utils.ligaDesliga(true, telaCadMarca.getPnCentro());
             telaCadMarca.getjTextFieldIdMarca().setEnabled(false);
 
         } else if (acao.getSource() == telaCadMarca.getBtCancelar()) {
-            telaCadMarca.ativa(true);
-            telaCadMarca.ligaDesliga(false);
+            utilities.Utils.ativa(true, telaCadMarca.getjPanel4());
+            utilities.Utils.ligaDesliga(false, telaCadMarca.getPnCentro());
 
         } else if (acao.getSource() == telaCadMarca.getBtSalvar()) {
 
@@ -84,8 +85,8 @@ public class ControllerCadMarca implements ActionListener {
 
                 }
 
-                telaCadMarca.ativa(true);
-                telaCadMarca.ligaDesliga(false);
+                utilities.Utils.ativa(true, telaCadMarca.getjPanel4());
+                utilities.Utils.ligaDesliga(false, telaCadMarca.getPnCentro());
             }
 
         } else if (acao.getSource() == telaCadMarca.getBtBuscar()) {
@@ -97,7 +98,7 @@ public class ControllerCadMarca implements ActionListener {
         } else if (acao.getSource() == telaCadMarca.getBtSair()) {
             telaCadMarca.dispose();
             this.cadProd.setComboBox();
-        }else if (acao.getSource() == telaCadMarca.getBtDeletar()) {
+        } else if (acao.getSource() == telaCadMarca.getBtDeletar()) {
             if (!telaCadMarca.getjTextFieldIdMarca().getText().trim().equalsIgnoreCase("")) {
                 Marca marca = new Marca();
                 MarcaDAO enderecoDAO = new MarcaDAO();
@@ -106,8 +107,8 @@ public class ControllerCadMarca implements ActionListener {
                 if (enderecoDAO.delete(marca) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar, verifique se a marca está cadastrado em algum produto");
                 } else {
-                    telaCadMarca.ativa(true);
-                    telaCadMarca.ligaDesliga(false);
+                    utilities.Utils.ativa(true, telaCadMarca.getjPanel4());
+                    utilities.Utils.ligaDesliga(false, telaCadMarca.getPnCentro());
                 }
 
             }
