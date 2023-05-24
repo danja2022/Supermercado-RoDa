@@ -7,6 +7,7 @@ import Model.bo.Classe;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import service.ClasseService;
 import view.FoBuscaClasses;
 
 import view.FoCadastroClasse;
@@ -46,8 +47,8 @@ public class ControllerCadClasse implements ActionListener {
 
     public void atualizaCampos(int codigo) {
         Classe classe = new Classe();
-        ClasseDAO classeDAO = new ClasseDAO();
-        classe = classeDAO.retrieve(codigo);
+        
+        classe = ClasseService.buscar(codigo);
 
         utilities.Utils.ativa(false, telaCadClasse.getjPanel4());
         utilities.Utils.ligaDesliga(true, telaCadClasse.getPnCentro());
@@ -77,14 +78,14 @@ public class ControllerCadClasse implements ActionListener {
             } else {
 
                 Classe classe = new Classe();
-                ClasseDAO classeDAO = new ClasseDAO();
+                
                 classe.setDescricao(telaCadClasse.getjTextFieldDescricaoClasseProduto().getText());
 
                 if (telaCadClasse.getjTextFieldIdClasse().getText().equalsIgnoreCase("")) {
-                    classeDAO.create(classe);
+                    ClasseService.criar(classe);
                 } else {
                     classe.setId(Integer.parseInt(telaCadClasse.getjTextFieldIdClasse().getText()));
-                    classeDAO.update(classe);
+                    ClasseService.atualizar(classe);
 
                 }
 
@@ -104,10 +105,10 @@ public class ControllerCadClasse implements ActionListener {
         } else if (acao.getSource() == telaCadClasse.getBtDeletar()) {
             if (!telaCadClasse.getjTextFieldIdClasse().getText().trim().equalsIgnoreCase("")) {
                 Classe classe = new Classe();
-                ClasseDAO classeDAO = new ClasseDAO();
-                classe = classeDAO.retrieve(Integer.parseInt(telaCadClasse.getjTextFieldIdClasse().getText()));
+                
+                classe = ClasseService.buscar(Integer.parseInt(telaCadClasse.getjTextFieldIdClasse().getText()));
 
-                if (classeDAO.delete(classe) == -1) {
+                if (ClasseService.excluir(classe) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar. Verifique se a classe está cadastrado em algum produto");
                 } else {
                     utilities.Utils.ativa(true, telaCadClasse.getjPanel4());

@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import service.ClienteService;
+import service.EnderecoService;
 import view.FoBuscaCliente;
 import view.FoCadastroCliente;
 import view.FoCadastroEndereco;
@@ -37,8 +39,8 @@ public class ControllerCadCliente implements ActionListener {
 
     public void atualizaCampos(int codigo) {
         Cliente cliente = new Cliente();
-        ClienteDAO clienteDAO = new ClienteDAO();
-        cliente = clienteDAO.retrieve(codigo);
+     
+        cliente = ClienteService.buscar(codigo);
 
         utilities.Utils.ativa(false, telaCadCliente.getjPanel4());
         utilities.Utils.ligaDesliga(true, telaCadCliente.getPnCentro());
@@ -146,9 +148,9 @@ public class ControllerCadCliente implements ActionListener {
     public void setComboBox() {
         List<Endereco> listaEndereco = new ArrayList<>();
 
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        
 
-        listaEndereco = enderecoDAO.retrieve();
+        listaEndereco = EnderecoService.buscar();
 
         telaCadCliente.getjComboBoxCep().removeAllItems();
 
@@ -222,18 +224,18 @@ public class ControllerCadCliente implements ActionListener {
                     cliente.setComplementoEndereco("");
                 }
                 Endereco endereco = new Endereco();
-                EnderecoDAO enderecoDAO = new EnderecoDAO();
-                endereco = enderecoDAO.retrieve(telaCadCliente.getjComboBoxCep().getSelectedItem().toString());
+                
+                endereco = EnderecoService.buscar(telaCadCliente.getjComboBoxCep().getSelectedItem().toString());
                 cliente.setEndereco(endereco);
                 cliente.setObservacao(telaCadCliente.getjTextArea1().getText().trim());
 
-                ClienteDAO clienteDAO = new ClienteDAO();
+                
 
                 if (telaCadCliente.getjTfId().getText().trim().equalsIgnoreCase("")) {
-                    clienteDAO.create(cliente);
+                    ClienteService.criar(cliente);
                 } else {
                     cliente.setId(Integer.parseInt(telaCadCliente.getjTfId().getText()));
-                    clienteDAO.update(cliente);
+                    ClienteService.atualizar(cliente);
                 }
 
                 //persistir o objeto de bairro criado
@@ -253,8 +255,8 @@ public class ControllerCadCliente implements ActionListener {
         } else if (acao.getSource() == telaCadCliente.getjComboBoxCep()) {
             if (telaCadCliente.getjComboBoxCep().getSelectedItem() != null) {
                 Endereco endereco = new Endereco();
-                EnderecoDAO enderecoDAO = new EnderecoDAO();
-                endereco = enderecoDAO.retrieve(telaCadCliente.getjComboBoxCep().getSelectedItem().toString());
+               
+                endereco = EnderecoService.buscar(telaCadCliente.getjComboBoxCep().getSelectedItem().toString());
                 telaCadCliente.getTfBairro().setText(endereco.getBairro().getDescricao());
                 telaCadCliente.getTfCidade().setText(endereco.getCidade().getDescricao());
                 telaCadCliente.getTfLogradouro().setText(endereco.getLogradouro());
@@ -267,10 +269,10 @@ public class ControllerCadCliente implements ActionListener {
         } else if (acao.getSource() == telaCadCliente.getBtDeletar()) {
             if (!telaCadCliente.getjTfId().getText().trim().equalsIgnoreCase("")) {
                 Cliente cliente = new Cliente();
-                ClienteDAO clienteDAO = new ClienteDAO();
-                cliente = clienteDAO.retrieve(Integer.parseInt(telaCadCliente.getjTfId().getText()));
+                
+                cliente = ClienteService.buscar(Integer.parseInt(telaCadCliente.getjTfId().getText()));
 
-                if (clienteDAO.delete(cliente) == -1) {
+                if (ClienteService.excluir(cliente) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar.");
                 } else {
                     utilities.Utils.ativa(true, telaCadCliente.getjPanel4());

@@ -6,6 +6,7 @@ import Model.bo.Fornecedor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
+import service.FornecedorService;
 import view.FoBuscaFornecedor;
 
 
@@ -25,7 +26,7 @@ public class ControllerBuscaFornecedor implements ActionListener {
             
             DefaultTableModel tabela = (DefaultTableModel) this.foBuscaFornecedor.getjTablebusca().getModel();
             FornecedorDAO fornecedorDAO = new FornecedorDAO ();
-            for (Fornecedor fornecedorAtualdaLista: fornecedorDAO.retrieve()){
+            for (Fornecedor fornecedorAtualdaLista: FornecedorService.buscar()){
             
                 tabela.addRow((new Object[]{fornecedorAtualdaLista.getId(),fornecedorAtualdaLista.getNome(),fornecedorAtualdaLista.getFone(),
                     fornecedorAtualdaLista.getDtCadastro(),fornecedorAtualdaLista.getRazaoSocial(),fornecedorAtualdaLista.getStatus()}));}

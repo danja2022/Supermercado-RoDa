@@ -5,6 +5,7 @@ import Model.bo.Colaborador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
+import service.ColaboradorService;
 import view.FoBuscaColaborador;
 
 public class ControllerBuscaColaborador implements ActionListener {
@@ -20,8 +21,8 @@ public class ControllerBuscaColaborador implements ActionListener {
         foBuscaColaborador.getjButtonSair().addActionListener(this);
 
         DefaultTableModel tabela = (DefaultTableModel) this.foBuscaColaborador.getjTablebusca().getModel();
-        ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
-        for (Colaborador colaboradorAtualDaLista : colaboradorDAO.retrieve()) {
+        
+        for (Colaborador colaboradorAtualDaLista : ColaboradorService.buscar()) {
 
             tabela.addRow(new Object[]{colaboradorAtualDaLista.getId(), colaboradorAtualDaLista.getNome(),
                 colaboradorAtualDaLista.getFone(),

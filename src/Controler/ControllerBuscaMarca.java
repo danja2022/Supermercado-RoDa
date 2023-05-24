@@ -6,6 +6,7 @@ import Model.bo.Marca;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
+import service.MarcaService;
 import view.FoBuscaMarca;
 
 
@@ -25,8 +26,8 @@ public class ControllerBuscaMarca implements ActionListener {
             
             //carregar
             DefaultTableModel tabela = (DefaultTableModel) this.foBuscaMarca.getjTablebusca().getModel();
-            MarcaDAO marcaDAO = new MarcaDAO();
-            for(Marca marcaAtualDaLista: marcaDAO.retrieve()){
+            
+            for(Marca marcaAtualDaLista: MarcaService.buscar()){
             
                 tabela.addRow(new Object[]{marcaAtualDaLista.getId(),marcaAtualDaLista.getDescricao()});
             

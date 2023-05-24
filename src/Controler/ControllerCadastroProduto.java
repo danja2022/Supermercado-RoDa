@@ -13,6 +13,9 @@ import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import service.ClasseService;
+import service.MarcaService;
+import service.ProdutoService;
 import view.FoBuscaProduto;
 import view.FoCadastroClasse;
 import view.FoCadastroMarca;
@@ -62,11 +65,10 @@ public class ControllerCadastroProduto implements ActionListener {
     public void setComboBox() {
         List<Marca> listaMarca = new ArrayList<>();
         List<Classe> listaClasse = new ArrayList<>();
-        MarcaDAO marcaDAO = new MarcaDAO();
-        ClasseDAO classeDAO = new ClasseDAO();
+        
 
-        listaMarca = marcaDAO.retrieve();
-        listaClasse = classeDAO.retrieve();
+        listaMarca = MarcaService.buscar();
+        listaClasse = ClasseService.buscar();
 
         telaCadProduto.getjComboBoxClasse().removeAllItems();
         telaCadProduto.getjComboBoxMarca().removeAllItems();
@@ -89,9 +91,9 @@ public class ControllerCadastroProduto implements ActionListener {
         utilities.Utils.ativa(false, telaCadProduto.getjPanel4());
         utilities.Utils.ligaDesliga(true, telaCadProduto.getPnCentro());
         Produto produto = new Produto();
-        ProdutoDAO produtoDAO = new ProdutoDAO();
+        
 
-        produto = produtoDAO.retrieve(codigo);
+        produto = ProdutoService.buscar(codigo);
 
         telaCadProduto.getjTextFieldId().setText(produto.getId() + "");
         telaCadProduto.getjTextFieldEstoqMin().setText(produto.getEstoqueMinimo() + "");
@@ -195,19 +197,18 @@ public class ControllerCadastroProduto implements ActionListener {
 
                 Marca marca = new Marca();
                 Classe classe = new Classe();
-                MarcaDAO marcaDAO = new MarcaDAO();
-                ClasseDAO classeDAO = new ClasseDAO();
-                classe = classeDAO.retrieve(telaCadProduto.getjComboBoxClasse().getSelectedItem().toString());
-                marca = marcaDAO.retrieve(telaCadProduto.getjComboBoxMarca().getSelectedItem().toString());
+                
+                classe = ClasseService.buscar(telaCadProduto.getjComboBoxClasse().getSelectedItem().toString());
+                marca = MarcaService.buscar(telaCadProduto.getjComboBoxMarca().getSelectedItem().toString());
                 produto.setMarca(marca);
                 produto.setClasse(classe);
 
-                ProdutoDAO produtoDAO = new ProdutoDAO();
+                
                 if (telaCadProduto.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
-                    produtoDAO.create(produto);
+                    ProdutoService.criar(produto);
                 } else {
                     produto.setId(Integer.parseInt(telaCadProduto.getjTextFieldId().getText().trim()));
-                    produtoDAO.update(produto);
+                    ProdutoService.atualizar(produto);
 
                 }
 
@@ -236,10 +237,10 @@ public class ControllerCadastroProduto implements ActionListener {
         } else if (acao.getSource() == telaCadProduto.getBtDeletar()) {
             if (!telaCadProduto.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
                 Produto produto = new Produto();
-                ProdutoDAO produtoDAO = new ProdutoDAO();
-                produto = produtoDAO.retrieve(Integer.parseInt(telaCadProduto.getjTextFieldId().getText()));
+                
+                produto = ProdutoService.buscar(Integer.parseInt(telaCadProduto.getjTextFieldId().getText()));
 
-                if (produtoDAO.delete(produto) == -1) {
+                if (ProdutoService.excluir(produto) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar.");
                 } else {
                     utilities.Utils.ativa(true, telaCadProduto.getjPanel4());

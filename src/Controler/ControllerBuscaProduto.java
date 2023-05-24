@@ -7,6 +7,7 @@ import Model.bo.Produto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
+import service.ProdutoService;
 import view.FoBuscaProduto;
 
 public class ControllerBuscaProduto implements ActionListener {
@@ -23,9 +24,9 @@ public class ControllerBuscaProduto implements ActionListener {
 
         //carregar
         DefaultTableModel tabela = (DefaultTableModel) this.foBuscaProduto.getjTablebusca().getModel();
-        ProdutoDAO produtoDAO = new ProdutoDAO();
+        
 
-        for (Produto produtoAtualDaLista : produtoDAO.retrieve()) {
+        for (Produto produtoAtualDaLista : ProdutoService.buscar()) {
 
             tabela.addRow(new Object[]{produtoAtualDaLista.getId(), produtoAtualDaLista.getDescricao(),
                 produtoAtualDaLista.getValorVenda(),

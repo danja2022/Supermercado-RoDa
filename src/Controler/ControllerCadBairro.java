@@ -8,6 +8,7 @@ import view.FoCadBairroFinal;
 import view.FoBuscaBairro;
 import Controler.ControllerBuscaBairro;
 import Model.DAO.BairroDAO;
+import service.BairroService;
 
 public class ControllerCadBairro implements ActionListener {
 
@@ -49,9 +50,10 @@ public class ControllerCadBairro implements ActionListener {
 
     public void atualizaCampos(int Codigo) {
         Bairro bairro = new Bairro();
-        BairroDAO bairroDAO = new BairroDAO();
-        bairro = bairroDAO.retrieve(Codigo);
+        
+        bairro = BairroService.buscar(Codigo);
 
+        
         utilities.Utils.ativa(false, telaCadBairro.getjPanel4());
         utilities.Utils.ligaDesliga(true, telaCadBairro.getPnCentro());
         //telaCadBairro.getjTextFieldBairro().setEnabled(true);
@@ -82,14 +84,15 @@ public class ControllerCadBairro implements ActionListener {
                 Bairro bairro = new Bairro();
                 bairro.setDescricao(telaCadBairro.getjTextFieldBairro().getText());
 
-                //persistir o objeto de bairro criado
-                BairroDAO bairroDAO = new Model.DAO.BairroDAO();
+               
+             
+             
 
                 if (this.telaCadBairro.getjTextFieldId().getText().equalsIgnoreCase("")) {
-                    bairroDAO.create(bairro);
+                    BairroService.criar(bairro);
                 } else {
                     bairro.setId(Integer.parseInt(telaCadBairro.getjTextFieldId().getText()));
-                    bairroDAO.update(bairro);
+                    BairroService.atualizar(bairro);
                 }
                 utilities.Utils.ativa(true, telaCadBairro.getjPanel4());
                 utilities.Utils.ligaDesliga(true, telaCadBairro.getPnCentro());

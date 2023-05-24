@@ -6,6 +6,7 @@ import Model.bo.Bairro;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
+import service.BairroService;
 import view.FoBuscaBairro;
 
 
@@ -31,8 +32,8 @@ public class ControllerBuscaBairro implements ActionListener {
             //carregar
             
             DefaultTableModel tabela = (DefaultTableModel) this.foBuscaBairro.getjTablebusca().getModel();
-            BairroDAO bairroDAO = new BairroDAO();
-            for (Bairro objetoAtualDaLista: bairroDAO.retrieve()) {
+            
+            for (Bairro objetoAtualDaLista: BairroService.buscar()) {
                 
       
                tabela.addRow(new Object[]{objetoAtualDaLista.getId(),

@@ -6,6 +6,7 @@ import Model.bo.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
+import service.ClienteService;
 
 import view.FoBuscaCliente;
 
@@ -28,7 +29,7 @@ public class ControllerBuscaCliente implements ActionListener {
             
             DefaultTableModel tabela = (DefaultTableModel) this.foBuscaCliente.getjTablebusca().getModel();
             ClienteDAO clienteDAO = new ClienteDAO();
-            for (Cliente clienteAtualDaLista: clienteDAO.retrieve()){
+            for (Cliente clienteAtualDaLista: ClienteService.buscar()){
             
                 tabela.addRow(new Object[]{clienteAtualDaLista.getId(),
                                            clienteAtualDaLista.getNome(),clienteAtualDaLista.getSexo(),clienteAtualDaLista.getFone(),clienteAtualDaLista.getFone2(),

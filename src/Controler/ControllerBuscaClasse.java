@@ -6,6 +6,7 @@ import Controler.ControllerCadClasse;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
+import service.ClasseService;
 import view.FoBuscaClasses;
 
 public class ControllerBuscaClasse implements ActionListener {
@@ -23,8 +24,8 @@ public class ControllerBuscaClasse implements ActionListener {
         //carregar
         
         DefaultTableModel tabela = (DefaultTableModel) this.foBuscaClasses.getjTablebusca().getModel();
-        ClasseDAO classeDAO = new ClasseDAO();
-        for (Classe classeAtualDaLista: classeDAO.retrieve()){
+      
+        for (Classe classeAtualDaLista: ClasseService.buscar()){
         
             tabela.addRow(new Object[]{classeAtualDaLista.getId(),
                                         classeAtualDaLista.getDescricao()});

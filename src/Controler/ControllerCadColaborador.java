@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
+import service.ColaboradorService;
+import service.EnderecoService;
 import view.FoBuscaColaborador;
 import view.FoCadastroColaborador;
 import view.FoCadastroEndereco;
@@ -40,11 +42,11 @@ public class ControllerCadColaborador implements ActionListener {
 
     public void atualizaCampos(int codigo) {
         Colaborador colaborador = new Colaborador();
-        ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
-        colaborador = colaboradorDAO.retrieve(codigo);
+        
+        colaborador = ColaboradorService.buscar(codigo);
         Endereco endereco = new Endereco();
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
-        endereco = enderecoDAO.retrieve(colaborador.getEndereco().getId());
+        
+        endereco = EnderecoService.buscar(colaborador.getEndereco().getId());
 
         utilities.Utils.ativa(false, telacadColaborador.getjPanel4());
         utilities.Utils.ligaDesliga(true, telacadColaborador.getPnCentro());
@@ -71,9 +73,9 @@ public class ControllerCadColaborador implements ActionListener {
     public void setComboBox() {
         List<Endereco> listaEndereco = new ArrayList<>();
 
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        
 
-        listaEndereco = enderecoDAO.retrieve();
+        listaEndereco = EnderecoService.buscar();
 
         telacadColaborador.getjCbCep().removeAllItems();
 
@@ -138,8 +140,8 @@ public class ControllerCadColaborador implements ActionListener {
                 JOptionPane.showMessageDialog(null, "O campo 'Confirme Senha' é obrigatório!");
             } else if (Arrays.equals(telacadColaborador.getPfSenha().getPassword(), telacadColaborador.getPfSenhaConfirm().getPassword())) {
                 Colaborador colaborador = new Colaborador();
-                ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
 
+                
                 colaborador.setNome(telacadColaborador.getTfNome().getText());
                 colaborador.setEmail(telacadColaborador.getTfEmail().getText());
                 colaborador.setFone(telacadColaborador.getFtfTelefone1().getText());
@@ -166,10 +168,11 @@ public class ControllerCadColaborador implements ActionListener {
                 colaborador.setEndereco(endereco);
 
                 if (telacadColaborador.gettFId().getText().trim().equalsIgnoreCase("")) {
-                    colaboradorDAO.create(colaborador);
+                    ColaboradorService.criar(colaborador);
+                            
                 } else {
                     colaborador.setId(Integer.parseInt(telacadColaborador.gettFId().getText()));
-                    colaboradorDAO.update(colaborador);
+                    ColaboradorService.atualizar(colaborador);
                 }
 
                 utilities.Utils.ativa(true, telacadColaborador.getjPanel4());
@@ -190,8 +193,8 @@ public class ControllerCadColaborador implements ActionListener {
         } else if (acao.getSource() == telacadColaborador.getjCbCep()) {
             if (telacadColaborador.getjCbCep().getSelectedItem() != null) {
                 Endereco endereco = new Endereco();
-                EnderecoDAO enderecoDAO = new EnderecoDAO();
-                endereco = enderecoDAO.retrieve(telacadColaborador.getjCbCep().getSelectedItem().toString());
+                
+                endereco = EnderecoService.buscar(telacadColaborador.getjCbCep().getSelectedItem().toString());
                 telacadColaborador.getTfBairro().setText(endereco.getBairro().getDescricao());
                 telacadColaborador.getTfCidade().setText(endereco.getCidade().getDescricao());
                 telacadColaborador.getTfLogradouro().setText(endereco.getLogradouro());
@@ -204,10 +207,10 @@ public class ControllerCadColaborador implements ActionListener {
         } else if (acao.getSource() == telacadColaborador.getBtDeletar()) {
             if (!telacadColaborador.gettFId().getText().trim().equalsIgnoreCase("")) {
                 Colaborador colaborador = new Colaborador();
-                ColaboradorDAO colaboradorDAO = new ColaboradorDAO();
-                colaborador = colaboradorDAO.retrieve(Integer.parseInt(telacadColaborador.gettFId().getText()));
+              
+                colaborador = ColaboradorService.buscar(Integer.parseInt(telacadColaborador.gettFId().getText()));
 
-                if (colaboradorDAO.delete(colaborador) == -1) {
+                if (ColaboradorService.excluir(colaborador) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar.");
                 } else {
                     utilities.Utils.ativa(true, telacadColaborador.getjPanel4());

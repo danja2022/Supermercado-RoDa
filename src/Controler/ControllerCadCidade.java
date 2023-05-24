@@ -5,7 +5,7 @@ import Model.DAO.CidadeDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import view.FoBuscaBairro;
+import service.CidadeService;
 import view.FoBuscaCidade;
 import view.FoCadCidade;
 
@@ -46,9 +46,9 @@ public class ControllerCadCidade implements ActionListener {
     }
 
     public void atualizaCampos(int codigo) {
-        CidadeDAO cidadeDAO = new CidadeDAO();
+        
         Cidade cidade = new Cidade();
-        cidade = cidadeDAO.retrieve(codigo);
+        cidade = CidadeService.buscar(codigo);
 
         utilities.Utils.ativa(false, telaCadCidade.getjPanel4());
         utilities.Utils.ligaDesliga(true, telaCadCidade.getPnCentro());
@@ -72,14 +72,14 @@ public class ControllerCadCidade implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Atributo Descrição é Obrigatório");
             } else {
                 Cidade cidade = new Cidade();
-                CidadeDAO cidadeDAO = new CidadeDAO();
+               
                 cidade.setDescricao(telaCadCidade.getjTextFieldDescricao().getText());
 
                 if (telaCadCidade.getjTextFieldId().getText().equalsIgnoreCase("")) {
-                    cidadeDAO.create(cidade);
+                    CidadeService.criar(cidade);
                 } else {
                     cidade.setId(Integer.parseInt(telaCadCidade.getjTextFieldId().getText()));
-                    cidadeDAO.update(cidade);
+                    CidadeService.atualizar(cidade);
                 }
 
                 utilities.Utils.ativa(true, telaCadCidade.getjPanel4());
@@ -101,10 +101,10 @@ public class ControllerCadCidade implements ActionListener {
         } else if (acao.getSource() == telaCadCidade.getBtDeletar()) {
             if (!telaCadCidade.getjTextFieldId().getText().trim().equalsIgnoreCase("")) {
                 Cidade cidade = new Cidade();
-                CidadeDAO cidadeDAO = new CidadeDAO();
-                cidade = cidadeDAO.retrieve(Integer.parseInt(telaCadCidade.getjTextFieldId().getText()));
+               
+                cidade = CidadeService.buscar(Integer.parseInt(telaCadCidade.getjTextFieldId().getText()));
 
-                if (cidadeDAO.delete(cidade) == -1) {
+                if (CidadeService.excluir(cidade) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar. Verifique se a cidade está cadastrado em algum endereço");
                 } else {
                     utilities.Utils.ativa(true, telaCadCidade.getjPanel4());

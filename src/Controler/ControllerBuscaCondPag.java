@@ -5,6 +5,7 @@ import Model.bo.CondicaoPgto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.DefaultTableModel;
+import service.CondPagService;
 import view.FoBuscaCondicaoPagamento;
 
 public class ControllerBuscaCondPag implements ActionListener {
@@ -21,7 +22,7 @@ public class ControllerBuscaCondPag implements ActionListener {
 
         DefaultTableModel tabela = (DefaultTableModel) this.foBuscaCondicaoPagamento.getjTablebusca().getModel();
         CondicaoPgtoDAO condicaoPgtoDAO = new CondicaoPgtoDAO();
-        for (CondicaoPgto CondicaoPgtoAtualDaLista : condicaoPgtoDAO.retrieve()) {
+        for (CondicaoPgto CondicaoPgtoAtualDaLista : CondPagService.buscar()) {
 
             tabela.addRow(new Object[]{CondicaoPgtoAtualDaLista.getId(), 
                 CondicaoPgtoAtualDaLista.getDescricaoCondicao(),

@@ -5,6 +5,7 @@ import Model.bo.Marca;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import service.MarcaService;
 import view.FoBuscaMarca;
 import view.FoCadastroMarca;
 
@@ -43,8 +44,8 @@ public class ControllerCadMarca implements ActionListener {
 
     public void atualizaCampos(int codigo) {
         Marca marca = new Marca();
-        MarcaDAO marcaDAO = new MarcaDAO();
-        marca = marcaDAO.retrieve(codigo);
+        
+        marca = MarcaService.buscar(codigo);
 
         utilities.Utils.ativa(false, telaCadMarca.getjPanel4());
         utilities.Utils.ligaDesliga(true, telaCadMarca.getPnCentro());
@@ -73,15 +74,15 @@ public class ControllerCadMarca implements ActionListener {
             } else {
 
                 Marca marca = new Marca();
-                MarcaDAO marcaDAO = new MarcaDAO();
+                
                 marca.setDescricao(telaCadMarca.getjTextFieldCadMarca().getText());
 
                 //persistir o objeto de bairro criado
                 if (telaCadMarca.getjTextFieldIdMarca().getText().equalsIgnoreCase("")) {
-                    marcaDAO.create(marca);
+                    MarcaService.criar(marca);
                 } else {
                     marca.setId(Integer.parseInt(telaCadMarca.getjTextFieldIdMarca().getText()));
-                    marcaDAO.update(marca);
+                    MarcaService.criar(marca);
 
                 }
 
@@ -101,10 +102,10 @@ public class ControllerCadMarca implements ActionListener {
         } else if (acao.getSource() == telaCadMarca.getBtDeletar()) {
             if (!telaCadMarca.getjTextFieldIdMarca().getText().trim().equalsIgnoreCase("")) {
                 Marca marca = new Marca();
-                MarcaDAO enderecoDAO = new MarcaDAO();
-                marca = enderecoDAO.retrieve(Integer.parseInt(telaCadMarca.getjTextFieldIdMarca().getText()));
+                MarcaDAO marcaDAO = new MarcaDAO();
+                marca = MarcaService.buscar(Integer.parseInt(telaCadMarca.getjTextFieldIdMarca().getText()));
 
-                if (enderecoDAO.delete(marca) == -1) {
+                if (MarcaService.excluir(marca) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar, verifique se a marca está cadastrado em algum produto");
                 } else {
                     utilities.Utils.ativa(true, telaCadMarca.getjPanel4());

@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import service.BairroService;
+import service.CidadeService;
+import service.EnderecoService;
 import view.FoCadastroEndereco;
 import view.FoBuscaEndereco;
 import view.FoCadBairroFinal;
@@ -81,8 +84,8 @@ public class ControllerCadEndereco implements ActionListener {
 
     public void atualizaCampos(int codigo) {
         Endereco endereco = new Endereco();
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
-        endereco = enderecoDAO.retrieve(codigo);
+       
+        endereco = EnderecoService.buscar(codigo);
 
         utilities.Utils.ativa(false, telaCadEndereco.getjPanel4());
         utilities.Utils.ligaDesliga(true, telaCadEndereco.getPnCentro());
@@ -143,23 +146,22 @@ public class ControllerCadEndereco implements ActionListener {
                 Endereco endereco = new Endereco();
                 Bairro bairro = new Bairro();
                 Cidade cidade = new Cidade();
-                BairroDAO bairroDAO = new BairroDAO();
-                CidadeDAO cidadeDAO = new CidadeDAO();
+                
 
                 endereco.setCep(telaCadEndereco.getjTfCep().getText());
                 endereco.setLogradouro(telaCadEndereco.getjTextFieldDescricaoLogradouro().getText());
-                bairro = bairroDAO.retrieve(telaCadEndereco.getjComboBoxBairro().getSelectedItem().toString());
-                cidade = cidadeDAO.retrieve(telaCadEndereco.getjComboBoxCidade().getSelectedItem().toString());
+                bairro = BairroService.buscar(telaCadEndereco.getjComboBoxBairro().getSelectedItem().toString());
+                cidade = CidadeService.buscar(telaCadEndereco.getjComboBoxCidade().getSelectedItem().toString());
                 endereco.setBairro(bairro);
                 endereco.setCidade(cidade);
 
-                EnderecoDAO enderecoDAO = new EnderecoDAO();
+                
 
                 if (telaCadEndereco.getjTextFieldCadIdEndereco().getText().equalsIgnoreCase("")) {
-                    enderecoDAO.create(endereco);
+                    EnderecoService.criar(endereco);
                 } else {
                     endereco.setId(Integer.parseInt(telaCadEndereco.getjTextFieldCadIdEndereco().getText()));
-                    enderecoDAO.update(endereco);
+                    EnderecoService.atualizar(endereco);
                 }
 
                 utilities.Utils.ativa(true, telaCadEndereco.getjPanel4());
@@ -199,10 +201,10 @@ public class ControllerCadEndereco implements ActionListener {
         } else if (acao.getSource() == telaCadEndereco.getBtDeletar()) {
             if (!telaCadEndereco.getjTextFieldCadIdEndereco().getText().trim().equalsIgnoreCase("")) {
                 Endereco endereco = new Endereco();
-                EnderecoDAO enderecoDAO = new EnderecoDAO();
-                endereco = enderecoDAO.retrieve(Integer.parseInt(telaCadEndereco.getjTextFieldCadIdEndereco().getText()));
+               
+                endereco = EnderecoService.buscar(Integer.parseInt(telaCadEndereco.getjTextFieldCadIdEndereco().getText()));
 
-                if (enderecoDAO.delete(endereco) == -1) {
+                if (EnderecoService.excluir(endereco) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar, verifique se o endereço está cadastrado em algum cliente/colaborador");
                 } else {
                     utilities.Utils.ativa(true, telaCadEndereco.getjPanel4());

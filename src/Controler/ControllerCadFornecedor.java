@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 //import java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
+import service.EnderecoService;
+import service.FornecedorService;
 import view.FoBuscaFornecedor;
 import view.FoCadastroEndereco;
 import view.FoCadastroFornecedor;
@@ -38,8 +40,8 @@ public class ControllerCadFornecedor implements ActionListener {
 
     public void atualizaCampos(int codigo) {
         Fornecedor fornecedor = new Fornecedor();
-        FornecedorDAO fornecedorDAO = new FornecedorDAO();
-        fornecedor = fornecedorDAO.retrieve(codigo);
+        
+        fornecedor = FornecedorService.buscar(codigo);
 
         utilities.Utils.ativa(false, telaCadFornecedor.getjPanel4());
         utilities.Utils.ligaDesliga(true, telaCadFornecedor.getPnCentro());
@@ -119,9 +121,9 @@ public class ControllerCadFornecedor implements ActionListener {
     public void setComboBox() {
         List<Endereco> listaEndereco = new ArrayList<>();
 
-        EnderecoDAO enderecoDAO = new EnderecoDAO();
+        
 
-        listaEndereco = enderecoDAO.retrieve();
+        listaEndereco = EnderecoService.buscar();
 
         telaCadFornecedor.getjCbCep().removeAllItems();
 
@@ -199,18 +201,18 @@ public class ControllerCadFornecedor implements ActionListener {
                 fornecedor.setObservacao(telaCadFornecedor.getjTextArea1().getText());
 
                 Endereco endereco = new Endereco();
-                EnderecoDAO enderecoDAO = new EnderecoDAO();
+                
 
-                endereco = enderecoDAO.retrieve(telaCadFornecedor.getjCbCep().getSelectedItem().toString());
+                endereco = EnderecoService.buscar(telaCadFornecedor.getjCbCep().getSelectedItem().toString());
                 fornecedor.setEndereco(endereco);
 
-                FornecedorDAO fornecedorDAO = new FornecedorDAO();
+                
 
                 if (telaCadFornecedor.getjTextFieldIdCadFornecedor().getText().trim().equalsIgnoreCase("")) {
-                    fornecedorDAO.create(fornecedor);
+                    FornecedorService.criar(fornecedor);
                 } else {
                     fornecedor.setId(Integer.parseInt(telaCadFornecedor.getjTextFieldIdCadFornecedor().getText()));
-                    fornecedorDAO.update(fornecedor);
+                    FornecedorService.atualizar(fornecedor);
                 }
                 utilities.Utils.ativa(true, telaCadFornecedor.getjPanel4());
                 utilities.Utils.ligaDesliga(false, telaCadFornecedor.getPnCentro());
@@ -232,8 +234,8 @@ public class ControllerCadFornecedor implements ActionListener {
         } else if (acao.getSource() == telaCadFornecedor.getjCbCep()) {
             if (telaCadFornecedor.getjCbCep().getSelectedItem() != null) {
                 Endereco endereco = new Endereco();
-                EnderecoDAO enderecoDAO = new EnderecoDAO();
-                endereco = enderecoDAO.retrieve(telaCadFornecedor.getjCbCep().getSelectedItem().toString());
+                
+                endereco = EnderecoService.buscar(telaCadFornecedor.getjCbCep().getSelectedItem().toString());
                 telaCadFornecedor.getTfBairro().setText(endereco.getBairro().getDescricao());
                 telaCadFornecedor.getTfCidade().setText(endereco.getCidade().getDescricao());
                 telaCadFornecedor.getTfLogradouro().setText(endereco.getLogradouro());
@@ -241,10 +243,10 @@ public class ControllerCadFornecedor implements ActionListener {
         } else if (acao.getSource() == telaCadFornecedor.getBtDeletar()) {
             if (!telaCadFornecedor.getjTextFieldIdCadFornecedor().getText().trim().equalsIgnoreCase("")) {
                 Fornecedor fornecedor = new Fornecedor();
-                FornecedorDAO fornecedorDAO = new FornecedorDAO();
-                fornecedor = fornecedorDAO.retrieve(Integer.parseInt(telaCadFornecedor.getjTextFieldIdCadFornecedor().getText()));
+                
+                fornecedor = FornecedorService.buscar(Integer.parseInt(telaCadFornecedor.getjTextFieldIdCadFornecedor().getText()));
 
-                if (fornecedorDAO.delete(fornecedor) == -1) {
+                if (FornecedorService.excluir(fornecedor) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar. Verifique se existe um produto cadastrado com esse fornecedor");
                 } else {
                     utilities.Utils.ativa(true, telaCadFornecedor.getjPanel4());

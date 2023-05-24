@@ -7,6 +7,7 @@ import view.FoCadCondicaoPagamento;
 import Model.bo.CondicaoPgto;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
+import service.CondPagService;
 import view.FoBuscaCondicaoPagamento;
 
 public class ControllerCadCondPag implements ActionListener {
@@ -30,8 +31,8 @@ public class ControllerCadCondPag implements ActionListener {
 
     public void atualizaCampos(int codigo) {
         CondicaoPgto condicaoPgto = new CondicaoPgto();
-        CondicaoPgtoDAO condicaoPgtoDAO = new CondicaoPgtoDAO();
-        condicaoPgto = condicaoPgtoDAO.retrieve(codigo);
+        
+        condicaoPgto = CondPagService.buscar(codigo);
 
         utilities.Utils.ativa(false, telaCadCondicaoPagamento.getjPanel4());
         utilities.Utils.ligaDesliga(true, telaCadCondicaoPagamento.getPnCentro());
@@ -180,10 +181,10 @@ public class ControllerCadCondPag implements ActionListener {
 
                 CondicaoPgtoDAO condicaoPgtoDAO = new CondicaoPgtoDAO();
                 if (telaCadCondicaoPagamento.getjTfIdConPag().getText().trim().equalsIgnoreCase("")) {
-                    condicaoPgtoDAO.create(condicaoPgto);
+                    CondPagService.criar(condicaoPgto);
                 } else {
                     condicaoPgto.setId(Integer.parseInt(telaCadCondicaoPagamento.getjTfIdConPag().getText()));
-                    condicaoPgtoDAO.update(condicaoPgto);
+                    CondPagService.atualizar(condicaoPgto);
                 }
 
                 utilities.Utils.ativa(true, telaCadCondicaoPagamento.getjPanel4());
@@ -202,10 +203,10 @@ public class ControllerCadCondPag implements ActionListener {
         } else if (acao.getSource() == telaCadCondicaoPagamento.getBtDeletar()) {
             if (!telaCadCondicaoPagamento.getjTfIdConPag().getText().trim().equalsIgnoreCase("")) {
                 CondicaoPgto condicaoPgto = new CondicaoPgto();
-                CondicaoPgtoDAO condicaoPgtoDAO = new CondicaoPgtoDAO();
-                condicaoPgto = condicaoPgtoDAO.retrieve(Integer.parseInt(telaCadCondicaoPagamento.getjTfIdConPag().getText()));
+                
+                condicaoPgto = CondPagService.buscar(Integer.parseInt(telaCadCondicaoPagamento.getjTfIdConPag().getText()));
 
-                if (condicaoPgtoDAO.delete(condicaoPgto) == -1) {
+                if (CondPagService.excluir(condicaoPgto) == -1) {
                     JOptionPane.showMessageDialog(null, "Erro ao deletar");
                 } else {
                     utilities.Utils.ativa(true, telaCadCondicaoPagamento.getjPanel4());

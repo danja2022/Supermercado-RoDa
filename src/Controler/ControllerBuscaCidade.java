@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import service.CidadeService;
 import view.FoBuscaCidade;
 
 public class ControllerBuscaCidade implements ActionListener {
@@ -27,9 +28,9 @@ public class ControllerBuscaCidade implements ActionListener {
         //carregar
         DefaultTableModel tabela = (DefaultTableModel) this.foBuscaCidade.getjTablebusca().getModel();
 
-        CidadeDAO cidadeDAO = new CidadeDAO();
+      
 
-        for (Cidade cidadeAtualDaLista : cidadeDAO.retrieve()) {
+        for (Cidade cidadeAtualDaLista : CidadeService.buscar()) {
 
             //codigo para repassar do cidadeAtualDaLista para dentro da tablemodel
             tabela.addRow(new Object[]{cidadeAtualDaLista.getId(),
